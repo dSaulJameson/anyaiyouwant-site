@@ -16,7 +16,7 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative pt-20 md:pt-28 pb-24">
+    <section className="relative pt-6 md:pt-10 pb-20">
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center">
         <div className="md:col-span-7">
           <motion.div
