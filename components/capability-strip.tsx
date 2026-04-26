@@ -1,9 +1,22 @@
 const stack = [
-  "Python", "TypeScript", "Go", "Rust", "SQL", "PyTorch", "TensorFlow",
-  "Next.js", "FastAPI", "Postgres", "BigQuery", "Snowflake", "Redis",
-  "GCP", "AWS", "Azure", "Hetzner", "Vercel", "Docker", "Kubernetes",
-  "n8n", "Zapier", "Stripe", "Twilio", "OpenAI", "Anthropic", "Claude",
-  "Power BI", "Tableau", "Looker", "Recharts", "dbt", "Airflow",
+  // Languages
+  "Python", "TypeScript", "SQL",
+  // ML / AI
+  "PyTorch", "TensorFlow", "Hugging Face",
+  "Vertex AI", "SageMaker", "Azure ML",
+  "OpenAI", "Anthropic", "Claude",
+  // Web / Backend
+  "Next.js", "FastAPI",
+  // Databases
+  "Postgres", "MongoDB", "Prisma", "BigQuery", "Snowflake",
+  // Cloud
+  "GCP", "AWS", "Azure", "Hetzner", "Vercel",
+  // DevOps
+  "Docker", "Kubernetes", "GitHub",
+  // Automation
+  "n8n", "Zapier", "Any API", "Any CRM",
+  // BI / Data
+  "Power BI", "Tableau", "Looker", "dbt", "Airflow",
 ];
 
 export function CapabilityStrip() {

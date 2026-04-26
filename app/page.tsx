@@ -26,7 +26,7 @@ export default function HomePage() {
               <div className="label-mono">2 hours or 2,000 hours</div>
               <h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
                 If you can describe it,{" "}
-                <span className="text-gradient">you can ship it with me.</span>
+                <span className="text-gradient">we can ship it.</span>
               </h2>
               <p className="mt-4 text-muted text-lg max-w-2xl">
                 Enterprise teams need someone who can talk to the board and write the model.
