@@ -66,7 +66,7 @@ const apps = [
     href: "https://songselfie.com",
     blurb:
       "AI songs about you. Built for venues — partner activations with Stripe-powered revenue splits, share-ready audio, and viral mechanics.",
-    stack: ["Next.js", "Stripe Connect", "Suno API", "Twilio"],
+    stack: ["Next.js", "Stripe Connect", "AWS"],
   },
 ];
 
