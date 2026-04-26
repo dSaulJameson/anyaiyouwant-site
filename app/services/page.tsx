@@ -4,9 +4,15 @@ import { ServicesGrid } from "@/components/services-grid";
 import { TIDYCAL_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services — ML, Automation, Web, Fractional CTO",
   description:
-    "ML, automation, web apps, integration, AI ad studio, and Fractional CTO services from D. Saul Jameson.",
+    "Six capabilities from one operator: Machine Learning, Automation, Web & App Development, Integration, AI Ad Studio, and Fractional CTO. Stack-agnostic across GCP, AWS, Azure, and Hetzner. Engagements from sprints to long-term advisory.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services — ML, Automation, Web, Fractional CTO",
+    description: "Six capabilities. One operator. Stack-agnostic.",
+    url: "/services",
+  },
 };
 
 const engagements = [

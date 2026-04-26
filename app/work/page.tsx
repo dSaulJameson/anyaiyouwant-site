@@ -4,43 +4,49 @@ import { BiDashboard } from "@/components/bi-dashboard";
 import { TIDYCAL_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Work — Case studies & live demos",
   description:
-    "Case studies and live demos from D. Saul Jameson — ML engineering, automation, and shipped apps.",
+    "Selected work from D. Saul Jameson: a Bayesian avocado demand forecaster, a $300M+ bidding engine, an enterprise reporting overhaul, and shipped web apps including storywarz.win and songselfie.com — plus an interactive BI dashboard demo.",
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Work — Case studies & live demos",
+    description: "ML, automation, and web apps shipped by D. Saul Jameson.",
+    url: "/work",
+  },
 };
 
 const caseStudies = [
   {
-    label: "ML / FORECASTING",
+    label: "ML / COMMODITY FORECASTING",
     title: "Avocado Demand Forecasting",
     summary:
-      "Bayesian regression on a real-world commodity. Beat the open market three years running for one of the largest US suppliers.",
+      "Bayesian regression on a real-world commodity. Beat the open market three years running for one of the largest US avocado suppliers.",
     metrics: [
-      { k: "Years beating market", v: "3" },
-      { k: "Variance vs baseline", v: "−42%" },
-      { k: "Stack", v: "Python · PyMC · BigQuery" },
+      { k: "Annual commodity volume", v: "$100M+" },
+      { k: "Years beating the market", v: "3" },
+      { k: "Stack", v: "Python · Bayesian regression" },
     ],
   },
   {
     label: "ML / OPTIMIZATION",
     title: "$300M Bidding Engine",
     summary:
-      "Designed and shipped a recommendation + bidding optimization engine for a national auction platform. Real money, real latency budgets, real stakes.",
+      "Designed and shipped a recommendation + bidding optimization engine for a national auction platform. Real money, real-time bidding, real stakes.",
     metrics: [
       { k: "Annual GMV", v: "$300M+" },
-      { k: "Bid latency p95", v: "< 80ms" },
-      { k: "Lift over heuristic", v: "+18%" },
+      { k: "Role", v: "Lead ML / engineer-of-record" },
+      { k: "Stack", v: "Python · GBM · real-time bidding" },
     ],
   },
   {
     label: "AUTOMATION / ENTERPRISE",
     title: "Reporting Stack Overhaul",
     summary:
-      "Took a Fortune-500-style team from 20+ source spreadsheets to a single automated pipeline feeding Power BI, Tableau, and Looker — in 20 hours of work.",
+      "Took a multi-team operation from 20+ source spreadsheets to a single automated pipeline feeding Power BI, Tableau, and Looker — in roughly 20 hours of work.",
     metrics: [
       { k: "Sources unified", v: "20+" },
-      { k: "Refresh time", v: "hours → minutes" },
-      { k: "Stack", v: "dbt · Airflow · Power BI" },
+      { k: "Time to ship", v: "~20 hrs" },
+      { k: "Stack", v: "dbt · Power BI · Tableau · Looker" },
     ],
   },
 ];

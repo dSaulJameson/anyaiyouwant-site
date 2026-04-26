@@ -14,8 +14,8 @@ export default function HomePage() {
         <Hero />
       </div>
       <CapabilityStrip />
-      <FeaturedWork />
       <ServicesGrid />
+      <FeaturedWork />
 
       <section className="py-24">
         <div className="max-w-5xl mx-auto px-6 md:px-10">

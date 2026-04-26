@@ -11,14 +11,22 @@ export function Footer() {
             Fractional CTO and machine learning engineer. From a 2-hour script to a 2,000-hour platform —
             algorithms, automation, and apps that ship.
           </p>
-          <a
-            href={TIDYCAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center mt-5 px-4 py-2 text-sm rounded-md bg-accent text-black font-medium hover:bg-accent/90 transition-colors"
-          >
-            Book 15 minutes →
-          </a>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href={TIDYCAL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center px-4 py-2 text-sm rounded-md bg-accent text-black font-medium hover:bg-accent/90 transition-colors"
+            >
+              Book 15 minutes →
+            </a>
+            <a
+              href="mailto:Saul@anyaiyouwant.com"
+              className="text-sm font-mono text-muted hover:text-foreground transition-colors"
+            >
+              Saul@anyaiyouwant.com
+            </a>
+          </div>
         </div>
 
         <div>

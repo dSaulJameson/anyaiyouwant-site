@@ -4,9 +4,15 @@ import Link from "next/link";
 import { TIDYCAL_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About D. Saul Jameson",
   description:
-    "D. Saul Jameson — machine learning engineer writing algorithms since before ChatGPT. Fractional CTO, founder, Chairman of Builders & Backers Network 501(c)(6).",
+    "D. Saul Jameson — machine learning engineer writing algorithms since before ChatGPT. 9+ years across forecasting, recommendation, and automation. Chairman of the Board of Builders & Backers Network 501(c)(6). Based in Southern California.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About D. Saul Jameson",
+    description: "ML engineer writing algorithms since before ChatGPT. Fractional CTO. Chairman of Builders & Backers Network.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -29,7 +35,7 @@ export default function AboutPage() {
             {[
               { k: "EXP", v: "9+ yrs" },
               { k: "BASED", v: "SoCal" },
-              { k: "ROLES", v: "Eng · CTO" },
+              { k: "ROLES", v: "ML Eng · CTO" },
               { k: "STATUS", v: "Available" },
             ].map((s) => (
               <div key={s.k} className="bg-surface-2/60 border border-border rounded-md p-3">
@@ -51,43 +57,50 @@ export default function AboutPage() {
 
           <div className="mt-8 space-y-5 text-foreground/90 leading-relaxed">
             <p>
-              If you want to work with someone who didn&apos;t just jump on the hype train — but
-              was building the tracks for it to ride on — you&apos;re in the right place.
+              For teams that want to work with someone who didn&apos;t just jump on the hype
+              train — but was building the tracks for it to ride on — Saul is the right call.
             </p>
             <p>
-              I&apos;m a data-driven builder, consultant, and community organizer who has spent
-              nine years turning messy real-world problems into working systems. I started in
-              applied forecasting, where I was recruited to model supply and demand for one of
+              Saul is a data-driven builder, consultant, and community organizer who has spent
+              nine years turning messy real-world problems into working systems. He started in
+              applied forecasting, where he was recruited to model supply and demand for one of
               the nation&apos;s leading avocado suppliers — and consistently beat the market for
               three consecutive years.
             </p>
             <p>
-              From there, I was recruited again to design and deploy a large-scale product
+              From there, he was recruited again to design and deploy a large-scale product
               recommendation and bidding optimization engine for an auction company generating
-              <span className="text-foreground"> $300M+ annually</span>. Since then I&apos;ve
-              shipped systems across real estate, home remodeling, CPG, AI-first businesses,
-              and cannabis — building practical automation stacks (CRMs, voice agents, n8n
-              workflows, data pipelines, marketing systems) that actually get used by sales
-              teams and founders every day.
+              <span className="text-foreground"> $300M+ annually</span>. Across all of his
+              engagements combined, the models he has built and shipped have processed
+              <span className="text-foreground"> well over $1B in revenue</span>.
             </p>
             <p>
-              Outside of client work, I build and ship apps of my own —{" "}
+              Since then he has shipped systems across <span className="text-foreground">real
+              estate, home remodeling, CPG, cannabis, legal, e-commerce, agriculture &amp;
+              commodity forecasting, lead aggregation, and AI-first businesses</span> —
+              building practical automation stacks (CRMs, voice agents, n8n workflows, data
+              pipelines, marketing systems) that actually get used by sales teams and founders
+              every day. If a given industry isn&apos;t on that list, it probably will be by
+              next quarter.
+            </p>
+            <p>
+              Outside of client work, Saul builds and ships apps of his own —{" "}
               <a href="https://storywarz.win" target="_blank" rel="noreferrer" className="text-accent hover:underline">storywarz.win</a>{" "}
               and{" "}
               <a href="https://songselfie.com" target="_blank" rel="noreferrer" className="text-accent hover:underline">songselfie.com</a>{" "}
-              are two live products. I&apos;m comfortable from the model layer all the way up to
+              are two live products. He is comfortable from the model layer all the way up to
               Stripe Connect revenue splits and the cloud invoice — GCP, AWS, Azure, Hetzner,
               Vercel — pick your poison.
             </p>
             <p>
-              I also serve as <span className="text-foreground">Chairman of the Board</span> of
+              He also serves as <span className="text-foreground">Chairman of the Board</span> of
               the <span className="text-foreground">Builders &amp; Backers Network</span>, a
               501(c)(6) connecting founders and investors across Southern California through
               regular mixers and programs.
             </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3 items-center">
             <a
               href={TIDYCAL_URL}
               target="_blank"
@@ -102,6 +115,12 @@ export default function AboutPage() {
             >
               See the work
             </Link>
+            <a
+              href="mailto:Saul@anyaiyouwant.com"
+              className="px-2 py-3 text-sm font-mono text-muted hover:text-foreground transition-colors"
+            >
+              Saul@anyaiyouwant.com →
+            </a>
           </div>
         </div>
       </section>
