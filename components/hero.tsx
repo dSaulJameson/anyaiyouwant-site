@@ -85,7 +85,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-xs font-mono text-muted"
           >
             <span><span className="text-foreground">$1B+</span> revenue processed by my models</span>
-            <span><span className="text-foreground">Every industry</span> — CPG, cannabis, real estate, legal, e-comm &amp; more</span>
+            <span><span className="text-foreground">Every industry</span> — CPG, home services, real estate, legal, e-comm, fintech &amp; more</span>
           </motion.div>
         </div>
 

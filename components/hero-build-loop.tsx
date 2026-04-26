@@ -16,14 +16,14 @@ type Scenario = {
 
 const scenarios: Scenario[] = [
   {
-    id: "storywarz",
-    domain: "storywarz.win",
-    user: "I want a multiplayer story game.",
-    ai: "Real-time rooms + AI co-author. On it.",
+    id: "analytics",
+    domain: "forecast · BR-v4",
+    user: "Forecast our Q4 revenue. Show me the dashboard.",
+    ai: "Bayesian regression + dashboard. Two days.",
     code: [
-      { t: "$", c: "init storywarz --multiplayer" },
-      { t: ">", c: "rooms.deploy() ✓", tone: "ok" },
-      { t: ">", c: "ai-storyteller online ✓", tone: "info" },
+      { t: "$", c: "train forecast --model=br-v4" },
+      { t: ">", c: "AUC 0.94 · CI 95% ✓", tone: "ok" },
+      { t: ">", c: "dashboard live ✓", tone: "info" },
     ],
   },
   {
@@ -38,14 +38,14 @@ const scenarios: Scenario[] = [
     ],
   },
   {
-    id: "analytics",
-    domain: "forecast · BR-v4",
-    user: "Forecast our Q4 revenue. Show me the dashboard.",
-    ai: "Bayesian regression + dashboard. Two days.",
+    id: "storywarz",
+    domain: "storywarz.win",
+    user: "I want a multiplayer story game.",
+    ai: "Real-time rooms + AI co-author. On it.",
     code: [
-      { t: "$", c: "train forecast --model=br-v4" },
-      { t: ">", c: "AUC 0.94 · CI 95% ✓", tone: "ok" },
-      { t: ">", c: "dashboard live ✓", tone: "info" },
+      { t: "$", c: "init storywarz --multiplayer" },
+      { t: ">", c: "rooms.deploy() ✓", tone: "ok" },
+      { t: ">", c: "ai-storyteller online ✓", tone: "info" },
     ],
   },
 ];
