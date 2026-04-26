@@ -50,7 +50,7 @@ const scenarios: Scenario[] = [
   },
 ];
 
-const PHASE_MS: Record<Phase, number> = { chat: 3200, code: 3500, output: 4000 };
+const PHASE_MS: Record<Phase, number> = { chat: 6400, code: 7000, output: 8000 };
 
 export function HeroBuildLoop() {
   const [scenIdx, setScenIdx] = useState(0);
