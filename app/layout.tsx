@@ -59,11 +59,6 @@ export const metadata: Metadata = {
   ],
   category: "technology",
   alternates: { canonical: "/" },
-  icons: {
-    icon: "/media/browser-icon.png",
-    apple: "/media/browser-icon.png",
-    shortcut: "/media/browser-icon.png",
-  },
   openGraph: {
     title: "Any AI You Want — Fractional CTO & ML Engineer",
     description:
