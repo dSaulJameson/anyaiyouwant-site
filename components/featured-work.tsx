@@ -16,7 +16,7 @@ const items = [
   {
     title: "Storywarz",
     label: "WEB APP / GAMES",
-    blurb: "Multiplayer story-building game with real-time rooms, matchmaking, and AI-assisted narrative generation.",
+    blurb: "Comedic deceptive-storytelling party game. Real-time rooms, no-account play, truth-or-bluff voting, and a scoreboard that rewards a good liar.",
     href: "https://storywarz.win",
     accent: "from-accent-warm/30 to-accent/20",
   },

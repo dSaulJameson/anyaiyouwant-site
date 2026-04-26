@@ -57,8 +57,8 @@ const apps = [
     domain: "storywarz.win",
     href: "https://storywarz.win",
     blurb:
-      "Multiplayer story-building game. Real-time rooms, matchmaking, AI-assisted narrative generation, and a competitive scoring loop.",
-    stack: ["Next.js", "Supabase", "WebSockets", "OpenAI"],
+      "Comedic deceptive-storytelling party game. Players submit true stories, bluff with confidence, and try to figure out who really lived each moment. Real-time rooms, no-account play, truth-or-bluff voting.",
+    stack: ["Next.js", "Real-time rooms", "WebSockets"],
   },
   {
     title: "Song Selfie",

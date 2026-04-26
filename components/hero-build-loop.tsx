@@ -40,12 +40,12 @@ const scenarios: Scenario[] = [
   {
     id: "storywarz",
     domain: "storywarz.win",
-    user: "I want a multiplayer story game.",
-    ai: "Real-time rooms + AI co-author. On it.",
+    user: "Build a deceptive-storytelling party game.",
+    ai: "Multiplayer rooms + bluff voting. On it.",
     code: [
-      { t: "$", c: "init storywarz --multiplayer" },
-      { t: ">", c: "rooms.deploy() ✓", tone: "ok" },
-      { t: ">", c: "ai-storyteller online ✓", tone: "info" },
+      { t: "$", c: "init storywarz --rooms" },
+      { t: ">", c: "truth/bluff engine ✓", tone: "ok" },
+      { t: ">", c: "4-player live ✓", tone: "info" },
     ],
   },
 ];
@@ -72,12 +72,13 @@ export function HeroBuildLoop() {
   return (
     <div className="card p-1 overflow-hidden">
       <div className="rounded-[14px] bg-[#08090c] p-5 h-[340px] relative font-mono text-sm overflow-hidden">
-        <div className="flex items-center gap-1.5 mb-4">
-          <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-          <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-          <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
-          <span className="ml-2 text-[10px] text-muted">~/{scen.domain}</span>
-          <span className="ml-auto text-[10px] text-muted uppercase tracking-[0.16em]">{phase}</span>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="relative flex items-center justify-center w-4 h-4">
+            <span className="absolute inset-0 rounded-sm bg-accent/15" />
+            <span className="absolute w-1.5 h-1.5 rounded-full bg-accent pulse-dot" />
+          </span>
+          <span className="text-[10px] text-muted">aya<span className="text-foreground/70">/</span>{scen.domain}</span>
+          <span className="ml-auto text-[10px] text-muted uppercase tracking-[0.18em]">{phase}</span>
         </div>
 
         <AnimatePresence mode="wait">
@@ -231,26 +232,37 @@ function PreviewHeader({ left, right }: { left: string; right: string }) {
 }
 
 function StoryPreview() {
+  const players = [
+    { n: "ana_b",  c: "from-accent to-accent-2",        votes: 2, truth: false },
+    { n: "marco",  c: "from-accent-warm to-accent-2",   votes: 0, truth: false },
+    { n: "pat",    c: "from-success to-accent",         votes: 1, truth: true  },
+    { n: "jordan", c: "from-accent-2 to-accent-warm",   votes: 0, truth: false },
+  ];
   return (
     <>
-      <PreviewHeader left="storywarz.win" right="round 3 · live" />
+      <PreviewHeader left="storywarz.win" right="round 3 · 4 players" />
       <div className="bg-surface-2 border border-border rounded-md p-3 font-sans">
-        <div className="text-[9px] font-mono text-muted tracking-[0.16em]">PROMPT</div>
-        <div className="mt-1 text-[13px] leading-snug text-foreground">
-          &ldquo;The lighthouse keeper opened the door, and the wave of static
-          <span className="inline-block w-1.5 h-3.5 bg-accent ml-0.5 align-middle animate-pulse" />
+        <div className="text-[9px] font-mono text-muted tracking-[0.16em]">SUBMITTED STORY</div>
+        <div className="mt-1.5 text-[13px] leading-snug text-foreground italic">
+          &ldquo;I once snuck backstage at a Beyoncé show wearing a bright orange traffic vest.&rdquo;
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 font-sans">
-        {[
-          { name: "player_one", pts: "+340", g: "from-accent to-accent-2" },
-          { name: "narrator_x", pts: "+285", g: "from-accent-warm to-accent-2" },
-        ].map((p) => (
-          <div key={p.name} className="bg-surface-2 border border-border rounded-md p-2 flex items-center gap-2">
-            <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${p.g}`} />
-            <div>
-              <div className="text-[11px] text-foreground">{p.name}</div>
-              <div className="text-[9px] font-mono text-muted">{p.pts} pts</div>
+      <div className="text-[9px] font-mono text-muted tracking-[0.16em] flex items-center justify-between">
+        <span>WHO REALLY LIVED IT?</span>
+        <span className="text-success">truth ✓</span>
+      </div>
+      <div className="grid grid-cols-4 gap-1.5 font-sans">
+        {players.map((p) => (
+          <div
+            key={p.n}
+            className={`relative bg-surface-2 rounded-md p-2 flex flex-col items-center gap-1 transition-colors border ${
+              p.truth ? "border-success/60 ring-1 ring-success/30" : "border-border"
+            }`}
+          >
+            <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${p.c}`} />
+            <div className="text-[10px] text-foreground leading-none">{p.n}</div>
+            <div className={`text-[9px] font-mono leading-none ${p.truth ? "text-success" : "text-muted"}`}>
+              {p.truth ? "TRUTH" : `${p.votes} votes`}
             </div>
           </div>
         ))}
