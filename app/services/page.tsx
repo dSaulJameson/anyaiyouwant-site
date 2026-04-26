@@ -4,9 +4,9 @@ import { ServicesGrid } from "@/components/services-grid";
 import { TIDYCAL_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Services — ML, Automation, Web, Fractional CTO",
+  title: "Services — Custom AI, Automation, Web, Fractional CTO",
   description:
-    "Six capabilities from one operator: Machine Learning, Automation, Web & App Development, Integration, AI Ad Studio, and Fractional CTO. Stack-agnostic across GCP, AWS, Azure, and Hetzner. Engagements from sprints to long-term advisory.",
+    "Full-stack capabilities from one operator: Machine Learning, Automation, Web & App Development, Integration, AI Ad Studio, and Fractional CTO. Stack-agnostic across GCP, AWS, Azure, and Hetzner. Project-based or retainer-based engagements.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services — ML, Automation, Web, Fractional CTO",
@@ -43,7 +43,7 @@ export default function ServicesPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="label-mono">Services</div>
         <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight">
-          One operator. <span className="text-gradient">Six capabilities.</span>
+          One operator. <span className="text-gradient">Full-stack capabilities.</span>
         </h1>
         <p className="mt-5 text-muted text-lg max-w-2xl">
           You don&apos;t need to coordinate five vendors. Whether the work is a one-off script or

@@ -35,11 +35,11 @@ export function Hero() {
             animate="show"
             variants={fadeUp}
             custom={1}
-            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]"
+            className="mt-6 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.15]"
           >
-            <span className="text-foreground">Fractional CTO.</span>
+            <span className="text-foreground">Custom AI when you need it shipped.</span>
             <br />
-            <span className="text-gradient">Full-stack of AI.</span>
+            <span className="text-gradient">Fractional CTO when you need a partner.</span>
           </motion.h1>
 
           <motion.p
@@ -49,9 +49,9 @@ export function Hero() {
             custom={2}
             className="mt-6 text-lg text-muted max-w-xl leading-relaxed"
           >
-            Algorithms, automation, and apps — for enterprises and startups alike. Whether
-            it&apos;s a 2-hour script or a 2,000-hour platform, you get it shipped, faster
-            and better than anywhere else.
+            Project-based when you need it built. Retainer-based when you need someone in
+            the room. One operator, nine years of ML / AI — for enterprises and startups
+            alike, from a 2-hour script to a 2,000-hour platform.
           </motion.p>
 
           <motion.div

@@ -86,7 +86,7 @@ export function ServicesGrid({ withHeader = true }: { withHeader?: boolean }) {
           <div className="max-w-3xl mb-12">
             <div className="label-mono">What I do</div>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-              Six capabilities. <span className="text-gradient">One operator.</span>
+              Full-stack capabilities. <span className="text-gradient">One operator.</span>
             </h2>
             <p className="mt-4 text-muted text-lg leading-relaxed">
               Most consultants do one thing. I&apos;ve been writing algorithms since before the LLM hype,

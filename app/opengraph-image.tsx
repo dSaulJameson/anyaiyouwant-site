@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Any AI You Want — Fractional CTO & ML Engineer";
+export const alt = "Any AI You Want — Custom AI Solutions & Fractional CTO Services";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -69,23 +69,23 @@ export default async function OG() {
             display: "flex",
             flexDirection: "column",
             marginTop: 48,
-            fontSize: 88,
+            fontSize: 60,
             fontWeight: 600,
-            letterSpacing: -2,
-            lineHeight: 1.04,
+            letterSpacing: -1.5,
+            lineHeight: 1.1,
           }}
         >
-          <div style={{ display: "flex" }}>Fractional CTO.</div>
-          <div style={{ display: "flex" }}>ML engineer.</div>
+          <div style={{ display: "flex" }}>Custom AI when you need it shipped.</div>
           <div
             style={{
               display: "flex",
               backgroundImage: "linear-gradient(135deg, #22d3ee 0%, #a78bfa 60%, #fb923c 100%)",
               backgroundClip: "text",
               color: "transparent",
+              marginTop: 12,
             }}
           >
-            Full-stack of AI.
+            Fractional CTO when you need a partner.
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export default async function OG() {
           <div
             style={{
               display: "flex",
-              fontSize: 24,
+              fontSize: 22,
               color: "#7a8290",
               fontFamily: "ui-monospace, Menlo, monospace",
             }}
