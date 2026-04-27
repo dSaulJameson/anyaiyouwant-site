@@ -88,9 +88,9 @@ export default function AboutPage() {
               <a href="https://storywarz.win" target="_blank" rel="noreferrer" className="text-accent hover:underline">storywarz.win</a>{" "}
               and{" "}
               <a href="https://songselfie.com" target="_blank" rel="noreferrer" className="text-accent hover:underline">songselfie.com</a>{" "}
-              are two live products. He is comfortable from the model layer all the way up to
-              Stripe Connect revenue splits and the cloud invoice — GCP, AWS, Azure, Hetzner,
-              Vercel — pick your poison.
+              are two live products. He&apos;s comfortable from the model layer all the way up
+              through architecture, integrations, and the cloud invoice — GCP, AWS, Azure,
+              Hetzner, Vercel — pick your poison.
             </p>
             <p>
               He also serves as <span className="text-foreground">Chairman of the Board</span> of
