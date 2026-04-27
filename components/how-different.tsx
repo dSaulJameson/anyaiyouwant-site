@@ -1,9 +1,9 @@
 const pillars = [
   {
-    eyebrow: "01 / SPECIALIST DEPTH",
-    title: "Specialist, not generalist.",
+    eyebrow: "01 / FULL TOOLKIT",
+    title: "Same person, every layer.",
     body:
-      "Seven disciplines — ML, full-stack, data engineering, integration, automation, BI, fractional CTO. Each one earned over nine years, not picked up last quarter.",
+      "Model, app, pipeline, integration, dashboard, board update — same operator on each. Hire me for any one of them and you don't lose access to the others.",
   },
   {
     eyebrow: "02 / CUSTOM-BUILT",

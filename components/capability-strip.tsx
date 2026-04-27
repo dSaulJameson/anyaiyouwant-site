@@ -24,7 +24,7 @@ export function CapabilityStrip() {
     <section className="border-y border-border bg-surface/40">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-6">
         <div className="text-center label-mono mb-4">
-          Seven specialties · One operator · Pick a tool — I&apos;ve probably shipped with it
+          One operator · Pick a tool — I&apos;ve probably shipped with it
         </div>
         <div className="relative overflow-hidden">
           <div className="flex gap-3 animate-marquee whitespace-nowrap">

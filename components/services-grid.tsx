@@ -89,10 +89,10 @@ export function ServicesGrid({ withHeader = true }: { withHeader?: boolean }) {
               Full-stack capabilities. <span className="text-gradient">One operator.</span>
             </h2>
             <p className="mt-4 text-muted text-lg leading-relaxed">
-              I&apos;m not a generalist. I&apos;m an exceptional specialist in seven disciplines where
-              most people struggle to specialize in one — ML, full-stack apps, data engineering,
-              integration, automation, BI, and fractional CTO work. Same operator picks the right
-              tool for each problem. You don&apos;t need to coordinate five vendors.
+              Hire me to build a dashboard and you still get the ML engineer underneath.
+              Hire me to wire up an n8n flow and you still get the Python. Same person at
+              the model layer, the infra layer, and the conversation with your team —
+              without a translation layer in between. One vendor, not five.
             </p>
           </div>
         )}
