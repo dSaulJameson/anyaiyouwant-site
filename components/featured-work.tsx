@@ -23,7 +23,7 @@ const items = [
   {
     title: "Song Selfie",
     label: "WEB APP / B2B2C",
-    blurb: "Make AI songs about yourself. Venue partnerships, Stripe-powered revenue splits, share-ready audio.",
+    blurb: "Make AI songs about yourself. Venue partnerships, automated revenue splits, share-ready audio — built end to end.",
     href: "https://songselfie.com",
     accent: "from-success/30 to-accent/20",
   },

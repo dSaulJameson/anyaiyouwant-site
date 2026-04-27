@@ -17,6 +17,17 @@ export const metadata: Metadata = {
 
 const caseStudies = [
   {
+    label: "ML / RUNNING 9 YEARS",
+    title: "ZIP-Code Lead Prioritization",
+    summary:
+      "Tobit regression on American Community Survey data — built for a home-services call center to prioritize incoming leads when granular data wasn't available. Still in production nine years later. Same algorithm. Same model.",
+    metrics: [
+      { k: "Years in production", v: "9" },
+      { k: "Industry", v: "Home services" },
+      { k: "Stack", v: "Python · Tobit regression · ACS" },
+    ],
+  },
+  {
     label: "ML / COMMODITY FORECASTING",
     title: "Avocado Demand Forecasting",
     summary:
@@ -65,8 +76,8 @@ const apps = [
     domain: "songselfie.com",
     href: "https://songselfie.com",
     blurb:
-      "AI songs about you. Built for venues — partner activations with Stripe-powered revenue splits, share-ready audio, and viral mechanics.",
-    stack: ["Next.js", "Stripe Connect", "AWS"],
+      "AI songs about you. Built for venues — partner activations, automated revenue splits, share-ready audio, and viral mechanics. Architected end-to-end from auth to payouts.",
+    stack: ["Next.js", "AWS", "Real-time audio"],
   },
 ];
 
@@ -100,7 +111,7 @@ export default function WorkPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-10 mt-24">
         <div className="label-mono">Case studies</div>
         <h2 className="mt-2 text-2xl md:text-3xl font-semibold mb-8">Real systems, real outcomes</h2>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {caseStudies.map((c) => (
             <div key={c.title} className="card p-6">
               <div className="label-mono">{c.label}</div>

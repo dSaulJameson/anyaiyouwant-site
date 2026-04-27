@@ -20,41 +20,41 @@ const services: Service[] = [
   },
   {
     title: "Automation",
-    blurb: "If you do it twice, it shouldn't need humans the third time.",
+    blurb: "Custom orchestration when it matters. No-code when it's enough.",
     bullets: [
-      "CRM, voice agents, n8n / Zapier / custom",
-      "Reporting stacks: 20 sources → one source of truth",
-      "Power BI, Tableau, Looker — or custom dashboards",
+      "Custom Python pipelines · Airflow · Cloud Build · GitHub Actions",
+      "n8n / Zapier when the problem genuinely fits",
+      "The hard ones — granular email-click tracking, dedup logic, rolling analytics",
     ],
     glyph: <Glyph d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />,
   },
   {
     title: "Web & App Dev",
-    blurb: "Full-stack apps that handle real revenue and real users.",
+    blurb: "Architected to last. Not just shipped to demo.",
     bullets: [
-      "Next.js, Node, Python, Stripe integrations",
-      "Multi-tenant, auth, payments, revenue splits",
-      "Live products: storywarz.win, songselfie.com",
+      "Architecture from scratch — framework, DB, deploy topology",
+      "Multi-tenant SaaS, B2B2C, internal platforms",
+      "Built to keep working in 5 years — not 5 weeks",
     ],
     glyph: <Glyph d="M3 4h18v14H3zM8 20h8M12 18v2" />,
   },
   {
     title: "Integration",
-    blurb: "Make every system speak the same language — your way.",
+    blurb: "Any system. First try. Still working in five years.",
     bullets: [
-      "CRMs, clouds, AI/LLMs, social, payments",
-      "Event-driven pipelines, webhooks, queues",
-      "GCP / AWS / Azure / Hetzner — agnostic",
+      "CRMs, clouds, AI/LLMs, social, payments — agnostic",
+      "Event-driven: webhooks, queues, idempotent retries",
+      "Debuggable when the upstream API changes (and it will)",
     ],
     glyph: <Glyph d="M9 7h6M9 12h6M9 17h6M5 7h.01M5 12h.01M5 17h.01" />,
   },
   {
     title: "AI Ad Studio",
-    blurb: "Studio-quality ads in hours, not weeks.",
+    blurb: "$10K studio ads for $500. In a couple hours.",
     bullets: [
-      "Empty venue → photo ad → video ad",
-      "Tuned models, brand-aware, on-platform sizing",
-      "Per-campaign cost a fraction of an agency",
+      "Empty venue → photographed scene → director-quality video",
+      "Real composition, not generic generative slop",
+      "Per-spot cost a fraction of an agency",
     ],
     glyph: <Glyph d="M2 6h20M2 12h20M2 18h20" />,
   },
@@ -89,9 +89,10 @@ export function ServicesGrid({ withHeader = true }: { withHeader?: boolean }) {
               Full-stack capabilities. <span className="text-gradient">One operator.</span>
             </h2>
             <p className="mt-4 text-muted text-lg leading-relaxed">
-              Most consultants do one thing. I&apos;ve been writing algorithms since before the LLM hype,
-              shipping web apps that handle payments, and re-architecting reporting stacks the same week.
-              You don&apos;t need to coordinate five vendors.
+              I&apos;m not a generalist. I&apos;m an exceptional specialist in seven disciplines where
+              most people struggle to specialize in one — ML, full-stack apps, data engineering,
+              integration, automation, BI, and fractional CTO work. Same operator picks the right
+              tool for each problem. You don&apos;t need to coordinate five vendors.
             </p>
           </div>
         )}

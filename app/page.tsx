@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { CapabilityStrip } from "@/components/capability-strip";
 import { ServicesGrid } from "@/components/services-grid";
 import { FeaturedWork } from "@/components/featured-work";
+import { HowDifferent } from "@/components/how-different";
 import { AnimatedGrid } from "@/components/animated-grid";
 import Link from "next/link";
 import { TIDYCAL_URL } from "@/lib/utils";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <CapabilityStrip />
       <ServicesGrid />
       <FeaturedWork />
+      <HowDifferent />
 
       <section className="py-24">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
