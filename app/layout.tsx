@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Any AI You Want — Custom AI Solutions & Fractional CTO Services",
     description:
-      "Custom AI when you need it shipped. Fractional CTO when you need a partner. $1B+ revenue processed by my models.",
+      "Custom AI when you need it shipped. Fractional CTO when you need a partner. $1B+ in revenue processed in production.",
     creator: "@dSaulJameson",
   },
   robots: {

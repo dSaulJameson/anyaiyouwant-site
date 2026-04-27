@@ -137,8 +137,8 @@ export default function AboutPage() {
               <p className="mt-3 text-muted leading-relaxed">
                 A 501(c)(6) trade association connecting Southern California founders with
                 operators, capital, and each other. Mixers, salons, and working sessions where
-                people who actually ship find their next collaborator. I serve as Chairman of
-                the Board.
+                people who actually ship find their next collaborator. Saul serves as Chairman
+                of the Board.
               </p>
               <div className="mt-5">
                 <a

@@ -47,7 +47,7 @@ export default function ServicesPage() {
         </h1>
         <p className="mt-5 text-muted text-lg max-w-2xl">
           You don&apos;t need to coordinate five vendors. Whether the work is a one-off script or
-          a multi-quarter platform, it&apos;s the same person — me — choosing the stack and shipping the result.
+          a multi-quarter platform, it&apos;s the same operator choosing the stack and shipping the result.
         </p>
       </section>
 
@@ -114,7 +114,7 @@ export default function ServicesPage() {
       <section className="max-w-5xl mx-auto px-6 md:px-10 mt-24">
         <div className="card p-8 md:p-10 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold">
-            Tell me what&apos;s breaking.
+            Got something breaking?
           </h2>
           <p className="mt-3 text-muted max-w-xl mx-auto">
             Fifteen minutes. By the end you&apos;ll have a recommended approach, a rough estimate, and a

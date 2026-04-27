@@ -91,7 +91,7 @@ export default function WorkPage() {
         </h1>
         <p className="mt-5 text-muted text-lg max-w-2xl">
           Selected work spanning ML, automation, and full-stack apps. Many engagements are
-          under NDA — these are the ones I can talk about.
+          under NDA — these are the ones that can be shown.
         </p>
       </section>
 
@@ -131,7 +131,7 @@ export default function WorkPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-6 md:px-10 mt-24">
-        <div className="label-mono">Apps I&apos;ve built</div>
+        <div className="label-mono">Live apps shipped</div>
         <h2 className="mt-2 text-2xl md:text-3xl font-semibold mb-8">Things you can click on right now</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {apps.map((a) => (

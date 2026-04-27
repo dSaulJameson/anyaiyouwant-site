@@ -33,7 +33,7 @@ export default function HomePage() {
               <p className="mt-4 text-muted text-lg max-w-2xl">
                 Enterprise teams need someone who can talk to the board and write the model.
                 Startups need someone who can choose the stack and ship by Friday.
-                I do both — that&apos;s the whole point.
+                The right operator does both — that&apos;s the whole point.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a

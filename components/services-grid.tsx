@@ -84,15 +84,15 @@ export function ServicesGrid({ withHeader = true }: { withHeader?: boolean }) {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {withHeader && (
           <div className="max-w-3xl mb-12">
-            <div className="label-mono">What I do</div>
+            <div className="label-mono">Disciplines</div>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
               Full-stack capabilities. <span className="text-gradient">One operator.</span>
             </h2>
             <p className="mt-4 text-muted text-lg leading-relaxed">
-              Hire me to build a dashboard and you still get the ML engineer underneath.
-              Hire me to wire up an n8n flow and you still get the Python. Same person at
-              the model layer, the infra layer, and the conversation with your team —
-              without a translation layer in between. One vendor, not five.
+              If the AI work is real, hire someone with a real ML and data science
+              background — not someone who learned the term last year. That same hire
+              also handles the dashboards, the integrations, the automation, and the
+              call with the team. Whole stack, one hire.
             </p>
           </div>
         )}

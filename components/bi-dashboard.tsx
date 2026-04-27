@@ -205,7 +205,7 @@ export function BiDashboard() {
       </div>
 
       <p className="mt-4 text-xs text-muted font-mono">
-        Demo data. Same patterns I&apos;ve shipped in Power BI, Tableau, Looker, and custom Next.js dashboards.
+        Demo data. The same patterns ship in Power BI, Tableau, Looker, and custom Next.js dashboards.
       </p>
     </div>
   );
