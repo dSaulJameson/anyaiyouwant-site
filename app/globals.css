@@ -327,7 +327,9 @@ body {
 .brand-hero {
   position: relative;
   display: flex;
-  min-height: clamp(590px, calc(100svh - 65px), 760px);
+  height: calc(100svh - 139px);
+  min-height: 470px;
+  max-height: 690px;
   align-items: center;
   overflow: hidden;
   isolation: isolate;
@@ -396,7 +398,7 @@ body {
   z-index: 4;
   width: min(100%, 88rem);
   margin: 0 auto;
-  padding: clamp(3.25rem, 6vh, 5.5rem) clamp(1.5rem, 6vw, 6.5rem) clamp(2.5rem, 5vh, 4.5rem);
+  padding: clamp(1.6rem, 3.5vh, 3.25rem) clamp(1.5rem, 6vw, 6.5rem) clamp(1.15rem, 2.5vh, 2.5rem);
 }
 
 .brand-hero-kicker {
@@ -420,9 +422,9 @@ body {
 
 .brand-hero-content h1 {
   max-width: 56rem;
-  margin: clamp(1rem, 2.2vh, 1.6rem) 0 0;
+  margin: clamp(.7rem, 1.6vh, 1.15rem) 0 0;
   color: #f8fafc;
-  font-size: clamp(3.35rem, 6.2vw, 6.75rem);
+  font-size: clamp(3.2rem, 5.4vw, 5.9rem);
   font-weight: 620;
   line-height: .95;
   letter-spacing: -.058em;
@@ -432,7 +434,7 @@ body {
 
 .brand-hero-summary {
   max-width: 44rem;
-  margin-top: clamp(1.2rem, 2.6vh, 1.8rem);
+  margin-top: clamp(.8rem, 1.8vh, 1.3rem);
   color: #a7b2c1;
   font-size: clamp(.92rem, 1.2vw, 1.08rem);
   line-height: 1.65;
@@ -442,7 +444,7 @@ body {
   display: flex;
   align-items: center;
   gap: .85rem;
-  margin-top: clamp(1.35rem, 2.7vh, 2rem);
+  margin-top: clamp(.9rem, 2vh, 1.4rem);
   flex-wrap: wrap;
 }
 
@@ -456,7 +458,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: min(100%, 50rem);
-  margin-top: clamp(1.8rem, 4vh, 3rem);
+  margin-top: clamp(1.15rem, 2.8vh, 2rem);
   border-top: 1px solid rgba(24, 217, 242, .28);
 }
 
