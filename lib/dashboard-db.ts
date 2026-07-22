@@ -60,6 +60,6 @@ export async function getDashboardRows(slug: string): Promise<DashboardRow[]> {
 export async function checkDashboardDatabase() {
   const pool = getDashboardPool();
   if (!pool) return { connected: false, reason: "not-configured" } as const;
-  const result = await pool.query<{ count: string }>("select count(*)::text as count from dashboard_observations");
-  return { connected: true, rows: Number(result.rows[0]?.count ?? 0) } as const;
+  const result = await pool.query<{ count: string; leads_ready: boolean }>("select (select count(*)::text from dashboard_observations) as count, to_regclass('public.consultation_leads') is not null as leads_ready");
+  return { connected: true, rows: Number(result.rows[0]?.count ?? 0), leadsReady: Boolean(result.rows[0]?.leads_ready) } as const;
 }

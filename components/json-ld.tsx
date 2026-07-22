@@ -1,4 +1,4 @@
-const SITE_URL = "https://anyaiyouwant.com";
+const SITE_URL = "https://www.anyaiyouwant.com";
 
 export function PersonJsonLd() {
   const data = {
@@ -8,9 +8,9 @@ export function PersonJsonLd() {
     alternateName: "Saul Jameson",
     url: SITE_URL,
     image: `${SITE_URL}/media/headshot.png`,
-    jobTitle: "Fractional CTO & Custom AI Solutions Engineer",
+    jobTitle: "Machine Learning Engineer and Technical Director",
     description:
-      "Builds custom AI solutions when you need it shipped, and serves as a Fractional CTO when you need a partner. 9 years of ML / AI engineering — from forecasting to recommendation systems to full-stack apps — for enterprises and startups.",
+      "Leads a U.S.-based engineering studio building software, analytics, machine learning, secure AI, and production automation for enterprises and startups.",
     knowsAbout: [
       "Custom AI Solutions",
       "Machine Learning",
@@ -23,7 +23,7 @@ export function PersonJsonLd() {
       "Web Development",
       "Fractional CTO",
       "AI Strategy",
-      "Cloud Architecture (GCP, AWS, Azure, Hetzner)",
+      "Cloud Architecture",
       "Vertex AI",
       "SageMaker",
       "Azure ML",
@@ -59,12 +59,14 @@ export function ProfessionalServiceJsonLd() {
     url: SITE_URL,
     image: `${SITE_URL}/media/logo-white.png`,
     description:
-      "Custom AI solutions and Fractional CTO services. Project-based when you need it shipped; retainer-based when you need a partner. ML, automation, and full-stack apps for enterprises and startups.",
+      "U.S.-based senior engineers building custom software, analytics, machine learning, secure AI, automation, and data products for enterprises and startups.",
     priceRange: "$$$",
     areaServed: { "@type": "Country", name: "United States" },
     founder: { "@type": "Person", name: "D. Saul Jameson" },
     serviceType: [
       "Custom AI Solutions",
+      "Secure and Private AI",
+      "Software Development",
       "Fractional CTO Services",
       "Machine Learning Engineering",
       "AI Strategy & Consulting",
@@ -72,6 +74,8 @@ export function ProfessionalServiceJsonLd() {
       "Web Application Development",
       "AI Integration",
       "Business Intelligence",
+      "Marketing Mix Modeling",
+      "Demand Forecasting",
     ],
     contactPoint: {
       "@type": "ContactPoint",

@@ -18,12 +18,12 @@ const scenarios: Scenario[] = [
   {
     id: "analytics",
     domain: "forecast · BR-v4",
-    user: "Forecast our Q4 revenue. Show me the dashboard.",
-    ai: "Bayesian regression + dashboard. Two days.",
+    user: "Forecast Q4 demand and show the uncertainty.",
+    ai: "Backtest first. Then ship the model and decision view.",
     code: [
       { t: "$", c: "train forecast --model=br-v4" },
-      { t: ">", c: "AUC 0.94 · CI 95% ✓", tone: "ok" },
-      { t: ">", c: "dashboard live ✓", tone: "info" },
+      { t: ">", c: "MAPE 3.1% · 95% interval ✓", tone: "ok" },
+      { t: ">", c: "1,200 simulations complete ✓", tone: "info" },
     ],
   },
   {
@@ -141,7 +141,7 @@ function ChatPhase({ scen }: { scen: Scenario }) {
         className="flex"
       >
         <div className="bg-surface-2 border border-border rounded-2xl rounded-bl-sm px-3.5 py-2 max-w-[88%]">
-          <div className="text-[9px] font-mono text-accent tracking-[0.16em]">SAUL</div>
+          <div className="text-[9px] font-mono text-accent tracking-[0.16em]">ENGINEERING</div>
           <div className="text-foreground text-[13.5px] leading-snug mt-0.5">{scen.ai}</div>
         </div>
       </motion.div>
@@ -305,6 +305,7 @@ function SongPreview() {
 }
 
 function AnalyticsPreview() {
+  const trend = [22, 29, 34, 31, 43, 48, 55, 59, 68, 73, 82, 91];
   return (
     <>
       <PreviewHeader left="forecast · BR-v4" right="model live" />
@@ -316,31 +317,9 @@ function AnalyticsPreview() {
           </div>
           <div className="text-[11px] font-mono text-success">+18% · 95% CI</div>
         </div>
-        <svg className="mt-2 w-full h-12" viewBox="0 0 200 50" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <motion.path
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 1.4 }}
-            d="M0,42 L20,38 L40,33 L60,30 L80,28 L100,22 L120,18 L140,12 L160,9 L180,6 L200,4"
-            stroke="#22d3ee"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <motion.path
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            d="M0,42 L20,38 L40,33 L60,30 L80,28 L100,22 L120,18 L140,12 L160,9 L180,6 L200,4 L200,50 L0,50 Z"
-            fill="url(#sparkFill)"
-          />
-        </svg>
+        <div className="mt-2 h-12 flex items-end gap-1" aria-label="Forecast trend increasing">
+          {trend.map((height, index) => <motion.span key={index} initial={{ height: 0 }} animate={{ height: `${height}%` }} transition={{ delay: index * .06, duration: .45 }} className="flex-1 rounded-t-sm bg-accent/70" />)}
+        </div>
       </div>
       <div className="grid grid-cols-3 gap-2 text-[10px] font-mono">
         {[["MAPE", "3.1%"], ["RUNS", "1.2k"], ["LATENCY", "47ms"]].map(([k, v]) => (

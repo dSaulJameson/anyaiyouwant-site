@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "db:seed": "node scripts/seed-dashboards.mjs",
-    "db:export-copy": "node scripts/export-dashboard-copy.mjs"
+    "db:export-copy": "node scripts/export-dashboard-copy.mjs",
+    "db:leads": "node scripts/list-leads.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

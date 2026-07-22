@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://anyaiyouwant.com";
+const SITE_URL = "https://www.anyaiyouwant.com";
 
 export const viewport: Viewport = {
   themeColor: "#07080a",
@@ -26,11 +26,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Any AI You Want — Custom AI Solutions & Fractional CTO Services",
-    template: "%s · Any AI You Want",
+    default: "Any AI You Want — Software, Analytics & Secure AI",
+    template: "%s | Any AI You Want",
   },
   description:
-    "Custom AI solutions when you need it shipped. Fractional CTO services when you need a partner. Project-based or retainer-based — D. Saul Jameson, 9 years of ML / AI, $1B+ in revenue processed.",
+    "U.S.-based senior engineers building software, analytics, machine learning, secure AI, and automation—from one-day projects to production platforms.",
   applicationName: "Any AI You Want",
   authors: [{ name: "D. Saul Jameson", url: SITE_URL }],
   creator: "D. Saul Jameson",
@@ -43,6 +43,14 @@ export const metadata: Metadata = {
     "Fractional CTO",
     "Fractional CTO Services",
     "AI Strategy",
+    "Secure AI",
+    "Private AI",
+    "US Based Software Engineers",
+    "Marketing Mix Modeling",
+    "Monte Carlo Simulation",
+    "Demand Forecasting",
+    "ARIMA Forecasting",
+    "Prophet Forecasting",
     "Machine Learning Engineer",
     "ML Consulting",
     "AI Integration",
@@ -69,20 +77,22 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Any AI You Want — Custom AI Solutions & Fractional CTO Services",
+    title: "Any AI You Want — Software, Analytics & Secure AI",
     description:
-      "Project-based when you need it built. Retainer-based when you need a partner. One operator, 9 years of ML / AI, $1B+ in revenue processed.",
+      "Senior U.S.-based engineers building software, analytics, machine learning, and secure AI without a bloated agency layer.",
     url: SITE_URL,
     siteName: "Any AI You Want",
     locale: "en_US",
     type: "website",
+    images: [{ url: "/og.png", width: 1732, height: 917, alt: "Any AI You Want — Software, analytics, and secure AI that ship" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Any AI You Want — Custom AI Solutions & Fractional CTO Services",
+    title: "Any AI You Want — Software, Analytics & Secure AI",
     description:
-      "Custom AI when you need it shipped. Fractional CTO when you need a partner. $1B+ in revenue processed in production.",
+      "Senior U.S.-based engineers. Software, analytics, real machine learning, and secure AI that ship.",
     creator: "@dSaulJameson",
+    images: ["/og.png"],
   },
   robots: {
     index: true,

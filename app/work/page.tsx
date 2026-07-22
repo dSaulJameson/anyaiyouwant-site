@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BiDashboard } from "@/components/bi-dashboard";
-import { TIDYCAL_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Work — Case studies & live demos",
   description:
-    "Selected work from D. Saul Jameson: a Bayesian avocado demand forecaster, a $300M+ bidding engine, an enterprise reporting overhaul, and shipped web apps including storywarz.win and songselfie.com — plus an interactive BI dashboard demo.",
+    "Selected production work spanning forecasting, optimization, analytics, full-stack software, real-time games, payments, audio, and an AI DJ platform.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Work — Case studies & live demos",
@@ -64,6 +63,14 @@ const caseStudies = [
 
 const apps = [
   {
+    title: "AI Hype Host",
+    domain: "aihypehost.com",
+    href: "https://aihypehost.com",
+    blurb:
+      "An AI DJ and event-hosting platform combining music recognition, Spotify, generated voice, guest requests, media, and scheduled venue experiences.",
+    stack: ["Next.js", "Postgres", "Spotify", "ElevenLabs", "AWS"],
+  },
+  {
     title: "Storywarz",
     domain: "storywarz.win",
     href: "https://storywarz.win",
@@ -90,7 +97,7 @@ export default function WorkPage() {
           Production systems. <span className="text-gradient">Live demos.</span>
         </h1>
         <p className="mt-5 text-muted text-lg max-w-2xl">
-          Selected work spanning ML, automation, and full-stack apps. Many engagements are
+          Selected work spanning machine learning, analytics, automation, and full-stack software. Many engagements are
           under NDA — these are the ones that can be shown.
         </p>
       </section>
@@ -111,7 +118,7 @@ export default function WorkPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-10 mt-24">
         <div className="label-mono">Case studies</div>
         <h2 className="mt-2 text-2xl md:text-3xl font-semibold mb-8">Real systems, real outcomes</h2>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {caseStudies.map((c) => (
             <div key={c.title} className="card p-6">
               <div className="label-mono">{c.label}</div>
@@ -170,14 +177,12 @@ export default function WorkPage() {
             long it takes — no fluff, no &quot;discovery phase.&quot;
           </p>
           <div className="mt-6 flex justify-center gap-3">
-            <a
-              href={TIDYCAL_URL}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/book"
               className="px-5 py-3 rounded-md bg-accent text-black font-medium hover:bg-accent/90 transition-colors"
             >
-              Book 15 minutes →
-            </a>
+              Send a project brief →
+            </Link>
             <Link href="/services" className="px-5 py-3 rounded-md border border-border hover:bg-surface transition-colors">
               See services
             </Link>

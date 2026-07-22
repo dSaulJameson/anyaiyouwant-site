@@ -40,7 +40,7 @@ import {
   type MetricDefinition,
 } from "@/lib/dashboard-data.mjs";
 
-const colors = ["#22d3ee", "#a78bfa", "#fb923c", "#4ade80", "#fb7185"];
+const colors = ["#18d9f2", "#1677ff", "#38bdf8", "#4ade80", "#0ea5e9"];
 
 const rangeOptions = [
   { key: "3y", label: "3 years", months: 36 },
@@ -205,7 +205,7 @@ export function IndustryDashboard({ slug, rows }: { slug: string; rows: Dashboar
                 <Tooltip content={<MetricTooltip />} />
                 <Legend iconType="circle" iconSize={7} />
                 <Area yAxisId="primary" type="monotone" dataKey="primary" name={primaryMetric.label} stroke={config.accent} strokeWidth={2.5} fill={`url(#fill-${slug})`} />
-                <Line yAxisId="secondary" type="monotone" dataKey="secondary" name={secondaryMetric.label} stroke="#a78bfa" strokeWidth={2} dot={false} />
+                <Line yAxisId="secondary" type="monotone" dataKey="secondary" name={secondaryMetric.label} stroke="#1677ff" strokeWidth={2} dot={false} />
               </ComposedChart>
             </ResponsiveContainer>
           </div>

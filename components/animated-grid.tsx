@@ -14,7 +14,7 @@ export function AnimatedGrid() {
       />
       <motion.div
         className="absolute top-40 -left-32 w-[500px] h-[500px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(167,139,250,0.15), transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(22,119,255,0.16), transparent 60%)" }}
         animate={{ scale: [1.1, 1, 1.1], opacity: [0.5, 0.9, 0.5] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />

@@ -18,7 +18,7 @@ export function Logo({ size = 40 }: { size?: number }) {
         />
       </span>
       <div className="flex flex-col leading-tight">
-        <span className="text-[13px] font-semibold tracking-[0.18em] text-foreground/90">
+        <span className="brand-wordmark text-[13px] font-semibold text-foreground/95">
           ANY AI YOU WANT
         </span>
         <span className="text-[10px] font-mono text-muted">anyaiyouwant.com</span>

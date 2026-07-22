@@ -3,60 +3,14 @@ import { TIDYCAL_URL } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid gap-8 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <div className="text-sm font-semibold tracking-[0.18em]">ANY AI YOU WANT</div>
-          <p className="mt-3 text-muted text-sm max-w-md">
-            Fractional CTO and machine learning engineer. From a 2-hour script to a 2,000-hour platform —
-            algorithms, automation, and apps that ship.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <a
-              href={TIDYCAL_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center px-4 py-2 text-sm rounded-md bg-accent text-black font-medium hover:bg-accent/90 transition-colors"
-            >
-              Book 15 minutes →
-            </a>
-            <a
-              href="mailto:Saul@anyaiyouwant.com"
-              className="text-sm font-mono text-muted hover:text-foreground transition-colors"
-            >
-              Saul@anyaiyouwant.com
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div className="label-mono mb-3">Site</div>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/work" className="text-muted hover:text-foreground">Work</Link></li>
-            <li><Link href="/services" className="text-muted hover:text-foreground">Services</Link></li>
-            <li><Link href="/about" className="text-muted hover:text-foreground">About</Link></li>
-            <li><Link href="/book" className="text-muted hover:text-foreground">Book</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <div className="label-mono mb-3">Apps</div>
-          <ul className="space-y-2 text-sm">
-            <li><a href="https://storywarz.win" target="_blank" rel="noreferrer" className="text-muted hover:text-foreground">storywarz.win</a></li>
-            <li><a href="https://songselfie.com" target="_blank" rel="noreferrer" className="text-muted hover:text-foreground">songselfie.com</a></li>
-            <li><a href="https://buildersandbackers.org" target="_blank" rel="noreferrer" className="text-muted hover:text-foreground">Builders & Backers</a></li>
-          </ul>
-        </div>
+    <footer className="border-t border-border mt-28">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid gap-10 md:grid-cols-5">
+        <div className="md:col-span-2"><div className="text-sm font-semibold tracking-[0.18em]">ANY AI YOU WANT</div><p className="mt-3 text-muted text-sm max-w-md">Software, analytics, machine learning, and secure AI built by U.S.-based senior engineers. Small enough to stay efficient, broad enough to assemble the right team.</p><div className="mt-5 flex flex-wrap gap-3"><Link href="/book" className="inline-flex px-4 py-2 text-sm rounded-md bg-accent text-black font-medium">Send a project brief →</Link><a href={TIDYCAL_URL} target="_blank" rel="noreferrer" className="px-4 py-2 text-sm rounded-md border border-border hover:bg-surface">Book 15 minutes</a></div></div>
+        <div><div className="label-mono mb-3">Explore</div><ul className="space-y-2 text-sm"><li><Link href="/services" className="text-muted hover:text-foreground">Services</Link></li><li><Link href="/industries" className="text-muted hover:text-foreground">Industries</Link></li><li><Link href="/work" className="text-muted hover:text-foreground">Work</Link></li><li><Link href="/demos" className="text-muted hover:text-foreground">Dashboards</Link></li></ul></div>
+        <div><div className="label-mono mb-3">Resources</div><ul className="space-y-2 text-sm"><li><Link href="/learn" className="text-muted hover:text-foreground">ML explainers</Link></li><li><Link href="/glossary" className="text-muted hover:text-foreground">AI & ML glossary</Link></li><li><Link href="/ai-events" className="text-muted hover:text-foreground">AI & tech events</Link></li><li><Link href="/community" className="text-muted hover:text-foreground">Community</Link></li></ul></div>
+        <div><div className="label-mono mb-3">Company</div><ul className="space-y-2 text-sm"><li><Link href="/about" className="text-muted hover:text-foreground">About</Link></li><li><Link href="/book" className="text-muted hover:text-foreground">Start a project</Link></li><li><a href="mailto:Saul@anyaiyouwant.com" className="text-muted hover:text-foreground">Email us</a></li><li><a href="https://buildersandbackers.org" target="_blank" rel="noreferrer" className="text-muted hover:text-foreground">Builders & Backers</a></li></ul></div>
       </div>
-      <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted font-mono">
-          <span>© {new Date().getFullYear()} D. Saul Jameson — Any AI You Want</span>
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-success pulse-dot" />
-            Currently accepting new engagements
-          </span>
-        </div>
-      </div>
+      <div className="border-t border-border"><div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-muted font-mono"><span>© {new Date().getFullYear()} Any AI You Want</span><span>All engineering work performed by U.S.-based engineers</span></div></div>
     </footer>
   );
 }

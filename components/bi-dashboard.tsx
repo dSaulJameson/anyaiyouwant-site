@@ -141,8 +141,8 @@ export function BiDashboard() {
                     <stop offset="100%" stopColor="#22d3ee" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="fc" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#a78bfa" stopOpacity={0.4} />
-                    <stop offset="100%" stopColor="#a78bfa" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#1677ff" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="#1677ff" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid stroke="#1f242d" strokeDasharray="3 3" vertical={false} />
@@ -154,7 +154,7 @@ export function BiDashboard() {
                   formatter={(v) => fmt(Number(v))}
                 />
                 <Area type="monotone" dataKey="revenue" stroke="#22d3ee" strokeWidth={2} fill="url(#rev)" />
-                <Area type="monotone" dataKey="forecast" stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="4 4" fill="url(#fc)" />
+                <Area type="monotone" dataKey="forecast" stroke="#1677ff" strokeWidth={1.5} strokeDasharray="4 4" fill="url(#fc)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -174,7 +174,7 @@ export function BiDashboard() {
                 />
                 <Bar dataKey="value" radius={[0, 4, 4, 0]}>
                   {channels.map((_, i) => (
-                    <Cell key={i} fill={["#22d3ee","#a78bfa","#fb923c","#4ade80","#22d3ee","#7a8290"][i]} />
+                    <Cell key={i} fill={["#18d9f2","#1677ff","#38bdf8","#4ade80","#0ea5e9","#7a8290"][i]} />
                   ))}
                 </Bar>
               </BarChart>
@@ -198,7 +198,7 @@ export function BiDashboard() {
                 contentStyle={{ background: "#0e1014", border: "1px solid #1f242d", borderRadius: 8, fontSize: 12 }}
                 formatter={(v) => `${v}%`}
               />
-              <Line type="monotone" dataKey="conv" stroke="#fb923c" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="conv" stroke="#38bdf8" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
