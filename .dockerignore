@@ -1,0 +1,14 @@
+.git
+.github
+.next
+.vercel
+node_modules
+.env*
+env.local
+*.pem
+*ed25519*
+*.log
+*.tsbuildinfo
+coverage
+build
+out
