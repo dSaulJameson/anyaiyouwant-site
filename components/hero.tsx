@@ -58,8 +58,8 @@ export function Hero() {
           <Link href="/book" className="brand-primary-action">
             Start a project <ArrowRight size={17} />
           </Link>
-          <Link href="/demos" className="brand-secondary-action">
-            Explore live work
+          <Link href="/work" className="brand-secondary-action">
+            See commercial work
           </Link>
         </div>
 
