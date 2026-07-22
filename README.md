@@ -2,7 +2,7 @@
 
 Marketing + portfolio site for **D. Saul Jameson** — Fractional CTO and machine learning engineer.
 
-Built with **Next.js 16 (App Router) · TypeScript · Tailwind v4 · Framer Motion · Recharts**, deployed on **Vercel**.
+Built with **Next.js 16 (App Router) · TypeScript · Tailwind v4 · Framer Motion · Recharts**, deployed in Docker on **HostHatch** behind a Cloudflare Tunnel.
 
 ## Pages
 
@@ -27,6 +27,8 @@ Open http://localhost:3000.
 npm run build
 npm start
 ```
+
+Production deployments from `main` are built and released by GitHub Actions through the dedicated non-root HostHatch deploy account.
 
 ## Asset map
 
