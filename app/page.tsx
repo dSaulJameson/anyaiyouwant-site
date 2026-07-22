@@ -1,50 +1,172 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Database, ShieldCheck } from "lucide-react";
+import { ArrowRight, BarChart3, Binary, CalendarDays, Code2, Database, LockKeyhole, Sparkles } from "lucide-react";
 import { Hero } from "@/components/hero";
-import { CapabilityStrip } from "@/components/capability-strip";
-import { ServicesGrid } from "@/components/services-grid";
-import { FeaturedWork } from "@/components/featured-work";
 import { ProjectBriefForm } from "@/components/project-brief-form";
-import { AnimatedGrid } from "@/components/animated-grid";
-import { industries, insights } from "@/lib/site-content";
+import { industries, insights, services } from "@/lib/site-content";
+
+const serviceIcons = [Code2, Binary, LockKeyhole, BarChart3, Database, Sparkles];
+
+const proof = [
+  {
+    eyebrow: "ML / OPTIMIZATION",
+    title: "$300M bidding engine",
+    body: "A production recommendation and bidding-optimization system designed around real-time decisions for a national auction platform.",
+    href: "/work",
+    action: "Read the case study →",
+  },
+  {
+    eyebrow: "ML / NINE YEARS IN PRODUCTION",
+    title: "ZIP-code lead prioritization",
+    body: "A Tobit-regression model using public demographic data to help a home-services call center prioritize leads. Still running nine years later.",
+    href: "/work",
+    action: "See the production history →",
+  },
+  {
+    eyebrow: "BAYESIAN ML / FORECASTING",
+    title: "Three years beating the market",
+    body: "A Bayesian supply-and-demand forecasting system for one of the country's leading avocado suppliers, tested against real purchasing decisions.",
+    href: "/learn/demand-forecasting",
+    action: "Understand the forecasting approach →",
+  },
+] as const;
 
 export default function HomePage() {
   return (
     <>
-      <div className="relative"><AnimatedGrid /><Hero /></div>
-      <CapabilityStrip />
-      <ServicesGrid />
+      <Hero />
 
-      <section className="py-20 border-y border-border bg-surface/25">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-5"><div className="label-mono">A lean engineering model</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">Pay for people who build.</h2><p className="mt-5 text-muted text-lg leading-relaxed">We do not carry a large business-development and administrative layer. The person in discovery can inspect the database, choose the model, and implement the system. When a project needs more hands, we assemble senior partners around the work.</p></div>
-          <div className="lg:col-span-7 grid sm:grid-cols-3 gap-4">
-            {[{ icon: ArrowRight, title: "No game of telephone", body: "Technical context stays with the people writing and reviewing the code." }, { icon: Database, title: "Code-first delivery", body: "Durable software and data systems stay central. Automation tools are optional edges." }, { icon: ShieldCheck, title: "Right-sized team", body: "One-day project or platform build: staffing follows the real scope." }].map((item) => <article className="card p-5" key={item.title}><item.icon size={20} className="text-accent" /><h3 className="mt-4 font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p></article>)}
-          </div>
+      <div className="brand-capability-band" aria-label="Engineering capabilities">
+        <span>SOFTWARE</span><i />
+        <span>ANALYTICS</span><i />
+        <span>MACHINE LEARNING</span><i />
+        <span>SECURE AI</span><i />
+        <span>AUTOMATION</span>
+      </div>
+
+      <section className="home-editorial-section">
+        <div className="home-section-intro">
+          <span className="home-kicker">01 / WHAT WE BUILD</span>
+          <h2>Bring the problem.<br /><em>We assemble the answer.</em></h2>
+          <p>
+            Software is the core, not an afterthought. Models, dashboards, APIs,
+            workflows, infrastructure, and interfaces are built as one operating system.
+          </p>
+        </div>
+
+        <div className="home-service-ledger">
+          {services.map((service, index) => {
+            const Icon = serviceIcons[index];
+            return (
+              <Link href={`/services#${service.slug}`} className="home-service-row" key={service.slug}>
+                <span className="home-service-number">0{index + 1}</span>
+                <Icon aria-hidden="true" />
+                <div>
+                  <h3>{service.title}</h3>
+                  <p>{service.short}</p>
+                </div>
+                <ArrowRight className="home-service-arrow" aria-hidden="true" />
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      <FeaturedWork />
-
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-3xl"><div className="label-mono">Industry systems</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">The KPIs change. <span className="text-gradient">The engineering travels.</span></h2><p className="mt-4 text-muted text-lg">Explore decision systems and live dashboard examples built around each operating model.</p></div>
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-4">{industries.map((industry) => <Link key={industry.slug} href={`/industries/${industry.slug}`} className="card p-5 group"><h3 className="font-semibold group-hover:text-accent">{industry.name}</h3><p className="mt-2 text-sm text-muted leading-relaxed">{industry.summary}</p><span className="mt-4 inline-block text-xs font-mono text-accent">KPIs + use cases →</span></Link>)}</div>
-          <div className="mt-8 text-center"><Link href="/industries" className="text-sm text-muted hover:text-foreground">View all industry solutions →</Link></div>
+      <section className="home-proof-section">
+        <div className="home-proof-heading">
+          <span className="home-kicker">02 / PROOF THAT SHIPS</span>
+          <h2>Measured in years.<br />Measured in revenue.</h2>
+          <p>Commercial systems with long production lives—not prototypes arranged for a portfolio screenshot.</p>
+          <Link href="/work">View the complete work <ArrowRight size={16} /></Link>
+        </div>
+        <div className="home-proof-grid">
+          {proof.map((item, index) => {
+            const external = item.href.startsWith("http");
+            const content = (
+              <>
+                <span className="home-proof-index">0{index + 1}</span>
+                <div className="home-proof-copy">
+                  <small>{item.eyebrow}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                  <strong>{item.action}</strong>
+                </div>
+              </>
+            );
+            return external ? (
+              <a className="home-proof-item" href={item.href} target="_blank" rel="noreferrer" key={item.title}>{content}</a>
+            ) : (
+              <Link className="home-proof-item" href={item.href} key={item.title}>{content}</Link>
+            );
+          })}
         </div>
       </section>
 
-      <section className="py-20 border-y border-border bg-surface/25">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5"><div className="max-w-3xl"><div className="label-mono">True machine learning</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">Understand the model before you buy the buzzword.</h2></div><Link href="/learn" className="text-sm font-mono text-accent">All technical explainers →</Link></div>
-          <div className="mt-10 grid md:grid-cols-2 gap-4">{insights.map((insight) => <Link key={insight.slug} href={`/learn/${insight.slug}`} className="card p-6 group"><div className="label-mono">{insight.eyebrow}</div><h3 className="mt-3 text-xl font-semibold group-hover:text-accent">{insight.title}</h3><p className="mt-3 text-sm text-muted leading-relaxed">{insight.description}</p><span className="mt-5 inline-block text-xs font-mono text-accent">Read the explainer →</span></Link>)}</div>
+      <section className="home-range-strip">
+        <div>
+          <span className="home-kicker">SOFTWARE RANGE</span>
+          <h2>Still comfortable building the unusual.</h2>
+        </div>
+        <p>AI-hosted venue experiences, payments, audio generation, real-time multiplayer, customer-facing products, and the internal systems behind them.</p>
+        <div className="home-range-links">
+          <a href="https://aihypehost.com" target="_blank" rel="noreferrer">AI Hype Host ↗</a>
+          <a href="https://songselfie.com" target="_blank" rel="noreferrer">Song Selfie ↗</a>
+          <Link href="/demos">Analytics demos →</Link>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-5"><div className="label-mono">Start with the real problem</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">Tell an engineer what is stuck.</h2><p className="mt-4 text-muted text-lg leading-relaxed">A useful brief is enough to start. We will review it directly, identify the likely approach, and tell you whether a focused sprint or a larger build makes sense.</p><div className="mt-6 flex items-center gap-3 text-sm text-muted"><CalendarDays size={17} className="text-accent" /><span>Prefer a conversation? <Link href="/book#calendar" className="text-foreground underline underline-offset-4">Book 15 minutes.</Link></span></div></div>
-          <div className="lg:col-span-7 card p-6 md:p-8"><ProjectBriefForm compact /></div>
+      <section className="home-model-section">
+        <div className="home-model-header">
+          <span className="home-kicker">03 / TRUE MACHINE LEARNING</span>
+          <h2>Models with assumptions.<br /><em>Outputs with uncertainty.</em></h2>
+          <p>Not AI as a buzzword. Understand what the method measures, where it can fail, and how it changes a decision.</p>
+        </div>
+        <div className="home-model-grid">
+          {insights.map((insight, index) => (
+            <Link href={`/learn/${insight.slug}`} className="home-model-item" key={insight.slug}>
+              <div className="home-model-orbit"><span>{index + 1}</span></div>
+              <small>{insight.eyebrow}</small>
+              <h3>{insight.title}</h3>
+              <p>{insight.description}</p>
+              <strong>Read the technical explainer →</strong>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-industry-section">
+        <div>
+          <span className="home-kicker">04 / INDUSTRY INTELLIGENCE</span>
+          <h2>The KPI changes.<br /><em>The engineering travels.</em></h2>
+        </div>
+        <div className="home-industry-list">
+          {industries.map((industry) => (
+            <Link href={`/industries/${industry.slug}`} key={industry.slug}>
+              <span>{industry.name}</span>
+              <small>{industry.kpis.slice(0, 3).join(" · ")}</small>
+              <ArrowRight size={17} />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-community-strip">
+        <div><CalendarDays /><span>Live AI and technology event guides</span></div>
+        <p>Local community data from Offline Networking, technical explainers, and a practical AI/ML glossary give people a reason to come back.</p>
+        <Link href="/community">Explore community resources →</Link>
+      </section>
+
+      <section className="home-brief-section">
+        <div className="home-brief-copy">
+          <span className="home-kicker">05 / START WITH AN ENGINEER</span>
+          <h2>Tell us what<br /><em>is stuck.</em></h2>
+          <p>
+            A senior engineer reviews every brief. No automated AI sales sequence,
+            no game of telephone, and no requirement that the project already be perfectly defined.
+          </p>
+          <Link href="/book#calendar">Prefer a call? Book 15 minutes →</Link>
+        </div>
+        <div className="home-brief-form">
+          <ProjectBriefForm compact />
         </div>
       </section>
     </>
