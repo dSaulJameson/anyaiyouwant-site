@@ -70,20 +70,16 @@ const mlSystems = [
 
 const software = [
   {
-    label: "PRIVATE / PRE-LAUNCH",
-    title: "AI DJ platform",
-    description: "A private event-hosting system combining music recognition, generated voice, guest requests, media, and scheduled venue experiences.",
-    stack: ["Next.js", "Postgres", "Spotify", "Voice AI", "AWS"],
-    href: null,
-    domain: null,
+    label: "OPERATIONS PLATFORM",
+    title: "Hospitality management software",
+    description: "Reservations, staffing, onboarding, training, availability, checklists, and manager workflows brought into one operating system for bars, restaurants, nightclubs, and events.",
+    stack: ["Next.js", "Postgres", "Scheduling", "Role-based portals", "Messaging"],
   },
   {
-    label: "LIVE PRODUCT",
-    title: "Song Selfie",
-    description: "A customer-facing music product with venue activations, share-ready generated audio, automated partner economics, authentication, and payouts.",
-    stack: ["Next.js", "AWS", "Audio generation", "Payments"],
-    href: "https://songselfie.com",
-    domain: "songselfie.com",
+    label: "DATA + WORKFLOW PRODUCT",
+    title: "Event contact and business-card platform",
+    description: "QR event pages, camera-based card capture, OCR, contact enrichment, searchable attendee directories, and exports built as one connected workflow.",
+    stack: ["Next.js", "Postgres", "OCR", "Private file storage", "Google integrations"],
   },
 ] as const;
 
@@ -180,24 +176,16 @@ export default function WorkPage() {
           <p>Customer products, internal tools, APIs, integrations, and infrastructure—from a one-day build to the whole platform.</p>
         </header>
         <div className="compact-software-grid">
-          {software.map((item) => {
-            const content = (
-              <>
+          {software.map((item) => (
+            <article key={item.title}>
                 <div><Sparkles aria-hidden="true" /><small>{item.label}</small></div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <div className="compact-stack">{item.stack.map((technology) => <span key={technology}>{technology}</span>)}</div>
-                {item.domain && <strong>{item.domain} <ArrowUpRight size={14} /></strong>}
-              </>
-            );
-
-            return item.href ? (
-              <a href={item.href} target="_blank" rel="noreferrer" key={item.title}>{content}</a>
-            ) : (
-              <article key={item.title}>{content}</article>
-            );
-          })}
+            </article>
+          ))}
         </div>
+        <p className="compact-software-footnote">Other product work includes private AI DJ and venue-activation systems.</p>
       </section>
 
       <section className="compact-work-cta">
