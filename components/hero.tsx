@@ -19,7 +19,7 @@ export function Hero() {
             <MapPin size={13} className="text-accent" /> All engineering work is performed by U.S.-based engineers
           </motion.div>
           <motion.h1 initial="hidden" animate="show" variants={fadeUp} custom={1} className="mt-6 text-4xl md:text-6xl font-semibold tracking-[-0.045em] leading-[1.02]">
-            Software, analytics, and <span className="text-gradient">secure AI that ship.</span>
+            Software, analytics, and <span className="text-gradient">secure AI that ships.</span>
           </motion.h1>
           <motion.p initial="hidden" animate="show" variants={fadeUp} custom={2} className="mt-6 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
             Senior engineers handle discovery and implementation, so the person learning your business can also write the code. Bring us a one-day problem or a multi-quarter platform.

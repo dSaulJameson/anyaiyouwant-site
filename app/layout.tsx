@@ -84,13 +84,13 @@ export const metadata: Metadata = {
     siteName: "Any AI You Want",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og.png", width: 1732, height: 917, alt: "Any AI You Want — Software, analytics, and secure AI that ship" }],
+    images: [{ url: "/og.png", width: 1732, height: 917, alt: "Any AI You Want — Software, analytics, and secure AI that ships" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Any AI You Want — Software, Analytics & Secure AI",
     description:
-      "Senior U.S.-based engineers. Software, analytics, real machine learning, and secure AI that ship.",
+      "Senior U.S.-based engineers. Software, analytics, real machine learning, and secure AI that ships.",
     creator: "@dSaulJameson",
     images: ["/og.png"],
   },
