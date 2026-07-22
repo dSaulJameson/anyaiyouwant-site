@@ -9,6 +9,7 @@ import { cn, TIDYCAL_URL } from "@/lib/utils";
 const links = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
+  { href: "/demos", label: "Demos" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
 ];

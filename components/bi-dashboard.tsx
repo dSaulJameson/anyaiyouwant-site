@@ -133,7 +133,7 @@ export function BiDashboard() {
             <div className="text-[10px] font-mono text-muted">tick #{tick}</div>
           </div>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1} initialDimension={{ width: 640, height: 220 }}>
               <AreaChart data={series} margin={{ left: -10, right: 8, top: 8, bottom: 0 }}>
                 <defs>
                   <linearGradient id="rev" x1="0" y1="0" x2="0" y2="1">
@@ -163,7 +163,7 @@ export function BiDashboard() {
         <div className="bg-surface-2/60 border border-border rounded-md p-4">
           <div className="label-mono mb-3">Channel Mix</div>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1} initialDimension={{ width: 380, height: 220 }}>
               <BarChart data={channels} layout="vertical" margin={{ left: 10, right: 8, top: 0, bottom: 0 }}>
                 <CartesianGrid stroke="#1f242d" strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" stroke="#7a8290" fontSize={10} tickLine={false} axisLine={false} />
@@ -189,7 +189,7 @@ export function BiDashboard() {
           <div className="text-[10px] font-mono text-muted">Avg {avgConv}%</div>
         </div>
         <div className="h-40">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1} initialDimension={{ width: 520, height: 180 }}>
             <LineChart data={series} margin={{ left: -10, right: 8, top: 8, bottom: 0 }}>
               <CartesianGrid stroke="#1f242d" strokeDasharray="3 3" vertical={false} />
               <XAxis dataKey="date" stroke="#7a8290" fontSize={10} tickLine={false} axisLine={false} minTickGap={24} />
