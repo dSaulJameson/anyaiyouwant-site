@@ -41,7 +41,7 @@ export const industries = [
   {
     slug: "cpg",
     name: "Consumer packaged goods",
-    dashboard: "cpg",
+    dashboard: "cpg-analytics",
     summary: "Forecast demand, understand promotion lift, protect margin, and keep inventory aligned with the shelf.",
     kpis: ["Forecast accuracy", "Promotion lift", "Distribution velocity", "Gross margin", "Out-of-stock rate", "Trade-spend ROI"],
     useCases: ["SKU and account forecasting", "Price and promotion modeling", "Retailer scorecards", "Consumer and store clustering"],
@@ -49,7 +49,7 @@ export const industries = [
   {
     slug: "home-services",
     name: "Home services",
-    dashboard: "home-services",
+    dashboard: "home-services-analytics",
     summary: "Turn lead flow into booked jobs with clearer attribution, territory intelligence, and capacity-aware forecasting.",
     kpis: ["Cost per qualified lead", "Appointment rate", "Close rate", "Revenue per issued lead", "Crew utilization", "Cancellation rate"],
     useCases: ["Lead scoring by ZIP code", "Kitchen and bath pipeline analytics", "Windows and solar attribution", "Call-center and crew forecasting"],
@@ -57,7 +57,7 @@ export const industries = [
   {
     slug: "ecommerce",
     name: "E-commerce",
-    dashboard: "e-commerce",
+    dashboard: "ecommerce-analytics",
     summary: "Connect acquisition, merchandising, retention, and fulfillment so growth is measured in contribution—not clicks.",
     kpis: ["Contribution margin", "Customer acquisition cost", "Repeat purchase rate", "Average order value", "Return rate", "Inventory turns"],
     useCases: ["Product recommendations", "Customer lifetime value", "Merchandising analytics", "Incrementality and channel attribution"],
@@ -65,7 +65,7 @@ export const industries = [
   {
     slug: "event-marketing",
     name: "Event marketing",
-    dashboard: "event-marketing",
+    dashboard: "event-marketing-analytics",
     summary: "Measure the whole event funnel—from registration source to attendance, pipeline, sponsorship, and repeat participation.",
     kpis: ["Registration conversion", "Attendance rate", "Cost per attendee", "Sponsor pipeline", "Revenue per event", "Repeat attendance"],
     useCases: ["Event portfolio scorecards", "Audience segmentation", "Sponsor attribution", "Registration and attendance forecasting"],
@@ -73,7 +73,7 @@ export const industries = [
   {
     slug: "legal",
     name: "Legal",
-    dashboard: "legal",
+    dashboard: "legal-analytics",
     summary: "Improve intake, case visibility, document workflows, and matter economics without compromising client confidentiality.",
     kpis: ["Qualified intake rate", "Consultation conversion", "Cost per signed matter", "Matter cycle time", "Utilization", "Realization rate"],
     useCases: ["Secure document search", "Intake prioritization", "Matter and referral analytics", "Demand and staffing forecasts"],
@@ -81,7 +81,7 @@ export const industries = [
   {
     slug: "real-estate",
     name: "Real estate",
-    dashboard: "real-estate",
+    dashboard: "real-estate-analytics",
     summary: "Build a clean view of markets, listings, leads, transactions, and follow-up across fragmented systems.",
     kpis: ["Lead-to-appointment rate", "Days on market", "Listing conversion", "Pipeline value", "Cost per closing", "Forecast accuracy"],
     useCases: ["Market and parcel data products", "Lead routing and scoring", "Agent performance analytics", "Transaction workflow automation"],
@@ -89,7 +89,7 @@ export const industries = [
   {
     slug: "hospitality-nightlife",
     name: "Bars, restaurants, and nightlife",
-    dashboard: "hospitality-nightlife",
+    dashboard: "hospitality-analytics",
     summary: "Understand traffic, reservations, labor, promotions, and guest behavior by venue, night, and acquisition channel.",
     kpis: ["Revenue per available seat hour", "Average check", "Labor percentage", "Guest acquisition cost", "Repeat visit rate", "No-show rate"],
     useCases: ["Demand and staffing forecasts", "Promotion measurement", "Guest segmentation", "Venue and event scorecards"],
@@ -97,7 +97,7 @@ export const industries = [
   {
     slug: "cannabis",
     name: "Cannabis",
-    dashboard: "cannabis-retail",
+    dashboard: "cannabis-retail-analytics",
     summary: "Combine compliant retail data, product performance, inventory, and promotion analytics in one operating view.",
     kpis: ["Net sales", "Basket size", "Inventory turns", "Discount rate", "Repeat purchase rate", "Gross margin"],
     useCases: ["Brand and SKU scorecards", "Demand planning", "Promotion lift", "Store and customer segmentation"],
@@ -117,7 +117,7 @@ export const insights = [
       ["What optimization actually means", "The goal is not to hand every dollar to the channel with the highest historic ROAS. A useful optimizer respects saturation, minimum commitments, channel interactions, testing budgets, operational capacity, and the cost of being wrong."],
     ],
     steps: ["Unify weekly outcomes, spend, and business drivers", "Specify carryover, saturation, seasonality, and priors", "Fit and validate against holdouts and known experiments", "Simulate budget allocations with uncertainty", "Refresh as new spend and outcomes arrive"],
-    cta: { label: "Explore the marketing dashboard", href: "/demos/marketing" },
+    cta: { label: "Explore the marketing dashboard", href: "/demos/marketing-analytics" },
   },
   {
     slug: "demand-forecasting",
@@ -131,7 +131,7 @@ export const insights = [
       ["What production forecasting adds", "Retail and CPG forecasts often need promotions, price, weather, distribution, product hierarchy, stockouts, and launch or discontinuation logic. Backtesting, reconciliation, exception handling, and human overrides matter as much as the model name."],
     ],
     steps: ["Define the decision and error cost", "Build naive and seasonal baselines", "Backtest candidate models over rolling windows", "Add causal drivers where they improve holdouts", "Monitor bias, accuracy, and override behavior"],
-    cta: { label: "Explore the CPG dashboard", href: "/demos/cpg" },
+    cta: { label: "Explore the CPG dashboard", href: "/demos/cpg-analytics" },
   },
   {
     slug: "secure-private-ai",
