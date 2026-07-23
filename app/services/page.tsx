@@ -47,7 +47,7 @@ export default function ServicesPage() {
             Product engineering with <span className="text-gradient">delivery built in.</span>
           </h1>
           <p className="mt-5 text-muted text-lg max-w-3xl leading-relaxed">
-            We are not a product-strategy shop that hands a deck to a separate development team. The engineers in the room shape the product, make the architecture decisions, write the code, and remain accountable through production.
+            Product definition and engineering delivery stay with the same senior team. The people in the room shape the product, make the architecture decisions, write the code, and remain accountable through production.
           </p>
         </div>
         <aside className="lg:col-span-4 card p-6">

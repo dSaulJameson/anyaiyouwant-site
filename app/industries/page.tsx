@@ -11,7 +11,7 @@ export default function IndustriesPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="label-mono">Industries</div>
         <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-5xl">Engineering depth that learns <span className="text-gradient">the operating model.</span></h1>
-        <p className="mt-5 text-muted text-lg max-w-3xl">We bring full-stack product engineering, data, ML, and secure AI to the systems that drive each business—without forcing every client into the same software or AI template.</p>
+        <p className="mt-5 text-muted text-lg max-w-3xl">We bring full-stack product engineering, data, ML, and secure AI to the systems that drive each business, shaped around its users, economics, constraints, and operating decisions.</p>
         <div className="mt-12 grid md:grid-cols-2 gap-5">
           {industries.map((industry) => (
             <article key={industry.slug} className="card p-6">

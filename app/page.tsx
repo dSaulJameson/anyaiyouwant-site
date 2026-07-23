@@ -5,6 +5,7 @@ import { ProjectBriefForm } from "@/components/project-brief-form";
 import { industries, insights, services } from "@/lib/site-content";
 
 const serviceIcons = [Code2, Binary, LockKeyhole, BarChart3, Database, Sparkles];
+const featuredInsights = insights.filter((insight) => ["custom-software-cost", "software-project-rescue", "secure-coding-agents", "search-answer-engine-growth"].includes(insight.slug));
 
 const proof = [
   {
@@ -81,7 +82,7 @@ export default function HomePage() {
       <section className="home-proof-section">
         <div className="home-proof-heading">
           <span className="home-kicker">02 / SELECTED OUTCOMES</span>
-          <h2>Software in the business.<br />Not demos beside it.</h2>
+          <h2>Built into the business.<br />Measured by what changes.</h2>
           <p>Representative production work across products, operations, data, machine learning, and secure AI.</p>
           <Link href="/work">Explore selected work <ArrowRight size={16} /></Link>
         </div>
@@ -113,7 +114,7 @@ export default function HomePage() {
           <span className="home-kicker">FULL-STACK MEANS THE WHOLE PRODUCT</span>
           <h2>From the customer experience to the system behind it.</h2>
         </div>
-        <p>Customer portals, operational platforms, data products, payments, scheduling, search-driven publishing, audio, integrations, internal tools, and the cloud systems beneath them.</p>
+        <p>We build the interfaces people use and the software, data, integrations, and infrastructure that make them reliable. One engineering team stays accountable across the stack.</p>
         <div className="home-range-links">
           <Link href="/services/product-engineering">Product engineering →</Link>
           <Link href="/work">Selected outcomes →</Link>
@@ -124,11 +125,11 @@ export default function HomePage() {
       <section className="home-model-section">
         <div className="home-model-header">
           <span className="home-kicker">03 / ENGINEERING INSIGHTS</span>
-          <h2>Models with assumptions.<br /><em>Outputs with uncertainty.</em></h2>
-          <p>Clear technical writing about software, measurement, models, security, and growth systems—where they work, where they fail, and what changes a decision.</p>
+          <h2>Clear answers for<br /><em>expensive technical decisions.</em></h2>
+          <p>Software architecture, production machine learning, secure AI, and technical growth explained by engineers who build and operate the systems.</p>
         </div>
         <div className="home-model-grid">
-          {insights.map((insight, index) => (
+          {featuredInsights.map((insight, index) => (
             <Link href={`/learn/${insight.slug}`} className="home-model-item" key={insight.slug}>
               <div className="home-model-orbit"><span>{index + 1}</span></div>
               <small>{insight.eyebrow}</small>

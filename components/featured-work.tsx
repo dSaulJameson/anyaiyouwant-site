@@ -4,7 +4,7 @@ const items = [
   {
     title: "Avocado Demand Forecasting",
     label: "ML / FORECASTING",
-    blurb: "Built a Bayesian regression model that beat the open market for 3 consecutive years for one of the nation's largest avocado suppliers.",
+    blurb: "Built and evaluated multiple forecasting models that beat the open market for 3 consecutive years for one of the nation's largest avocado suppliers.",
     accent: "from-accent/30 to-accent-2/20",
   },
   {
