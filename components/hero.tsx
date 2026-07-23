@@ -19,26 +19,26 @@ export function Hero() {
       <div className="brand-hero-content">
         <div className="brand-hero-kicker">
           <span aria-hidden="true" />
-          SENIOR U.S.-BASED PRODUCT ENGINEERING
+          U.S.-BASED AI, AUTOMATION + SOFTWARE ENGINEERING
         </div>
 
         <h1>
-          Senior U.S. engineers for
-          <br className="brand-hero-break" /> software that has to work.
+          Whatever you want to build,
+          <br className="brand-hero-break" /> automate, or improve—we engineer and ship it.
         </h1>
 
         <p className="brand-hero-summary">
-          We shape, architect, code, deploy, and operate full-stack products,
-          data systems, machine learning, and secure AI. The engineers in
-          discovery remain accountable through production.
+          Bring us an AI idea, a process to automate, a website, a data
+          problem, or a full product. Senior U.S.-based engineers design,
+          build, and stay accountable through production.
         </p>
 
         <div className="brand-hero-actions">
           <Link href="/book" className="brand-primary-action">
-            Talk to an engineer <ArrowRight size={17} />
+            Tell us what you need <ArrowRight size={17} />
           </Link>
           <Link href="/work" className="brand-secondary-action">
-            See selected work
+            See what we&apos;ve built
           </Link>
         </div>
 

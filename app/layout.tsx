@@ -26,11 +26,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Any AI You Want — U.S.-Based Product Engineering",
+    default: "Any AI You Want — AI, Automation & Software Engineering",
     template: "%s | Any AI You Want",
   },
   description:
-    "Senior U.S.-based engineers who architect, code, deploy, and operate full-stack software, data systems, machine learning, and secure AI.",
+    "Senior U.S.-based engineers building AI, automation, websites, analytics, machine learning, and full-stack products from idea through production.",
   applicationName: "Any AI You Want",
   authors: [{ name: "D. Saul Jameson", url: SITE_URL }],
   creator: "D. Saul Jameson",
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Any AI You Want — U.S.-Based Product Engineering",
+    title: "Any AI You Want — AI, Automation & Software Engineering",
     description:
-      "Senior U.S.-based engineers who shape, architect, code, deploy, and operate full-stack software, data systems, machine learning, and secure AI.",
+      "Bring us an AI idea, a process to automate, a website, a data problem, or a full product. Senior U.S.-based engineers build it through production.",
     url: SITE_URL,
     siteName: "Any AI You Want",
     locale: "en_US",
@@ -84,9 +84,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Any AI You Want — U.S.-Based Product Engineering",
+    title: "Any AI You Want — AI, Automation & Software Engineering",
     description:
-      "Senior U.S.-based engineers for full-stack software, data systems, machine learning, and secure AI.",
+      "U.S.-based engineers building AI, automation, websites, analytics, machine learning, and full-stack products.",
     creator: "@dSaulJameson",
     images: ["/og.png"],
   },
