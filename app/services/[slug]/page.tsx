@@ -8,11 +8,11 @@ import { capabilities, caseStudies, getCapability } from "@/lib/site-content";
 type Props = { params: Promise<{ slug: string }> };
 
 const relatedWork: Record<string, string[]> = {
-  "product-engineering": ["hospitality-operations-platform", "event-contact-platform", "local-discovery-platform"],
+  "product-engineering": ["local-discovery-platform", "social-paid-campaign-platform", "hospitality-operations-platform"],
   "data-analytics": ["local-discovery-platform", "lead-prioritization", "avocado-demand-forecasting"],
   "applied-machine-learning": ["auction-bidding-engine", "lead-prioritization", "avocado-demand-forecasting"],
   "secure-ai": ["secure-coding-agents", "event-contact-platform"],
-  "modernization-automation": ["hospitality-operations-platform", "event-contact-platform", "local-discovery-platform"],
+  "growth-systems-automation": ["social-paid-campaign-platform", "editorial-intelligence-system", "local-discovery-platform"],
   "technical-leadership": ["auction-bidding-engine", "secure-coding-agents", "local-discovery-platform"],
 };
 
@@ -32,7 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CapabilityPage({ params }: Props) {
   const capability = getCapability((await params).slug);
   if (!capability) notFound();
-  const work = caseStudies.filter((item) => relatedWork[capability.slug]?.includes(item.slug));
+  const work = (relatedWork[capability.slug] ?? [])
+    .map((slug) => caseStudies.find((item) => item.slug === slug))
+    .filter((item): item is (typeof caseStudies)[number] => Boolean(item));
 
   return (
     <div className="pt-16">
@@ -47,7 +49,7 @@ export default async function CapabilityPage({ params }: Props) {
           <p className="mt-6 text-muted text-lg md:text-xl leading-relaxed max-w-4xl">{capability.description}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href={`/book?project=${capability.slug}`} className="px-5 py-3 rounded-md bg-accent text-black font-medium inline-flex items-center gap-2">Talk to an engineer <ArrowRight size={16} /></Link>
-            <Link href="/work" className="px-5 py-3 rounded-md border border-border hover:bg-surface">See selected work</Link>
+            <Link href="/work" className="px-5 py-3 rounded-md border border-border hover:bg-surface">{capability.slug === "product-engineering" ? "See what we build" : "See selected work"}</Link>
           </div>
         </div>
         <aside className="lg:col-span-4 card p-6 self-start">
@@ -63,8 +65,8 @@ export default async function CapabilityPage({ params }: Props) {
 
       {work.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 md:px-10 mt-24">
-          <div className="label-mono">Representative work</div>
-          <h2 className="mt-2 text-3xl md:text-4xl font-semibold">Proof in production context.</h2>
+          <div className="label-mono">{capability.slug === "product-engineering" ? "Examples of what we build" : "Representative work"}</div>
+          <h2 className="mt-2 text-3xl md:text-4xl font-semibold">{capability.slug === "product-engineering" ? "Websites, customer products, and operating software." : "Proof in production context."}</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-4">{work.map((item) => <Link href={`/work/${item.slug}`} key={item.slug} className="card p-6 group"><div className="label-mono">{item.category}</div><h3 className="mt-3 text-xl font-semibold group-hover:text-accent">{item.title}</h3><p className="mt-3 text-sm text-muted leading-relaxed">{item.summary}</p><span className="mt-5 inline-flex items-center gap-2 text-xs font-mono text-accent">Read case study <ArrowRight size={14} /></span></Link>)}</div>
         </section>
       )}

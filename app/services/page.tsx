@@ -4,8 +4,8 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ServicesGrid } from "@/components/services-grid";
 
 export const metadata: Metadata = {
-  title: "Product Engineering, Data, ML & Secure AI Capabilities",
-  description: "Senior U.S.-based engineers delivering full-stack products, data systems, applied machine learning, secure AI, modernization, and technical leadership.",
+  title: "Web, Product Engineering, Growth Systems, Data, ML & Secure AI",
+  description: "Senior U.S.-based engineers delivering websites, full-stack products, growth automation, data systems, applied machine learning, secure AI, modernization, and technical leadership.",
   alternates: { canonical: "/services" },
 };
 

@@ -9,16 +9,16 @@ const featuredInsights = insights.filter((insight) => ["custom-software-cost", "
 
 const proof = [
   {
-    eyebrow: "PRODUCT ENGINEERING / OPERATIONS",
-    title: "Hospitality operations platform",
-    body: "Reservations, staffing, onboarding, training, availability, and manager workflows brought into one production system.",
-    href: "/work/hospitality-operations-platform",
+    eyebrow: "PRODUCT ENGINEERING / GROWTH SYSTEMS",
+    title: "Content-to-campaign platform",
+    body: "Content planning, multi-channel publishing, saved audiences, reach estimates, post promotion, and paid-campaign controls built into one operating product.",
+    href: "/work/social-paid-campaign-platform",
     action: "Read the case study →",
   },
   {
     eyebrow: "FULL-STACK / GROWTH ENGINEERING",
-    title: "Local discovery platform",
-    body: "A live event database, city architecture, publishing system, internal linking, and automated freshness built as one acquisition product.",
+    title: "Local discovery website",
+    body: "Custom web design, a live event database, city architecture, technical SEO, internal linking, and automated publishing built as one acquisition product.",
     href: "/work/local-discovery-platform",
     action: "See the platform →",
   },
@@ -82,13 +82,13 @@ export default function HomePage() {
       <section className="home-range-strip">
         <div>
           <span className="home-kicker">FULL-STACK MEANS THE WHOLE PRODUCT</span>
-          <h2>From the customer experience to the system behind it.</h2>
+          <h2>Design people notice. Engineering they can rely on.</h2>
         </div>
-        <p>We build the interfaces people use and the software, data, integrations, and infrastructure that make them reliable. One engineering team stays accountable across the stack.</p>
+        <p>We design and build websites, customer experiences, and full-stack web products—then engineer the software, data, integrations, and infrastructure that make them reliable.</p>
         <div className="home-range-links">
-          <Link href="/services/product-engineering">Product engineering →</Link>
+          <Link href="/services/product-engineering">Web design + product engineering →</Link>
           <Link href="/work">Selected outcomes →</Link>
-          <Link href="/services/modernization-automation">Modernization →</Link>
+          <Link href="/services/growth-systems-automation">Growth systems + automation →</Link>
         </div>
       </section>
 

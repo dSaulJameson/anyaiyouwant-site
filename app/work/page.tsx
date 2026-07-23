@@ -5,19 +5,20 @@ import { dashboardConfigs } from "@/lib/dashboard-data.mjs";
 import { caseStudies } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Selected Product Engineering, Data, ML & Secure AI Work",
-  description: "Selected full-stack products, operating platforms, analytics systems, production machine learning, and secure AI delivered by Any AI You Want.",
+  title: "Selected Web, Software, Growth, Data, ML & Secure AI Work",
+  description: "Selected websites, full-stack products, growth systems, analytics, production machine learning, and secure AI delivered by Any AI You Want.",
   alternates: { canonical: "/work" },
 };
 
 const categories = [
-  { href: "#product-engineering", number: "01", title: "Product", detail: "Software + platforms", icon: Code2 },
+  { href: "#product-engineering", number: "01", title: "Product", detail: "Web, software + growth systems", icon: Code2 },
   { href: "#data-analytics", number: "02", title: "Data", detail: "Analytics + BI", icon: BarChart3 },
   { href: "#machine-learning", number: "03", title: "ML", detail: "Forecasting + optimization", icon: BrainCircuit },
   { href: "#secure-ai", number: "04", title: "Secure AI", detail: "Agents + private models", icon: ShieldCheck },
 ] as const;
 
-const productWork = caseStudies.filter((item) => ["hospitality-operations-platform", "event-contact-platform", "local-discovery-platform"].includes(item.slug));
+const productWorkSlugs = ["local-discovery-platform", "social-paid-campaign-platform", "editorial-intelligence-system", "hospitality-operations-platform"];
+const productWork = productWorkSlugs.map((slug) => caseStudies.find((item) => item.slug === slug)).filter((item): item is (typeof caseStudies)[number] => Boolean(item));
 const mlWork = caseStudies.filter((item) => ["auction-bidding-engine", "lead-prioritization", "avocado-demand-forecasting"].includes(item.slug));
 const secureWork = caseStudies.filter((item) => item.slug === "secure-coding-agents");
 
@@ -45,8 +46,8 @@ export default function WorkPage() {
       <section className="compact-work-section compact-software" id="product-engineering">
         <header className="compact-section-heading">
           <div><span>01</span><Code2 aria-hidden="true" /></div>
-          <h2>Product engineering and delivery</h2>
-          <p>Customer products, operating platforms, data-backed publishing, APIs, integrations, and infrastructure shaped and built by the same engineering team.</p>
+          <h2>Websites, products, and growth systems</h2>
+          <p>High-traffic websites, customer products, internal platforms, content operations, social publishing, and paid-campaign software designed and built as working systems.</p>
           <Link href="/services/product-engineering">Explore the capability <ArrowRight size={14} /></Link>
         </header>
         <div className="compact-software-grid">
