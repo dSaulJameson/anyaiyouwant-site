@@ -79,36 +79,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-proof-section">
-        <div className="home-proof-heading">
-          <span className="home-kicker">02 / SELECTED OUTCOMES</span>
-          <h2>Built into the business.<br />Measured by what changes.</h2>
-          <p>Representative production work across products, operations, data, machine learning, and secure AI.</p>
-          <Link href="/work">Explore selected work <ArrowRight size={16} /></Link>
-        </div>
-        <div className="home-proof-grid">
-          {proof.map((item, index) => {
-            const external = item.href.startsWith("http");
-            const content = (
-              <>
-                <span className="home-proof-index">0{index + 1}</span>
-                <div className="home-proof-copy">
-                  <small>{item.eyebrow}</small>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  <strong>{item.action}</strong>
-                </div>
-              </>
-            );
-            return external ? (
-              <a className="home-proof-item" href={item.href} target="_blank" rel="noreferrer" key={item.title}>{content}</a>
-            ) : (
-              <Link className="home-proof-item" href={item.href} key={item.title}>{content}</Link>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="home-range-strip">
         <div>
           <span className="home-kicker">FULL-STACK MEANS THE WHOLE PRODUCT</span>
@@ -124,7 +94,7 @@ export default function HomePage() {
 
       <section className="home-model-section">
         <div className="home-model-header">
-          <span className="home-kicker">03 / ENGINEERING INSIGHTS</span>
+          <span className="home-kicker">02 / ENGINEERING INSIGHTS</span>
           <h2>Clear answers for<br /><em>expensive technical decisions.</em></h2>
           <p>Software architecture, production machine learning, secure AI, and technical growth explained by engineers who build and operate the systems.</p>
         </div>
@@ -143,7 +113,7 @@ export default function HomePage() {
 
       <section className="home-industry-section">
         <div>
-          <span className="home-kicker">04 / INDUSTRY INTELLIGENCE</span>
+          <span className="home-kicker">03 / INDUSTRY INTELLIGENCE</span>
           <h2>The KPI changes.<br /><em>The engineering travels.</em></h2>
         </div>
         <div className="home-industry-list">
@@ -161,6 +131,31 @@ export default function HomePage() {
         <div><CalendarDays /><span>Live AI and technology event guides</span></div>
         <p>Local community data from Offline Networking, technical explainers, and a practical AI/ML glossary give people a reason to come back.</p>
         <Link href="/community">Explore community resources →</Link>
+      </section>
+
+      <section className="home-proof-section">
+        <div className="home-proof-heading">
+          <span className="home-kicker">04 / SELECTED OUTCOMES</span>
+          <h2>Built into the business.<br />Measured by what changes.</h2>
+          <p>Representative production work across products, operations, data, machine learning, and secure AI.</p>
+          <Link href="/work">Explore selected work <ArrowRight size={16} /></Link>
+        </div>
+        <div className="home-proof-grid">
+          {proof.map((item, index) => {
+            const content = (
+              <>
+                <span className="home-proof-index">0{index + 1}</span>
+                <div className="home-proof-copy">
+                  <small>{item.eyebrow}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                  <strong>{item.action}</strong>
+                </div>
+              </>
+            );
+            return <Link className="home-proof-item" href={item.href} key={item.title}>{content}</Link>;
+          })}
+        </div>
       </section>
 
       <section className="home-brief-section">
