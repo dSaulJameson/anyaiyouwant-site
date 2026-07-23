@@ -241,7 +241,7 @@ export function IndustryDashboard({ slug, rows }: { slug: string; rows: Dashboar
         <div className="demo-table-wrap"><table><thead><tr><th>Market</th>{config.metrics.map((metric) => <th key={metric.key}>{metric.label}</th>)}</tr></thead><tbody>{locationRows.map((locationRow) => <tr key={locationRow.name}><td><MapPin size={14} />{locationRow.name}</td>{config.metrics.map((metric) => <td key={metric.key}>{formatValue(summarize(metric, locationRow.rows), metric.format)}</td>)}</tr>)}</tbody></table></div>
       </section>
 
-      <footer className="demo-footer"><span>Any AI You Want · Custom analytics systems</span><span>Fictional businesses and synthetic data for demonstration only</span><Link href="/book">Build one for your business <ArrowUpRight size={14} /></Link></footer>
+      <footer className="demo-footer"><span>Any AI You Want · Data engineering and analytics</span><span>Fictional businesses and synthetic data for demonstration only</span><Link href="/book?project=data-analytics">Talk to a data engineer <ArrowUpRight size={14} /></Link></footer>
     </div>
   );
 }

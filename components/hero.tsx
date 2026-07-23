@@ -19,26 +19,26 @@ export function Hero() {
       <div className="brand-hero-content">
         <div className="brand-hero-kicker">
           <span aria-hidden="true" />
-          U.S.-based software + ML studio
+          SENIOR U.S.-BASED PRODUCT ENGINEERING
         </div>
 
         <h1>
-          Software, analytics, and
-          <br className="brand-hero-break" /> secure AI that ships.
+          Senior U.S. engineers for
+          <br className="brand-hero-break" /> software that has to work.
         </h1>
 
         <p className="brand-hero-summary">
-          Senior engineers handle discovery and delivery—without a sales layer or
-          a game of telephone. Bring us a one-day problem, a complicated rescue,
-          or a platform that needs a full team.
+          We shape, architect, code, deploy, and operate full-stack products,
+          data systems, machine learning, and secure AI. The engineers in
+          discovery remain accountable through production.
         </p>
 
         <div className="brand-hero-actions">
           <Link href="/book" className="brand-primary-action">
-            Start a project <ArrowRight size={17} />
+            Talk to an engineer <ArrowRight size={17} />
           </Link>
           <Link href="/work" className="brand-secondary-action">
-            See commercial work
+            See selected work
           </Link>
         </div>
 
@@ -53,7 +53,7 @@ export function Hero() {
           </div>
           <div>
             <strong><Check size={16} /> U.S.-based</strong>
-            <span>engineering from discovery onward</span>
+            <span>engineering through production</span>
           </div>
         </div>
       </div>

@@ -8,25 +8,32 @@ const serviceIcons = [Code2, Binary, LockKeyhole, BarChart3, Database, Sparkles]
 
 const proof = [
   {
-    eyebrow: "ML / OPTIMIZATION",
-    title: "$300M bidding engine",
-    body: "A production recommendation and bidding-optimization system designed around real-time decisions for a national auction platform.",
-    href: "/work",
+    eyebrow: "PRODUCT ENGINEERING / OPERATIONS",
+    title: "Hospitality operations platform",
+    body: "Reservations, staffing, onboarding, training, availability, and manager workflows brought into one production system.",
+    href: "/work/hospitality-operations-platform",
     action: "Read the case study →",
   },
   {
-    eyebrow: "ML / NINE YEARS IN PRODUCTION",
-    title: "ZIP-code lead prioritization",
-    body: "A Tobit-regression model using public demographic data to help a home-services call center prioritize leads. Still running nine years later.",
-    href: "/work",
-    action: "See the production history →",
+    eyebrow: "FULL-STACK / GROWTH ENGINEERING",
+    title: "Local discovery platform",
+    body: "A live event database, city architecture, publishing system, internal linking, and automated freshness built as one acquisition product.",
+    href: "/work/local-discovery-platform",
+    action: "See the platform →",
   },
   {
-    eyebrow: "BAYESIAN ML / FORECASTING",
-    title: "Three years beating the market",
-    body: "A Bayesian supply-and-demand forecasting system for one of the country's leading avocado suppliers, tested against real purchasing decisions.",
-    href: "/learn/demand-forecasting",
-    action: "Understand the forecasting approach →",
+    eyebrow: "APPLIED ML / OPTIMIZATION",
+    title: "$300M bidding engine",
+    body: "A production recommendation and bidding-optimization system designed around real-time financial decisions for a national auction platform.",
+    href: "/work/auction-bidding-engine",
+    action: "Read the case study →",
+  },
+  {
+    eyebrow: "SECURE AI / ENGINEERING",
+    title: "Protected coding agents",
+    body: "Codex and Claude connected to team workflows through isolated workspaces, controlled repository access, short-lived credentials, and review gates.",
+    href: "/work/secure-coding-agents",
+    action: "See the architecture →",
   },
 ] as const;
 
@@ -45,11 +52,11 @@ export default function HomePage() {
 
       <section className="home-editorial-section">
         <div className="home-section-intro">
-          <span className="home-kicker">01 / WHAT WE BUILD</span>
-          <h2>Bring the problem.<br /><em>We assemble the answer.</em></h2>
+          <span className="home-kicker">01 / PRODUCT ENGINEERING + DELIVERY</span>
+          <h2>Bring the problem.<br /><em>Engineers build the answer.</em></h2>
           <p>
-            Software is the core, not an afterthought. Models, dashboards, APIs,
-            workflows, infrastructure, and interfaces are built as one operating system.
+            We are engineering-heavy by design. The people shaping the product
+            also architect, code, test, deploy, and operate it.
           </p>
         </div>
 
@@ -57,7 +64,7 @@ export default function HomePage() {
           {services.map((service, index) => {
             const Icon = serviceIcons[index];
             return (
-              <Link href={`/services#${service.slug}`} className="home-service-row" key={service.slug}>
+              <Link href={`/services/${service.slug}`} className="home-service-row" key={service.slug}>
                 <span className="home-service-number">0{index + 1}</span>
                 <Icon aria-hidden="true" />
                 <div>
@@ -73,10 +80,10 @@ export default function HomePage() {
 
       <section className="home-proof-section">
         <div className="home-proof-heading">
-          <span className="home-kicker">02 / PROOF THAT SHIPS</span>
-          <h2>Measured in years.<br />Measured in revenue.</h2>
-          <p>Commercial systems with long production lives—not prototypes arranged for a portfolio screenshot.</p>
-          <Link href="/work">View the complete work <ArrowRight size={16} /></Link>
+          <span className="home-kicker">02 / SELECTED OUTCOMES</span>
+          <h2>Software in the business.<br />Not demos beside it.</h2>
+          <p>Representative production work across products, operations, data, machine learning, and secure AI.</p>
+          <Link href="/work">Explore selected work <ArrowRight size={16} /></Link>
         </div>
         <div className="home-proof-grid">
           {proof.map((item, index) => {
@@ -103,22 +110,22 @@ export default function HomePage() {
 
       <section className="home-range-strip">
         <div>
-          <span className="home-kicker">SOFTWARE RANGE</span>
-          <h2>Still comfortable building the unusual.</h2>
+          <span className="home-kicker">FULL-STACK MEANS THE WHOLE PRODUCT</span>
+          <h2>From the customer experience to the system behind it.</h2>
         </div>
-        <p>AI-hosted venue experiences, payments, audio generation, real-time multiplayer, customer-facing products, and the internal systems behind them.</p>
+        <p>Customer portals, operational platforms, data products, payments, scheduling, search-driven publishing, audio, integrations, internal tools, and the cloud systems beneath them.</p>
         <div className="home-range-links">
-          <a href="https://aihypehost.com" target="_blank" rel="noreferrer">AI Hype Host ↗</a>
-          <a href="https://songselfie.com" target="_blank" rel="noreferrer">Song Selfie ↗</a>
-          <Link href="/demos">Analytics demos →</Link>
+          <Link href="/services/product-engineering">Product engineering →</Link>
+          <Link href="/work">Selected outcomes →</Link>
+          <Link href="/services/modernization-automation">Modernization →</Link>
         </div>
       </section>
 
       <section className="home-model-section">
         <div className="home-model-header">
-          <span className="home-kicker">03 / TRUE MACHINE LEARNING</span>
+          <span className="home-kicker">03 / ENGINEERING INSIGHTS</span>
           <h2>Models with assumptions.<br /><em>Outputs with uncertainty.</em></h2>
-          <p>Not AI as a buzzword. Understand what the method measures, where it can fail, and how it changes a decision.</p>
+          <p>Clear technical writing about software, measurement, models, security, and growth systems—where they work, where they fail, and what changes a decision.</p>
         </div>
         <div className="home-model-grid">
           {insights.map((insight, index) => (
@@ -127,7 +134,7 @@ export default function HomePage() {
               <small>{insight.eyebrow}</small>
               <h3>{insight.title}</h3>
               <p>{insight.description}</p>
-              <strong>Read the technical explainer →</strong>
+              <strong>Read the engineering insight →</strong>
             </Link>
           ))}
         </div>
@@ -160,8 +167,8 @@ export default function HomePage() {
           <span className="home-kicker">05 / START WITH AN ENGINEER</span>
           <h2>Tell us what<br /><em>is stuck.</em></h2>
           <p>
-            A senior engineer reviews every brief. No automated AI sales sequence,
-            no game of telephone, and no requirement that the project already be perfectly defined.
+            A senior engineer reviews every brief and responds with the most useful
+            technical next step. The project does not need to be perfectly defined.
           </p>
           <Link href="/book#calendar">Prefer a call? Book 15 minutes →</Link>
         </div>

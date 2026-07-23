@@ -646,20 +646,22 @@ body {
 
 .compact-ai { background: linear-gradient(125deg, #06101d, #071527 65%, #05101c); }
 .compact-ai-grid, .compact-ml-grid, .compact-software-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 90rem; margin: 0 auto; border-top: 1px solid rgba(24, 217, 242, .2); border-left: 1px solid rgba(24, 217, 242, .2); }
-.compact-ai-grid article { min-height: 15.5rem; padding: 1.4rem; border-right: 1px solid rgba(24, 217, 242, .2); border-bottom: 1px solid rgba(24, 217, 242, .2); }
-.compact-ai-grid article > div, .compact-software-grid article > div:first-child, .compact-software-grid a > div:first-child { display: flex; align-items: center; gap: .7rem; color: var(--accent); }
+.compact-ai-grid article, .compact-ai-grid > a { position: relative; min-height: 15.5rem; padding: 1.4rem; border-right: 1px solid rgba(24, 217, 242, .2); border-bottom: 1px solid rgba(24, 217, 242, .2); }
+.compact-ai-grid article > div, .compact-ai-grid > a > div, .compact-software-grid article > div:first-child, .compact-software-grid a > div:first-child { display: flex; align-items: center; gap: .7rem; color: var(--accent); }
 .compact-ai-grid small, .compact-software-grid small { font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: .53rem; letter-spacing: .08em; }
 .compact-ai-grid h3, .compact-software-grid h3 { margin-top: 2rem; color: #f7f9fc; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 400; line-height: 1.05; }
 .compact-ai-grid p, .compact-software-grid > * > p { margin-top: .8rem; color: #8997a8; font-size: .83rem; line-height: 1.6; }
+.compact-ai-grid strong, .compact-ai-grid article > a { position: absolute; right: 1.4rem; bottom: 1.3rem; display: flex; align-items: center; gap: .35rem; color: var(--accent); font-size: .66rem; }
 
 .compact-ml { background: #05070b; }
 .compact-ml-grid { border-color: rgba(255, 255, 255, .15); }
-.compact-ml-grid article { min-height: 17.5rem; padding: 1.4rem; border-right: 1px solid rgba(255, 255, 255, .15); border-bottom: 1px solid rgba(255, 255, 255, .15); }
-.compact-ml-grid > article > small { color: var(--accent); font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: .53rem; letter-spacing: .08em; }
+.compact-ml-grid article, .compact-ml-grid > a { position: relative; min-height: 17.5rem; padding: 1.4rem; border-right: 1px solid rgba(255, 255, 255, .15); border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.compact-ml-grid > article > small, .compact-ml-grid > a > small { color: var(--accent); font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: .53rem; letter-spacing: .08em; }
 .compact-ml-grid h3 { margin-top: .7rem; color: #f7f9fc; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 400; line-height: 1.05; }
 .compact-ml-grid p { margin-top: .75rem; color: #8996a6; font-size: .82rem; line-height: 1.55; }
 .compact-ml-grid ul { display: grid; gap: .35rem; margin-top: 1rem; color: #a9b5c3; font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: .53rem; list-style: none; text-transform: uppercase; }
 .compact-ml-grid li::before { margin-right: .4rem; color: var(--accent); content: "+"; }
+.compact-ml-grid strong { position: absolute; right: 1.4rem; bottom: 1.3rem; display: flex; align-items: center; gap: .35rem; color: var(--accent); font-size: .66rem; }
 .compact-ml-resources { display: flex; max-width: 90rem; margin: 1rem auto 0; border-top: 1px solid rgba(24, 217, 242, .18); border-left: 1px solid rgba(24, 217, 242, .18); }
 .compact-ml-resources a { display: flex; flex: 1; align-items: center; justify-content: space-between; gap: .7rem; padding: .85rem 1rem; border-right: 1px solid rgba(24, 217, 242, .18); border-bottom: 1px solid rgba(24, 217, 242, .18); color: #b8eef4; font-size: .67rem; }
 
@@ -697,7 +699,7 @@ body {
   .compact-section-heading { grid-template-columns: 2.5rem 1fr; gap: .8rem; }
   .compact-dashboard-grid, .compact-ai-grid, .compact-ml-grid, .compact-software-grid { grid-template-columns: 1fr; }
   .compact-dashboard-grid > a { min-height: 11.5rem; }
-  .compact-ai-grid article, .compact-ml-grid article, .compact-software-grid > article, .compact-software-grid > a { min-height: auto; }
+  .compact-ai-grid article, .compact-ai-grid > a, .compact-ml-grid article, .compact-ml-grid > a, .compact-software-grid > article, .compact-software-grid > a { min-height: auto; padding-bottom: 4rem; }
   .compact-ml-resources { display: grid; }
   .compact-work-cta { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 }

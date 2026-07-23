@@ -1,16 +1,20 @@
 # anyaiyouwant.com
 
-Marketing + portfolio site for **D. Saul Jameson** — Fractional CTO and machine learning engineer.
+Marketing, work, and community site for **Any AI You Want** — a senior U.S.-based product engineering company led by D. Saul Jameson.
 
 Built with **Next.js 16 (App Router) · TypeScript · Tailwind v4 · Framer Motion · Recharts**, deployed in Docker on **HostHatch** behind a Cloudflare Tunnel.
 
 ## Pages
 
-- `/` — Home: hero, capability strip, featured work, services, CTA
-- `/work` — Case studies + apps + **live interactive BI dashboard demo**
-- `/services` — Six capabilities + engagement shapes + stack matrix
-- `/about` — Bio + Builders & Backers Network (501(c)(6))
-- `/book` — Embedded TidyCal calendar
+- `/` — Product-engineering position, capability strip, selected outcomes, industries, insights, and consultation brief
+- `/services` and `/services/[slug]` — Product engineering, data, ML, secure AI, modernization, and technical leadership
+- `/work` and `/work/[slug]` — Outcome-oriented case studies plus a supporting interactive analytics lab
+- `/industries/[slug]` — Industry operating systems, use cases, KPIs, and representative dashboards
+- `/learn/[slug]` — Engineering insights across software, data, ML, secure AI, SEO, and GEO
+- `/ai-events/[city]` — Live city event resources backed by the Offline Networking database
+- `/glossary/[term]` — Practical software, data, AI, and growth-engineering definitions
+- `/about` — Company operating model, technical leadership, and Builders & Backers Network
+- `/book` — Private project brief and embedded TidyCal consultation calendar
 
 ## Local development
 
@@ -42,5 +46,5 @@ Production deployments from `main` are built and released by GitHub Actions thro
 ## Notes
 
 - Booking link: https://tidycal.com/dsauljameson/15-minute-meeting
-- Apps featured: [storywarz.win](https://storywarz.win), [songselfie.com](https://songselfie.com)
+- Experiential product work is mentioned only as supporting technical range; it is not a primary commercial offering
 - Builders & Backers Network: Chairman of the Board role mentioned on About page

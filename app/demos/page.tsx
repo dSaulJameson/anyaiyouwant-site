@@ -4,8 +4,8 @@ import { ArrowUpRight, BarChart3, Database, Sparkles } from "lucide-react";
 import { dashboardConfigs } from "@/lib/dashboard-data.mjs";
 
 export const metadata: Metadata = {
-  title: "Interactive analytics dashboard demos",
-  description: "Explore nine industry-specific analytics dashboards with three years of realistic synthetic data, built by Any AI You Want.",
+  title: "Interactive Analytics Lab — Nine Industry Examples",
+  description: "Explore nine industry-specific analytics examples with three years of realistic synthetic data and decision-focused KPI logic.",
   alternates: { canonical: "/demos" },
 };
 
@@ -13,9 +13,9 @@ export default function DemosPage() {
   return (
     <div className="demo-hub">
       <section className="demo-hub-hero">
-        <span className="demo-hub-kicker"><Sparkles size={15} /> Interactive analytics lab</span>
+        <span className="demo-hub-kicker"><Sparkles size={15} /> Interactive analytics lab / representative examples</span>
         <h1>Dashboards built around <span>the decisions that matter.</span></h1>
-        <p>Nine industries. Three years of realistic synthetic history in each. Different operating models, different KPIs, one production-minded analytics approach.</p>
+        <p>Nine industries. Three years of realistic synthetic history in each. These interfaces demonstrate the visible layer of a larger data system: definitions, integrations, pipelines, permissions, quality, and deployment.</p>
         <div className="demo-hub-proof"><span><Database size={15} /> 20,000+ modeled observations</span><span><BarChart3 size={15} /> Industry-specific KPI logic</span></div>
       </section>
 
@@ -31,8 +31,8 @@ export default function DemosPage() {
       </section>
 
       <section className="demo-hub-cta">
-        <div><span>Need your numbers to tell the truth?</span><h2>We build the data model, pipeline, interface, and deployment.</h2></div>
-        <Link href="/book">Talk through your dashboard <ArrowUpRight size={16} /></Link>
+        <div><span>Need the system behind the dashboard?</span><h2>We build the data model, pipeline, interface, and deployment.</h2></div>
+        <Link href="/book?project=data-analytics">Talk to a data engineer <ArrowUpRight size={16} /></Link>
       </section>
     </div>
   );

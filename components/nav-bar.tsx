@@ -8,10 +8,10 @@ import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
+  { href: "/services", label: "Capabilities" },
   { href: "/work", label: "Work" },
-  { href: "/learn", label: "Learn" },
+  { href: "/industries", label: "Industries" },
+  { href: "/learn", label: "Insights" },
   { href: "/community", label: "Community" },
 ];
 
@@ -33,7 +33,7 @@ export function NavBar() {
             );
           })}
           <Link href="/book" className="ml-3 px-4 py-2 text-sm rounded-md bg-accent text-black font-medium hover:bg-accent/90 transition-colors">
-            Start a project →
+            Talk to an engineer →
           </Link>
         </div>
         <button onClick={() => setOpen((value) => !value)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="lg:hidden p-2 text-foreground">
@@ -44,7 +44,7 @@ export function NavBar() {
         <div className="lg:hidden border-t border-border bg-background/95">
           <div className="px-6 py-4 flex flex-col gap-1">
             {links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="py-2.5 text-foreground">{link.label}</Link>)}
-            <Link href="/book" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 text-center rounded-md bg-accent text-black font-medium">Start a project →</Link>
+            <Link href="/book" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 text-center rounded-md bg-accent text-black font-medium">Talk to an engineer →</Link>
           </div>
         </div>
       )}

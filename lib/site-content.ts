@@ -1,39 +1,145 @@
-export const services = [
+export const capabilities = [
   {
-    slug: "software-development",
-    title: "Software development",
-    short: "From one-day tools to production platforms, in the language and stack that fit the job.",
-    bullets: ["Web and mobile applications", "Internal tools and data products", "APIs, integrations, and cloud infrastructure"],
+    slug: "product-engineering",
+    title: "Product engineering and delivery",
+    short: "Full-stack products, platforms, and internal systems designed for real operations and long-term ownership.",
+    bullets: ["Web, mobile, and SaaS products", "Internal platforms and customer portals", "APIs, integrations, payments, and cloud infrastructure"],
+    headline: "Full-stack software from first decision through production.",
+    description: "We turn an operating problem, product idea, or struggling codebase into software people can depend on. This is engineering-heavy by design: the people shaping the product also architect, code, test, deploy, and operate it.",
+    outcomes: ["Launch a new customer or internal product", "Replace spreadsheets and disconnected tools", "Add a production-ready feature your team cannot schedule", "Take ownership of a platform that needs a technical reset"],
+    process: ["Define the users, operating decision, and technical constraints", "Shape the smallest complete product worth shipping", "Deliver working increments with visible technical tradeoffs", "Deploy, document, and transfer a system your team can own"],
   },
   {
-    slug: "machine-learning",
-    title: "Machine learning",
-    short: "Forecasting, optimization, recommendation, clustering, and measurement—not AI as a buzzword.",
-    bullets: ["Bayesian marketing mix models", "ARIMA, Prophet, and demand forecasting", "Recommendation and lead-scoring systems"],
+    slug: "data-analytics",
+    title: "Data and analytics",
+    short: "Decision systems that connect reliable data, operating definitions, and interfaces people actually use.",
+    bullets: ["Data platforms and dependable pipelines", "Executive, operational, and embedded analytics", "Metric design, attribution, and experimentation"],
+    headline: "Make the operating truth easier to see and act on.",
+    description: "A dashboard is only the visible layer. We build the definitions, integrations, models, pipelines, permissions, and interfaces required to make analytics trustworthy in day-to-day decisions.",
+    outcomes: ["Unify fragmented reporting and source systems", "Connect marketing, operations, and finance", "Build analytics directly into a product", "Give teams one defensible definition of performance"],
+    process: ["Map decisions, source systems, and metric ownership", "Design the data model and quality rules", "Build pipelines and decision-ready interfaces", "Monitor freshness, adoption, and definition drift"],
+  },
+  {
+    slug: "applied-machine-learning",
+    title: "Applied machine learning",
+    short: "Forecasting, optimization, recommendation, segmentation, and measurement evaluated against business results.",
+    bullets: ["Demand and capacity forecasting", "Recommendation, ranking, and lead prioritization", "Bayesian measurement, clustering, and optimization"],
+    headline: "Machine learning with a decision on the other side.",
+    description: "We have shipped production ML since before generative AI became a category. Models are selected for the decision, the available data, and the cost of being wrong—not for how impressive the vocabulary sounds.",
+    outcomes: ["Forecast demand, staffing, inventory, or cash", "Prioritize leads, products, or operational actions", "Estimate incrementality and marketing contribution", "Find useful customer, store, or product segments"],
+    process: ["Define the decision and error costs", "Build transparent baselines before adding complexity", "Backtest against real historical decisions", "Deploy monitoring, review, and override paths"],
   },
   {
     slug: "secure-ai",
     title: "Secure AI",
-    short: "Useful AI systems designed around your privacy, risk tolerance, and existing security boundaries.",
-    bullets: ["Private and self-hosted models", "Data masking and controlled retrieval", "Model evaluation, guardrails, and audit trails"],
+    short: "Private model and agent systems designed around sensitive data, access boundaries, and accountable use.",
+    bullets: ["Private and self-hosted model deployments", "Protected coding agents and enterprise assistants", "Data masking, controlled retrieval, evaluation, and audit"],
+    headline: "Useful AI without treating private data as public material.",
+    description: "We design the boundary before choosing the model. Hosted, private-cloud, and self-hosted systems can all be appropriate when identity, retrieval, tools, logs, and retention are engineered together.",
+    outcomes: ["Give teams secure access to coding and reasoning agents", "Use sensitive documents without uncontrolled retention", "Host a model inside your security boundary", "Add approval, evaluation, and audit to an existing AI workflow"],
+    process: ["Classify the data and threat model", "Choose the appropriate inference and hosting boundary", "Constrain identity, retrieval, tools, logs, and retention", "Test leakage, accuracy, abuse, and failure recovery"],
   },
   {
-    slug: "analytics",
-    title: "Analytics and BI",
-    short: "Decision-ready reporting built around the operating questions your team actually asks.",
-    bullets: ["Executive and operational dashboards", "Metric design and attribution", "Data warehouses and reliable pipelines"],
-  },
-  {
-    slug: "automation",
-    title: "Automation",
-    short: "Code-first workflows that remain understandable when the easy connector stops being enough.",
-    bullets: ["Custom Python and TypeScript systems", "Queues, webhooks, retries, and deduplication", "n8n or Zapier only when they are the right layer"],
+    slug: "modernization-automation",
+    title: "Modernization and automation",
+    short: "Code-first improvements for systems that are brittle, manual, expensive to change, or stuck between tools.",
+    bullets: ["Application rescue and legacy modernization", "Custom workflow and integration systems", "Queues, webhooks, retries, observability, and cloud delivery"],
+    headline: "Make the software easier to trust, change, and operate.",
+    description: "Modernization can mean replacing a platform, separating a risky component, repairing delivery, or automating a workflow that has outgrown connectors. We preserve what works and rebuild what limits the business.",
+    outcomes: ["Rescue a stalled or unreliable software project", "Replace manual handoffs with owned workflows", "Move a fragile application onto a maintainable foundation", "Integrate systems without creating another black box"],
+    process: ["Trace the system, dependencies, and business risk", "Stabilize the highest-cost failure points", "Modernize in reversible production increments", "Leave monitoring, documentation, and ownership in place"],
   },
   {
     slug: "technical-leadership",
     title: "Technical leadership",
-    short: "Architecture, delivery, hiring, and technical decisions from people who can also implement them.",
-    bullets: ["Fractional CTO and technical due diligence", "Architecture and vendor review", "Roadmaps tied to shipped work"],
+    short: "Architecture, delivery, due diligence, and product decisions from leaders who can also implement them.",
+    bullets: ["Fractional CTO and engineering leadership", "Architecture, security, and vendor review", "Technical roadmaps tied to shipped work"],
+    headline: "Senior technical judgment that stays close to delivery.",
+    description: "Some teams need a roadmap. Others need an architecture decision, a rescue plan, hiring support, or a technical leader who can work directly in the system. Strategy is strongest when it remains accountable to implementation.",
+    outcomes: ["Set a credible product and architecture direction", "Evaluate a platform, vendor, acquisition, or technical risk", "Improve delivery without adding management theater", "Add senior leadership while building the permanent team"],
+    process: ["Understand the business, product, team, and constraints", "Make risks and tradeoffs legible", "Turn decisions into an executable delivery plan", "Stay involved through implementation and transfer"],
+  },
+] as const;
+
+export const services = capabilities;
+
+export const caseStudies = [
+  {
+    slug: "hospitality-operations-platform",
+    category: "Product engineering",
+    title: "Hospitality operations platform",
+    summary: "A connected operating system for reservations, staffing, onboarding, training, availability, checklists, and venue management.",
+    challenge: "Bars, restaurants, nightclubs, and event operations often run across disconnected scheduling tools, messages, spreadsheets, and manager memory.",
+    solution: "A role-aware full-stack platform brought the recurring workflows into one system, with operational interfaces designed for staff, managers, and ownership.",
+    outcomes: ["One source of truth for recurring venue operations", "Role-based workflows instead of spreadsheet handoffs", "A foundation that can expand across venues and operating models"],
+    capabilities: ["Next.js", "Postgres", "Scheduling", "Role-based access", "Messaging"],
+    metrics: ["Full-stack delivery", "Multi-role platform", "Production operations"],
+  },
+  {
+    slug: "event-contact-platform",
+    category: "Product engineering",
+    title: "Event contact and business-card platform",
+    summary: "A full-stack networking product combining event pages, QR access, card capture, OCR, enrichment, directories, and exports.",
+    challenge: "Event contacts arrived through paper cards, phone photos, registration tools, and informal introductions with no dependable way to organize or use the information afterward.",
+    solution: "The platform connected acquisition, private file handling, OCR, contact enrichment, searchable event directories, and downstream exports into one workflow.",
+    outcomes: ["Faster contact capture at live events", "Searchable, structured records instead of loose images", "A reusable data foundation for community and business workflows"],
+    capabilities: ["Next.js", "Postgres", "OCR", "Private storage", "Google integrations"],
+    metrics: ["Camera-to-record workflow", "Private document handling", "Event-ready UX"],
+  },
+  {
+    slug: "local-discovery-platform",
+    category: "Product engineering / Growth engineering",
+    title: "Local event discovery platform",
+    summary: "A data-backed publishing system designed to turn live community information into useful, crawlable city and event resources.",
+    challenge: "Local events were scattered across sources, difficult to classify, and hard for people or search systems to discover through a consistent local structure.",
+    solution: "A full-stack platform combined an event database, classification, city architecture, structured internal linking, automated freshness, and search-friendly pages.",
+    outcomes: ["A reusable content engine rather than manually produced landing pages", "Fresh city and topic resources backed by real event data", "A foundation for organic search, answer-engine visibility, and community referrals"],
+    capabilities: ["Full-stack web", "Postgres", "Programmatic publishing", "Technical SEO", "Structured data"],
+    metrics: ["Live event data", "Multi-city architecture", "Automated freshness"],
+  },
+  {
+    slug: "auction-bidding-engine",
+    category: "Applied machine learning",
+    title: "$300M bidding and recommendation engine",
+    summary: "A production ranking and bidding-optimization system designed around real-time decisions for a national auction platform.",
+    challenge: "The platform needed to prioritize products and bidding opportunities across a high-volume marketplace where model output affected real transactions.",
+    solution: "Recommendation, ranking, and bidding logic were designed as part of the operating system—not as an isolated model notebook.",
+    outcomes: ["Real-time decision support inside a production marketplace", "Model behavior connected to commercial constraints", "A durable foundation for continued optimization"],
+    capabilities: ["Python", "Gradient boosting", "Recommendation", "Real-time ranking", "Production ML"],
+    metrics: ["$300M+ annual GMV", "Real-time decisions", "Engineer of record"],
+  },
+  {
+    slug: "lead-prioritization",
+    category: "Applied machine learning",
+    title: "ZIP-code lead prioritization",
+    summary: "A regression system using public demographic data to help a home-services call center prioritize incoming leads.",
+    challenge: "Granular outcome data was limited, but the operation still needed a defensible way to prioritize scarce call-center attention.",
+    solution: "A Tobit-regression model combined American Community Survey signals with the available operating data and was integrated into the lead workflow.",
+    outcomes: ["A practical ranking signal despite imperfect source data", "A model simple enough to understand and operate", "Long-running production use across changing business conditions"],
+    capabilities: ["Python", "Tobit regression", "ACS data", "Lead scoring", "Production monitoring"],
+    metrics: ["9+ years in production", "Home services", "Operational prioritization"],
+  },
+  {
+    slug: "avocado-demand-forecasting",
+    category: "Applied machine learning",
+    title: "Commodity demand forecasting",
+    summary: "Bayesian supply-and-demand forecasting for one of the country’s leading avocado suppliers, evaluated against real purchasing decisions.",
+    challenge: "Perishable inventory, volatile supply, and uncertain market prices made purchasing decisions materially expensive to get wrong.",
+    solution: "A Bayesian regression system represented both expected demand and uncertainty so purchasing decisions could be evaluated across plausible market conditions.",
+    outcomes: ["Forecasts tied directly to purchasing decisions", "Uncertainty treated as an input rather than hidden", "A repeatable system that outperformed open-market buying over three years"],
+    capabilities: ["Bayesian regression", "Demand forecasting", "Monte Carlo simulation", "Commodity data", "Decision support"],
+    metrics: ["$100M+ commodity volume", "3 years beating market", "Bayesian forecasting"],
+  },
+  {
+    slug: "secure-coding-agents",
+    category: "Secure AI",
+    title: "Secure coding agents for team workflows",
+    summary: "Codex and Claude made available through familiar team interfaces and isolated cloud workspaces with controlled access.",
+    challenge: "Teams wanted the leverage of coding agents without giving conversational tools unrestricted access to repositories, credentials, networks, or sensitive history.",
+    solution: "Identity, repository scope, short-lived credentials, network boundaries, review gates, and reproducible workspaces were controlled outside the conversation layer.",
+    outcomes: ["Coding agents available where teams already collaborate", "Repository and credential access constrained by policy", "Reviewable changes and reproducible execution environments"],
+    capabilities: ["Codex", "Claude", "Slack", "Isolated cloud workspaces", "Short-lived credentials"],
+    metrics: ["Controlled team access", "Isolated execution", "Review gates"],
   },
 ] as const;
 
@@ -45,6 +151,7 @@ export const industries = [
     summary: "Forecast demand, understand promotion lift, protect margin, and keep inventory aligned with the shelf.",
     kpis: ["Forecast accuracy", "Promotion lift", "Distribution velocity", "Gross margin", "Out-of-stock rate", "Trade-spend ROI"],
     useCases: ["SKU and account forecasting", "Price and promotion modeling", "Retailer scorecards", "Consumer and store clustering"],
+    systems: ["Demand-planning and replenishment tools", "Retailer and distributor data integrations", "Trade-spend measurement platforms", "Sales, inventory, and margin analytics"],
   },
   {
     slug: "home-services",
@@ -53,6 +160,7 @@ export const industries = [
     summary: "Turn lead flow into booked jobs with clearer attribution, territory intelligence, and capacity-aware forecasting.",
     kpis: ["Cost per qualified lead", "Appointment rate", "Close rate", "Revenue per issued lead", "Crew utilization", "Cancellation rate"],
     useCases: ["Lead scoring by ZIP code", "Kitchen and bath pipeline analytics", "Windows and solar attribution", "Call-center and crew forecasting"],
+    systems: ["Lead-routing and call-center platforms", "Estimator, crew, and territory workflows", "Marketing-to-revenue attribution", "Customer portals and scheduling systems"],
   },
   {
     slug: "ecommerce",
@@ -61,6 +169,7 @@ export const industries = [
     summary: "Connect acquisition, merchandising, retention, and fulfillment so growth is measured in contribution—not clicks.",
     kpis: ["Contribution margin", "Customer acquisition cost", "Repeat purchase rate", "Average order value", "Return rate", "Inventory turns"],
     useCases: ["Product recommendations", "Customer lifetime value", "Merchandising analytics", "Incrementality and channel attribution"],
+    systems: ["Custom storefront and subscription products", "Product, order, and fulfillment integrations", "Recommendation and merchandising systems", "Retention and contribution analytics"],
   },
   {
     slug: "event-marketing",
@@ -69,6 +178,7 @@ export const industries = [
     summary: "Measure the whole event funnel—from registration source to attendance, pipeline, sponsorship, and repeat participation.",
     kpis: ["Registration conversion", "Attendance rate", "Cost per attendee", "Sponsor pipeline", "Revenue per event", "Repeat attendance"],
     useCases: ["Event portfolio scorecards", "Audience segmentation", "Sponsor attribution", "Registration and attendance forecasting"],
+    systems: ["Registration and attendee platforms", "Contact capture and enrichment", "Sponsor and partner reporting", "Local event discovery and publishing systems"],
   },
   {
     slug: "legal",
@@ -77,6 +187,7 @@ export const industries = [
     summary: "Improve intake, case visibility, document workflows, and matter economics without compromising client confidentiality.",
     kpis: ["Qualified intake rate", "Consultation conversion", "Cost per signed matter", "Matter cycle time", "Utilization", "Realization rate"],
     useCases: ["Secure document search", "Intake prioritization", "Matter and referral analytics", "Demand and staffing forecasts"],
+    systems: ["Secure client and matter portals", "Intake, referral, and routing workflows", "Private document intelligence", "Matter economics and staffing analytics"],
   },
   {
     slug: "real-estate",
@@ -85,6 +196,7 @@ export const industries = [
     summary: "Build a clean view of markets, listings, leads, transactions, and follow-up across fragmented systems.",
     kpis: ["Lead-to-appointment rate", "Days on market", "Listing conversion", "Pipeline value", "Cost per closing", "Forecast accuracy"],
     useCases: ["Market and parcel data products", "Lead routing and scoring", "Agent performance analytics", "Transaction workflow automation"],
+    systems: ["Listing and market-data products", "Agent and client portals", "Lead-routing and follow-up systems", "Transaction and portfolio analytics"],
   },
   {
     slug: "hospitality-nightlife",
@@ -93,6 +205,7 @@ export const industries = [
     summary: "Understand traffic, reservations, labor, promotions, and guest behavior by venue, night, and acquisition channel.",
     kpis: ["Revenue per available seat hour", "Average check", "Labor percentage", "Guest acquisition cost", "Repeat visit rate", "No-show rate"],
     useCases: ["Demand and staffing forecasts", "Promotion measurement", "Guest segmentation", "Venue and event scorecards"],
+    systems: ["Reservations and venue operations", "Staff onboarding, training, and scheduling", "Guest and membership experiences", "Promotion, labor, and event analytics"],
   },
   {
     slug: "cannabis",
@@ -101,6 +214,7 @@ export const industries = [
     summary: "Combine compliant retail data, product performance, inventory, and promotion analytics in one operating view.",
     kpis: ["Net sales", "Basket size", "Inventory turns", "Discount rate", "Repeat purchase rate", "Gross margin"],
     useCases: ["Brand and SKU scorecards", "Demand planning", "Promotion lift", "Store and customer segmentation"],
+    systems: ["Retail and brand reporting platforms", "Compliant product and inventory integrations", "Promotion and loyalty measurement", "Store, SKU, and customer decision tools"],
   },
 ] as const;
 
@@ -117,7 +231,7 @@ export const insights = [
       ["What optimization actually means", "The goal is not to hand every dollar to the channel with the highest historic ROAS. A useful optimizer respects saturation, minimum commitments, channel interactions, testing budgets, operational capacity, and the cost of being wrong."],
     ],
     steps: ["Unify weekly outcomes, spend, and business drivers", "Specify carryover, saturation, seasonality, and priors", "Fit and validate against holdouts and known experiments", "Simulate budget allocations with uncertainty", "Refresh as new spend and outcomes arrive"],
-    cta: { label: "Explore the marketing dashboard", href: "/demos/marketing-analytics" },
+    cta: { label: "Discuss a measurement system", href: "/book?project=applied-machine-learning" },
   },
   {
     slug: "demand-forecasting",
@@ -131,7 +245,7 @@ export const insights = [
       ["What production forecasting adds", "Retail and CPG forecasts often need promotions, price, weather, distribution, product hierarchy, stockouts, and launch or discontinuation logic. Backtesting, reconciliation, exception handling, and human overrides matter as much as the model name."],
     ],
     steps: ["Define the decision and error cost", "Build naive and seasonal baselines", "Backtest candidate models over rolling windows", "Add causal drivers where they improve holdouts", "Monitor bias, accuracy, and override behavior"],
-    cta: { label: "Explore the CPG dashboard", href: "/demos/cpg-analytics" },
+    cta: { label: "Discuss a forecasting system", href: "/book?project=applied-machine-learning" },
   },
   {
     slug: "secure-private-ai",
@@ -142,10 +256,10 @@ export const insights = [
       ["Choose the boundary first", "Some workloads can safely use a hosted model with contractual controls. Others require a private endpoint, a dedicated cloud environment, or a model hosted on infrastructure you control. The right answer follows the data classification and threat model."],
       ["Minimize what the model sees", "Sensitive identifiers can be removed, tokenized, generalized, or replaced before a request leaves the trusted boundary. Retrieval should expose only the smallest relevant context and every permission check should happen outside the model."],
       ["Treat prompts and outputs as untrusted", "Prompt injection, data exfiltration, hallucination, and unsafe tool calls are engineering problems. Constrained tools, allowlists, evaluation suites, human approval, and audit logs are more important than a clever system prompt."],
-      ["Small projects can still matter", "A focused data-masking gateway, secure document prototype, or model-hosting assessment can often be completed in a day. The result may be a production component, a tested proof of concept, or a clear go/no-go decision."],
+      ["Small projects can still matter", "A focused data-masking gateway, secure document prototype, or model-hosting assessment can often establish feasibility quickly. The result may be a production component, a tested proof of concept, or a clear go or no-go decision."],
     ],
     steps: ["Classify the data and threat model", "Select hosted, private, or self-hosted inference", "Minimize and disguise sensitive context", "Constrain tools and permissions", "Evaluate leakage, accuracy, and failure modes"],
-    cta: { label: "Send a secure AI brief", href: "/book?project=secure-ai" },
+    cta: { label: "Talk through a secure AI system", href: "/book?project=secure-ai" },
   },
   {
     slug: "customer-segmentation",
@@ -158,56 +272,115 @@ export const insights = [
       ["Validate with behavior", "Useful segments predict a difference outside the variables used to build them: response to a promotion, churn risk, support cost, product affinity, or service capacity. If nobody can act differently, the segmentation is unfinished."],
     ],
     steps: ["Tie segments to an operating decision", "Engineer behavior and value features", "Compare multiple clustering approaches", "Test stability and out-of-sample differences", "Deploy understandable labels and refresh rules"],
-    cta: { label: "Discuss a segmentation project", href: "/book?project=machine-learning" },
+    cta: { label: "Discuss a segmentation system", href: "/book?project=applied-machine-learning" },
+  },
+  {
+    slug: "secure-coding-agents",
+    title: "Secure coding agents for real engineering teams",
+    eyebrow: "Secure AI / Software delivery",
+    description: "How Codex, Claude, and other coding agents can work with repositories and teams without receiving permanent, unrestricted access.",
+    sections: [
+      ["The chat interface is not the security boundary", "Slack, a web app, or an IDE can be the place where a request begins. Identity, repository scope, credentials, networking, execution, and approval should be enforced by systems outside the conversation."],
+      ["Give every task an isolated workspace", "A clean, reproducible workspace limits cross-project leakage and makes it easier to understand exactly which repository, branch, tools, and network destinations an agent can reach."],
+      ["Prefer short-lived authority", "Repository tokens, cloud credentials, and deployment permissions should be scoped to the task and expire quickly. The agent should receive the smallest authority required to complete the approved work."],
+      ["Keep humans at consequential gates", "Agents can investigate, write, test, and propose changes. Reviews, production deployment, destructive operations, and access expansions should remain visible and attributable."],
+    ],
+    steps: ["Map identities, repositories, tools, and sensitive boundaries", "Create isolated reproducible workspaces", "Issue scoped short-lived credentials", "Capture actions and require review gates", "Test containment and recovery"],
+    cta: { label: "Design a secure coding-agent workflow", href: "/book?project=secure-ai" },
+  },
+  {
+    slug: "search-answer-engine-growth",
+    title: "Search and answer-engine growth systems",
+    eyebrow: "Growth engineering / SEO + GEO",
+    description: "Why useful data, crawlable architecture, content operations, and clear entity signals matter more than mass-producing landing pages.",
+    sections: [
+      ["Treat discovery as a product system", "Search visibility is affected by information architecture, data quality, internal linking, page usefulness, performance, freshness, and authority. Those pieces work better when they are designed as one product rather than a pile of isolated marketing tasks."],
+      ["Programmatic does not mean generic", "A templated page becomes useful when it is backed by unique data, a real user need, and meaningful differences between records. Repeating the same sales paragraph across hundreds of locations creates pages without a reason to exist."],
+      ["Answer engines need legible facts", "Clear definitions, direct answers, structured relationships, credible authorship, supporting evidence, and stable URLs make content easier for both people and machines to interpret. Schema helps describe a page; it cannot rescue thin content."],
+      ["Measure people separately from crawlers", "Server requests, search impressions, organic sessions, conversions, and AI referrals answer different questions. A growth system should preserve those distinctions so early crawl activity is not mistaken for business impact."],
+    ],
+    steps: ["Map audiences, questions, entities, and proprietary data", "Design crawlable page and internal-link structures", "Build repeatable publishing and freshness workflows", "Add structured data and technical quality controls", "Measure discovery through qualified action"],
+    cta: { label: "Discuss a growth-engineering platform", href: "/book?project=product-engineering" },
+  },
+  {
+    slug: "custom-software-cost",
+    title: "What custom software should cost",
+    eyebrow: "Product engineering / Buying guide",
+    description: "A practical way to think about scope, technical risk, team shape, ownership, and the difference between a low estimate and a low total cost.",
+    sections: [
+      ["Price follows uncertainty as much as feature count", "A familiar workflow on a known stack is easier to estimate than a product with unclear users, undocumented integrations, or an untested data dependency. Good discovery reduces expensive uncertainty without becoming a months-long ceremony."],
+      ["Senior teams can be smaller", "A compact team with product, architecture, and implementation judgment can often avoid the coordination cost of larger teams divided into narrow roles. The relevant measure is completed, maintainable capability—not the hourly rate in isolation."],
+      ["Ownership changes the total cost", "Code quality, documentation, deployment, observability, data portability, and intellectual-property terms affect what the client will pay after launch. Cheap software becomes expensive when only the original vendor can operate it."],
+      ["Use ranges honestly", "A focused technical sprint, a defined product build, and a multi-quarter platform have different buying motions. A credible partner should make the assumptions behind a range visible and refine it as evidence improves."],
+    ],
+    steps: ["Define the outcome and the cost of delay", "Expose the largest technical and product unknowns", "Choose the smallest complete first release", "Price a team and risk plan, not a feature fantasy", "Re-estimate as real usage replaces assumptions"],
+    cta: { label: "Get a technical read on your project", href: "/book?project=product-engineering" },
+  },
+  {
+    slug: "software-project-rescue",
+    title: "How to rescue a stalled software project",
+    eyebrow: "Modernization / Delivery",
+    description: "A production-minded approach to stabilizing a codebase, recovering context, and shipping progress without blindly starting over.",
+    sections: [
+      ["Find the business-critical path", "A rescue starts by identifying which users, workflows, deadlines, and revenue paths matter most. Not every broken test, old dependency, or architectural complaint deserves equal priority."],
+      ["Recover the system before rewriting it", "Trace environments, deployments, data stores, integrations, credentials, and undocumented operational knowledge. Rewrites fail when the old system contains important behavior nobody has made explicit."],
+      ["Stabilize delivery", "A repeatable local setup, dependable builds, targeted tests, logging, and safe deployment create the feedback loop required to improve the product without generating new mysteries."],
+      ["Modernize in reversible increments", "Replace the riskiest boundaries first and keep working software available. A full rewrite is appropriate sometimes, but it should be a conclusion supported by evidence—not the opening assumption."],
+    ],
+    steps: ["Map users, revenue paths, architecture, and ownership", "Reproduce and observe the current system", "Stabilize builds, deployment, and critical workflows", "Prioritize repairs by business risk", "Modernize behind controlled boundaries"],
+    cta: { label: "Bring us the stalled project", href: "/book?project=modernization-automation" },
   },
 ] as const;
 
 export const eventCities = [
-  ["los-angeles", "Los Angeles", "CA"],
-  ["fullerton", "Fullerton", "CA"],
-  ["orange-county", "Orange County", "CA"],
-  ["san-diego", "San Diego", "CA"],
-  ["irvine", "Irvine", "CA"],
-  ["santa-monica", "Santa Monica", "CA"],
-  ["pasadena", "Pasadena", "CA"],
-  ["long-beach", "Long Beach", "CA"],
-  ["newport-beach", "Newport Beach", "CA"],
-  ["costa-mesa", "Costa Mesa", "CA"],
-  ["anaheim", "Anaheim", "CA"],
-  ["san-jose", "San Jose", "CA"],
-  ["new-york", "New York", "NY"],
+  ["los-angeles", "Los Angeles", "CA"], ["fullerton", "Fullerton", "CA"], ["orange-county", "Orange County", "CA"],
+  ["san-diego", "San Diego", "CA"], ["irvine", "Irvine", "CA"], ["santa-monica", "Santa Monica", "CA"],
+  ["pasadena", "Pasadena", "CA"], ["long-beach", "Long Beach", "CA"], ["newport-beach", "Newport Beach", "CA"],
+  ["costa-mesa", "Costa Mesa", "CA"], ["anaheim", "Anaheim", "CA"], ["san-jose", "San Jose", "CA"], ["new-york", "New York", "NY"],
 ] as const;
+
+export const eventCityProfiles: Record<string, { context: string; focus: string[]; nearby: string[] }> = {
+  "los-angeles": { context: "Los Angeles brings software, entertainment, media, aerospace, consumer brands, and a large founder community into the same regional market.", focus: ["AI product and media technology", "Software founder and investor events", "Data, cloud, and engineering meetups"], nearby: ["santa-monica", "pasadena", "long-beach"] },
+  fullerton: { context: "Fullerton sits at the center of north Orange County, connecting local founders, operators, universities, manufacturers, and the broader Southern California technology community.", focus: ["Founder and small-business technology", "Applied AI and automation", "Engineering and community programs"], nearby: ["anaheim", "orange-county", "irvine"] },
+  "orange-county": { context: "Orange County's technology community is distributed across enterprise software, healthcare, finance, real estate, consumer businesses, hospitality, and manufacturing.", focus: ["Enterprise and applied AI", "Software and product leadership", "Founder, operator, and investor events"], nearby: ["irvine", "costa-mesa", "newport-beach"] },
+  "san-diego": { context: "San Diego combines software with life sciences, defense, communications, research, tourism, and a strong cross-border business community.", focus: ["Biotech, health, and data", "Cybersecurity and defense technology", "Startup and software engineering events"], nearby: ["irvine", "orange-county", "los-angeles"] },
+  irvine: { context: "Irvine is a major Orange County center for enterprise technology, healthcare, finance, real estate, and growing software companies.", focus: ["Enterprise software and AI", "Medtech and regulated systems", "Product, data, and founder events"], nearby: ["orange-county", "costa-mesa", "newport-beach"] },
+  "santa-monica": { context: "Santa Monica connects consumer software, media, advertising, commerce, and venture-backed product companies across the west side of Los Angeles.", focus: ["Consumer and media technology", "Product design and growth", "AI founder and investor gatherings"], nearby: ["los-angeles", "pasadena", "long-beach"] },
+  pasadena: { context: "Pasadena has a deep-technology identity shaped by research, aerospace, engineering, science, and technical entrepreneurship.", focus: ["Deep tech and research commercialization", "Aerospace and engineering", "AI, data, and founder programs"], nearby: ["los-angeles", "santa-monica", "long-beach"] },
+  "long-beach": { context: "Long Beach sits at the intersection of logistics, maritime trade, aerospace, hospitality, local business, and the wider Los Angeles technology market.", focus: ["Logistics and operations technology", "Aerospace and advanced manufacturing", "Local founder and software events"], nearby: ["los-angeles", "fullerton", "orange-county"] },
+  "newport-beach": { context: "Newport Beach brings together finance, real estate, professional services, hospitality, consumer brands, and Orange County's investor network.", focus: ["Fintech and professional services", "Real estate and data products", "Executive AI and founder events"], nearby: ["costa-mesa", "irvine", "orange-county"] },
+  "costa-mesa": { context: "Costa Mesa connects design, retail, hospitality, consumer businesses, and creative technology within the Orange County market.", focus: ["Commerce and consumer technology", "Hospitality and event systems", "Creative, founder, and AI gatherings"], nearby: ["newport-beach", "irvine", "orange-county"] },
+  anaheim: { context: "Anaheim combines tourism, live events, hospitality, manufacturing, healthcare, and a large base of operating businesses.", focus: ["Hospitality and event technology", "Manufacturing and automation", "Small-business software and AI"], nearby: ["fullerton", "orange-county", "irvine"] },
+  "san-jose": { context: "San Jose is part of the country's densest enterprise software, cloud, semiconductor, data, and venture technology ecosystem.", focus: ["Enterprise AI and cloud platforms", "Developer tools and infrastructure", "Founder, engineering, and product events"], nearby: ["los-angeles", "san-diego", "new-york"] },
+  "new-york": { context: "New York's technology market spans finance, media, advertising, commerce, healthcare, real estate, and enterprise software.", focus: ["Fintech and enterprise AI", "Media, advertising, and commerce", "Product, data, and founder events"], nearby: ["san-jose", "los-angeles", "san-diego"] },
+};
 
 export const glossaryTerms = [
-  ["arima", "ARIMA", "A family of statistical time-series models that uses autoregression, differencing, and moving-average errors to forecast future values."],
-  ["bayesian-regression", "Bayesian regression", "Regression that represents model parameters as probability distributions, combining prior information with observed data."],
-  ["clustering", "Clustering", "Unsupervised methods that group observations by similarity so analysts can explore structure and design different actions."],
-  ["embeddings", "Embeddings", "Numeric representations that place semantically similar items near one another for search, recommendation, and classification."],
-  ["forecast-backtesting", "Forecast backtesting", "Repeatedly training on historical cutoffs and evaluating later periods to estimate how a forecasting system will behave in production."],
-  ["incrementality", "Incrementality", "The change caused by an intervention compared with what would have happened without it."],
-  ["large-language-model", "Large language model", "A probabilistic model trained on large text collections to predict and generate sequences of tokens."],
-  ["marketing-mix-model", "Marketing mix model", "A statistical model that estimates how media and business drivers contribute to an outcome over time."],
-  ["monte-carlo-simulation", "Monte Carlo simulation", "Repeated random sampling used to estimate a range of possible outcomes and the uncertainty around them."],
-  ["prophet", "Prophet", "An additive forecasting approach designed for business time series with trend, seasonal, holiday, and event effects."],
-  ["rag", "Retrieval-augmented generation", "A pattern that retrieves approved source material and supplies it to a generative model at request time."],
-  ["recommendation-system", "Recommendation system", "A system that ranks products, content, or actions for a user or context using behavior, attributes, and feedback."],
-  ["synthetic-data", "Synthetic data", "Artificially generated records designed to preserve useful statistical patterns without directly reproducing source records."],
+  { slug: "api", name: "API", definition: "A defined interface that lets software systems request data or actions from one another.", why: "APIs determine how reliably products, vendors, data, and workflows can be connected without sharing internal implementation details.", example: "A scheduling product may use APIs to create calendar events, collect payments, and update a customer record." },
+  { slug: "arima", name: "ARIMA", definition: "A family of statistical time-series models using autoregression, differencing, and moving-average errors to forecast future values.", why: "ARIMA models are interpretable, fast, and often strong baselines for mature time series with stable historical structure.", example: "A retailer can compare an ARIMA forecast with seasonal-naive and promotion-aware models before choosing a production approach." },
+  { slug: "bayesian-regression", name: "Bayesian regression", definition: "Regression that represents model parameters as probability distributions, combining prior information with observed data.", why: "It makes uncertainty explicit and allows prior knowledge to be incorporated transparently instead of producing one falsely precise estimate.", example: "A marketing model can estimate a range of likely channel effects rather than claiming one exact return on ad spend." },
+  { slug: "clustering", name: "Clustering", definition: "Unsupervised methods that group observations by similarity so analysts can explore structure and design different actions.", why: "Clustering can reveal useful customer, store, or product groups when the groups are stable and lead to meaningfully different decisions.", example: "A retailer might identify high-frequency low-margin shoppers separately from occasional high-value purchasers." },
+  { slug: "data-warehouse", name: "Data warehouse", definition: "A central analytical data store designed to combine information from multiple operational systems for reporting and analysis.", why: "A warehouse creates a controlled place for shared metric definitions, history, and cross-system analysis.", example: "Orders, advertising spend, returns, inventory, and customer records can be modeled together for contribution reporting." },
+  { slug: "embeddings", name: "Embeddings", definition: "Numeric representations that place semantically similar items near one another for search, recommendation, and classification.", why: "Embeddings make it possible to compare meaning or behavior without relying only on exact keywords.", example: "A document assistant can use embeddings to retrieve relevant policy passages for a user's question." },
+  { slug: "forecast-backtesting", name: "Forecast backtesting", definition: "Repeatedly training on historical cutoffs and evaluating later periods to estimate how a forecasting system will behave in production.", why: "A model that fits all available history can still fail on future decisions. Backtesting reproduces that future-facing constraint.", example: "A demand model can be trained through each month and evaluated on the following four weeks across several years." },
+  { slug: "geo", name: "Generative engine optimization (GEO)", definition: "The practice of making useful, credible information easier for AI-powered answer and discovery systems to interpret, retrieve, and reference.", why: "Answer engines reward legible facts, strong information architecture, entity clarity, supporting evidence, and content that directly resolves a real question.", example: "A technical guide with direct answers, clear authorship, structured relationships, and original data is more useful than hundreds of interchangeable landing pages." },
+  { slug: "idempotency", name: "Idempotency", definition: "A property that lets the same operation be attempted more than once without creating unintended duplicate effects.", why: "Webhooks, payment events, queues, and integrations are routinely retried. Idempotency prevents duplicate charges, records, messages, or workflow steps.", example: "A payment webhook can be processed twice while creating only one paid-order update." },
+  { slug: "incrementality", name: "Incrementality", definition: "The change caused by an intervention compared with what would have happened without it.", why: "Attribution can report who touched a conversion; incrementality asks whether the activity actually created additional results.", example: "A geographic holdout can estimate whether an advertising campaign generated sales beyond the existing baseline." },
+  { slug: "large-language-model", name: "Large language model", definition: "A probabilistic model trained on large text collections to predict and generate sequences of tokens.", why: "LLMs are powerful interfaces and reasoning components, but they do not inherently know permissions, current private facts, or whether an output is correct.", example: "An enterprise assistant can combine an LLM with controlled retrieval, tools, evaluations, and human review." },
+  { slug: "marketing-mix-model", name: "Marketing mix model", definition: "A statistical model that estimates how media and business drivers contribute to an outcome over time.", why: "It is useful when click-level tracking is incomplete and when decision-makers need to account for seasonality, pricing, distribution, and channel saturation.", example: "A Bayesian model can simulate likely revenue under several constrained advertising budgets." },
+  { slug: "monte-carlo-simulation", name: "Monte Carlo simulation", definition: "Repeated random sampling used to estimate a range of possible outcomes and the uncertainty around them.", why: "Simulation exposes the distribution of plausible results instead of hiding uncertainty behind a single average.", example: "A budget optimizer can simulate thousands of response curves to compare downside risk across channel allocations." },
+  { slug: "programmatic-seo", name: "Programmatic SEO", definition: "A publishing approach that creates structured search pages from repeatable templates and underlying data.", why: "It can scale genuinely useful resources when each page serves a distinct need and contains unique, maintained information.", example: "A live event database can generate city pages with different events, local context, nearby resources, and updated structured data." },
+  { slug: "prophet", name: "Prophet", definition: "An additive forecasting approach designed for business time series with trend, seasonal, holiday, and event effects.", why: "Prophet is convenient for many business patterns, but it should be backtested against simpler and more specialized alternatives.", example: "A staffing forecast can model weekly seasonality and holiday closures while still being compared with a seasonal-naive baseline." },
+  { slug: "rag", name: "Retrieval-augmented generation", definition: "A pattern that retrieves approved source material and supplies it to a generative model at request time.", why: "Retrieval can make answers more current and grounded while preserving control over which source material is available.", example: "A legal knowledge assistant can retrieve permitted matter documents only after the application verifies the user's access." },
+  { slug: "recommendation-system", name: "Recommendation system", definition: "A system that ranks products, content, or actions for a user or context using behavior, attributes, and feedback.", why: "Recommendation affects what users see and what the business prioritizes, so relevance, constraints, feedback, and monitoring must be designed together.", example: "An auction platform can rank listings using user behavior, item attributes, marketplace conditions, and business rules." },
+  { slug: "synthetic-data", name: "Synthetic data", definition: "Artificially generated records designed to preserve useful patterns without directly reproducing source records.", why: "Synthetic data can support testing, demonstrations, and some modeling tasks when real data is sensitive, scarce, or unavailable.", example: "An analytics demo can show realistic seasonality and KPI relationships without publishing a client's records." },
+  { slug: "vector-database", name: "Vector database", definition: "A data system optimized to store and search high-dimensional numeric representations such as embeddings.", why: "Vector search is useful for semantic retrieval, but permissions, filtering, freshness, and source traceability still belong in the application architecture.", example: "A support assistant can retrieve conceptually related product documentation while filtering results to the user's account and product version." },
+  { slug: "zero-data-retention", name: "Zero data retention", definition: "A processing policy or architecture in which request content is not retained after the operation beyond what is technically required to complete it.", why: "Retention controls reduce exposure for sensitive workflows, but they must cover application logs, model providers, caches, traces, and error systems—not only the primary database.", example: "A workflow can transform a Social Security number into a masked token without storing the original value in prompts, logs, or application history." },
 ] as const;
 
-export function getIndustry(slug: string) {
-  return industries.find((item) => item.slug === slug);
-}
-
-export function getInsight(slug: string) {
-  return insights.find((item) => item.slug === slug);
-}
-
-export function getEventCity(slug: string) {
-  const city = eventCities.find((item) => item[0] === slug);
-  return city ? { slug: city[0], name: city[1], state: city[2] } : undefined;
-}
-
-export function getGlossaryTerm(slug: string) {
-  const term = glossaryTerms.find((item) => item[0] === slug);
-  return term ? { slug: term[0], name: term[1], definition: term[2] } : undefined;
-}
+export function getCapability(slug: string) { return capabilities.find((item) => item.slug === slug); }
+export function getCaseStudy(slug: string) { return caseStudies.find((item) => item.slug === slug); }
+export function getIndustry(slug: string) { return industries.find((item) => item.slug === slug); }
+export function getInsight(slug: string) { return insights.find((item) => item.slug === slug); }
+export function getEventCity(slug: string) { const city = eventCities.find((item) => item[0] === slug); return city ? { slug: city[0], name: city[1], state: city[2], profile: eventCityProfiles[city[0]] } : undefined; }
+export function getGlossaryTerm(slug: string) { return glossaryTerms.find((item) => item.slug === slug); }

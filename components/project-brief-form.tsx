@@ -21,7 +21,7 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
       utmMedium: params.get("utm_medium") ?? "",
       utmCampaign: params.get("utm_campaign") ?? "",
     };
-    setStatus({ kind: "sending", message: "Saving your brief…" });
+    setStatus({ kind: "sending", message: "Sending your brief…" });
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
@@ -31,7 +31,7 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
       const result = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(result.error || "Something went wrong.");
       form.reset();
-      setStatus({ kind: "success", message: "Your project brief is in. A senior engineer will review it personally." });
+      setStatus({ kind: "success", message: "Your project brief is in. A senior engineer will review the context and respond directly." });
     } catch (error) {
       setStatus({ kind: "error", message: error instanceof Error ? error.message : "Something went wrong." });
     }
@@ -59,14 +59,16 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
         <label><span>Company</span><input name="company" autoComplete="organization" /></label>
         <label><span>Phone</span><input name="phone" type="tel" autoComplete="tel" /></label>
         <label>
-          <span>What kind of work?</span>
-          <select name="projectType" defaultValue="software">
-            <option value="software">Software development</option>
-            <option value="machine-learning">Machine learning</option>
+          <span>What kind of help?</span>
+          <select name="projectType" defaultValue="">
+            <option value="">Not sure yet</option>
+            <option value="product-engineering">Product engineering and delivery</option>
+            <option value="data-analytics">Data and analytics</option>
+            <option value="applied-machine-learning">Applied machine learning</option>
             <option value="secure-ai">Secure AI</option>
-            <option value="analytics">Analytics and BI</option>
-            <option value="automation">Automation</option>
+            <option value="modernization-automation">Modernization or automation</option>
             <option value="technical-leadership">Technical leadership</option>
+            <option value="search-growth">Search and answer-engine growth</option>
             <option value="other">Something else</option>
           </select>
         </label>
@@ -84,14 +86,14 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
       </div>
       <label><span>Timing</span><input name="timeline" placeholder="This week, this quarter, exploring…" /></label>
       <label>
-        <span>What should we know? *</span>
-        <textarea name="brief" rows={compact ? 4 : 6} minLength={30} maxLength={5000} required placeholder="What are you trying to accomplish, what exists today, and what would make the project successful?" />
+        <span>What should change? *</span>
+        <textarea name="brief" rows={compact ? 4 : 6} minLength={30} maxLength={5000} required placeholder="What exists today, what outcome do you need, and what is currently getting in the way?" />
       </label>
       <div className="brief-submit-row">
         <button type="submit" disabled={status.kind === "sending"}>
           <Send size={16} aria-hidden="true" /> {status.kind === "sending" ? "Saving…" : "Send project brief"}
         </button>
-        <p>Saved directly to our private database. No automated AI follow-up.</p>
+        <p>Stored privately for direct review by a senior engineer.</p>
       </div>
       {status.kind === "error" && <p className="brief-error" role="alert">{status.message}</p>}
     </form>
