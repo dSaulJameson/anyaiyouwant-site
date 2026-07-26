@@ -76,17 +76,31 @@ function validContentType(value: unknown): EditorialContentType {
   return editorialContentTypes.some((item) => item.value === candidate) ? candidate : "failure_file";
 }
 
-function normalizeSources(values: unknown, allowedUrls?: Set<string>) {
+function canonicalSourceUrl(value: string) {
+  try {
+    const url = new URL(value);
+    url.hash = "";
+    url.search = "";
+    url.hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+    url.pathname = url.pathname.replace(/\/$/, "") || "/";
+    return url.toString();
+  } catch { return ""; }
+}
+
+function normalizeSources(values: unknown, allowedSources?: Map<string, EditorialSource>) {
   if (!Array.isArray(values)) return [];
   const seen = new Set<string>();
   const sources: EditorialSource[] = [];
   for (const value of values) {
-    if (!value || typeof value !== "object") continue;
-    const source = value as { label?: unknown; url?: unknown };
-    const url = clean(source.url, 2_000);
-    if (!/^https:\/\//i.test(url) || seen.has(url) || (allowedUrls && !allowedUrls.has(url))) continue;
-    seen.add(url);
-    sources.push({ label: clean(source.label, 220) || new URL(url).hostname, url });
+    const source = typeof value === "string" ? { url: value, label: "" } : value && typeof value === "object" ? value as { label?: unknown; url?: unknown } : null;
+    if (!source) continue;
+    const requestedUrl = clean(source.url, 2_000);
+    const canonical = canonicalSourceUrl(requestedUrl);
+    const cited = allowedSources?.get(canonical);
+    if (!canonical || seen.has(canonical) || (allowedSources && !cited)) continue;
+    seen.add(canonical);
+    const url = cited?.url || requestedUrl;
+    sources.push({ label: clean(source.label, 220) || cited?.label || new URL(url).hostname, url });
   }
   return sources.slice(0, 8);
 }
@@ -179,7 +193,7 @@ export async function discoverEditorialCandidates() {
   const response = await openRouter([
     {
       role: "system",
-      content: "You are the research editor for Any AI You Want, a U.S.-based strategy, growth, software, data, ML, automation, and secure-AI company. Return JSON with a candidates array. Find specific, well-documented recent failures, postmortems, enforcement actions, security/privacy incidents, marketing measurement breakdowns, forecasting or inventory mistakes, automation failures, and expensive software decisions. Prefer primary sources: regulators, court or government records, company incident reports, engineering postmortems, status pages, and official filings. Reject generic trend pieces, listicles, rumors, isolated social posts, and stories without an implementable lesson. Each candidate must include content_type, working_title, hook, summary, industry, capability, why_now, failure, consequences, solution, evidence_notes, facts, source_urls, commercial_fit_score, and significance_score. Make the hook sharp but do not allege misconduct or causation beyond the sources. Return no more than four candidates.",
+      content: "You are the research editor for Any AI You Want, a U.S.-based strategy, growth, software, data, ML, automation, and secure-AI company. Return JSON with a candidates array. Find specific, well-documented recent failures, postmortems, enforcement actions, security/privacy incidents, marketing measurement breakdowns, forecasting or inventory mistakes, automation failures, and expensive software decisions. Prefer primary sources: regulators, court or government records, company incident reports, engineering postmortems, status pages, and official filings. Reject generic trend pieces, listicles, rumors, isolated social posts, and stories without an implementable lesson. Each candidate must include content_type, working_title, hook, summary, industry, capability, why_now, failure, consequences, solution, evidence_notes, facts, source_urls, commercial_fit_score, and significance_score. source_urls must be an array of objects shaped exactly as {\"label\":\"source title\",\"url\":\"https://exact-cited-url\"}; use only URLs returned by the research tool. Make the hook sharp but do not allege misconduct or causation beyond the sources. Return no more than four candidates.",
     },
     {
       role: "user",
@@ -189,12 +203,12 @@ export async function discoverEditorialCandidates() {
   if (!response) return [];
   const message = response.choices?.[0]?.message;
   const annotations = message?.annotations?.map((item) => item.url_citation).filter((item): item is { url: string; title?: string; content?: string } => Boolean(item?.url)) ?? [];
-  const allowedUrls = new Set(annotations.map((item) => item.url));
+  const allowedSources = new Map(annotations.map((item) => [canonicalSourceUrl(item.url), { url: item.url, label: item.title || new URL(item.url).hostname }]));
   const parsed = parseJson<{ candidates?: DiscoveredCandidate[] }>(message?.content || "{}", {});
   const saved: EditorialLead[] = [];
   for (const candidate of (parsed.candidates || []).slice(0, 4)) {
     const contentType = validContentType(candidate.content_type);
-    const sources = normalizeSources(candidate.source_urls, allowedUrls);
+    const sources = normalizeSources(candidate.source_urls, allowedSources);
     const facts = normalizeFacts(candidate.facts);
     const evidenceNotes = clean(candidate.evidence_notes, 15_000);
     if (!clean(candidate.working_title, 300) || !sources.length || evidenceNotes.length < 120) continue;
@@ -220,6 +234,7 @@ export async function discoverEditorialCandidates() {
     });
     if (lead) saved.push(lead);
   }
+  console.info("Editorial research discovery", { parsed: parsed.candidates?.length ?? 0, citations: annotations.length, saved: saved.length });
   return saved;
 }
 
