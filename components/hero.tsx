@@ -19,7 +19,7 @@ export function Hero() {
       <div className="brand-hero-content">
         <div className="brand-hero-kicker">
           <span aria-hidden="true" />
-          U.S.-BASED AI, AUTOMATION + SOFTWARE ENGINEERING
+          STRATEGY, GROWTH, AI + U.S.-BASED ENGINEERING
         </div>
 
         <h1>
@@ -28,9 +28,9 @@ export function Hero() {
         </h1>
 
         <p className="brand-hero-summary">
-          Bring us an AI idea, a process to automate, a website, a data
-          problem, or a full product. Senior U.S.-based engineers design,
-          build, and stay accountable through production.
+          Bring us a hard business decision, a growth goal, an AI idea, a
+          process to automate, a website, or a full product. Senior people
+          shape the answer and stay accountable through execution.
         </p>
 
         <div className="brand-hero-actions">

@@ -31,7 +31,7 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
       const result = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(result.error || "Something went wrong.");
       form.reset();
-      setStatus({ kind: "success", message: "Your project brief is in. A senior engineer will review the context and respond directly." });
+      setStatus({ kind: "success", message: "Your project brief is in. A senior operator or engineer will review the context and respond directly." });
     } catch (error) {
       setStatus({ kind: "error", message: error instanceof Error ? error.message : "Something went wrong." });
     }
@@ -66,21 +66,20 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
             <option value="data-analytics">Data and analytics</option>
             <option value="applied-machine-learning">Applied machine learning</option>
             <option value="secure-ai">Secure AI</option>
-            <option value="growth-systems-automation">Growth systems and automation</option>
-            <option value="technical-leadership">Technical leadership</option>
+            <option value="growth-marketing-media">Growth marketing and media</option>
+            <option value="business-strategy-execution">Business strategy, decision, or launch plan</option>
             <option value="search-growth">Search and answer-engine growth</option>
             <option value="other">Something else</option>
           </select>
         </label>
         <label>
-          <span>Working budget</span>
+          <span>Engagement shape</span>
           <select name="budget" defaultValue="">
             <option value="">Not sure yet</option>
-            <option value="under-5k">Under $5k</option>
-            <option value="5k-15k">$5k–$15k</option>
-            <option value="15k-50k">$15k–$50k</option>
-            <option value="50k-150k">$50k–$150k</option>
-            <option value="150k-plus">$150k+</option>
+            <option value="focused">Focused problem or sprint</option>
+            <option value="project">Defined project or launch</option>
+            <option value="ongoing">Ongoing execution partner</option>
+            <option value="team">Full build or embedded team</option>
           </select>
         </label>
       </div>
@@ -93,7 +92,7 @@ export function ProjectBriefForm({ compact = false }: { compact?: boolean }) {
         <button type="submit" disabled={status.kind === "sending"}>
           <Send size={16} aria-hidden="true" /> {status.kind === "sending" ? "Saving…" : "Send project brief"}
         </button>
-        <p>Stored privately for direct review by a senior engineer.</p>
+        <p>Stored privately for direct senior review.</p>
       </div>
       {status.kind === "error" && <p className="brief-error" role="alert">{status.message}</p>}
     </form>

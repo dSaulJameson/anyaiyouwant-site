@@ -40,28 +40,69 @@ export const capabilities = [
     process: ["Classify the data and threat model", "Choose the appropriate inference and hosting boundary", "Constrain identity, retrieval, tools, logs, and retention", "Test leakage, accuracy, abuse, and failure recovery"],
   },
   {
-    slug: "growth-systems-automation",
-    title: "Growth systems and automation",
-    short: "Owned software for content operations, social publishing, paid campaigns, audience targeting, and measurement.",
-    bullets: ["Editorial research, approvals, and content operations", "Social publishing and paid-campaign workflows", "Audience targeting, CRM, analytics, and conversion tracking"],
-    headline: "Turn recurring growth work into a system your team controls.",
-    description: "We engineer the software behind repeatable growth: gathering source material, producing and approving content, publishing across channels, creating targeted campaigns, and measuring what drives action. The result is an operating system for growth—not another collection of disconnected tools and manual handoffs.",
-    outcomes: ["Move content from source research through approval and publishing", "Launch targeted campaigns from the same operating workflow", "Connect audience, campaign, and conversion data", "Replace brittle connector chains with maintainable software"],
-    process: ["Map the audience, channels, approvals, and conversion path", "Design the content and campaign operating model", "Build publishing, targeting, and measurement into one workflow", "Add guardrails, monitoring, and clear team ownership"],
+    slug: "growth-marketing-media",
+    title: "Growth marketing and media systems",
+    short: "Content, social media, paid campaigns, landing pages, automation, and measurement run as one connected growth system.",
+    bullets: ["Social content, publishing, and campaign operations", "Meta, Google, and paid-media management", "Landing pages, CRM automation, attribution, and analytics"],
+    headline: "Connect attention, campaigns, and conversion.",
+    description: "We plan and operate social and paid media, then engineer the websites, tracking, follow-up, and reporting that make the work measurable. Engage us for a focused growth-system build, a conversion reset, or ongoing campaign and media operations.",
+    outcomes: ["Create a dependable content-to-campaign operating rhythm", "Improve targeting, conversion paths, and paid-media control", "Connect campaign activity to leads, revenue, and retention", "Replace fragmented agency and tool handoffs with one accountable system"],
+    process: ["Define the audience, offer, channels, and commercial objective", "Audit the content, media, conversion, and measurement path", "Build and operate the highest-leverage campaigns and systems", "Measure results, improve the system, and transfer what should be owned"],
   },
   {
-    slug: "technical-leadership",
-    title: "Technical leadership",
-    short: "Architecture, delivery, due diligence, and product decisions from leaders who can also implement them.",
-    bullets: ["Fractional CTO and engineering leadership", "Architecture, security, and vendor review", "Technical roadmaps tied to shipped work"],
-    headline: "Senior technical judgment that stays close to delivery.",
-    description: "Some teams need a roadmap. Others need an architecture decision, a rescue plan, hiring support, or a technical leader who can work directly in the system. Strategy is strongest when it remains accountable to implementation.",
-    outcomes: ["Set a credible product and architecture direction", "Evaluate a platform, vendor, acquisition, or technical risk", "Improve delivery without adding management theater", "Add senior leadership while building the permanent team"],
-    process: ["Understand the business, product, team, and constraints", "Make risks and tradeoffs legible", "Turn decisions into an executable delivery plan", "Stay involved through implementation and transfer"],
+    slug: "business-strategy-execution",
+    title: "Business strategy and execution",
+    short: "Rapid decision support, launch planning, business models, operating plans, and hands-on execution.",
+    bullets: ["Operator decision sprints", "Launch and business blueprints", "Embedded strategy, technical leadership, and implementation"],
+    headline: "Turn a hard business problem into a decision and an executable plan.",
+    description: "Bring us the messy version of the problem. We identify the constraint, make the tradeoffs clear, and turn the answer into a working plan. When useful, the same team can stay involved to build, launch, measure, or lead the execution.",
+    outcomes: ["Resolve a high-value decision that has kept the business stuck", "Validate an offer, operating model, pricing approach, or revenue path", "Create a practical launch plan and 30- or 90-day operating roadmap", "Develop a formal business plan when a lender, investor, or partner actually requires one"],
+    process: ["Review the available context before the working session", "Pressure-test the problem, economics, constraints, and options", "Deliver a concise decision brief and prioritized action plan", "Stay involved through execution when additional leadership or implementation is useful"],
   },
 ] as const;
 
 export const services = capabilities;
+
+export const servicePackages: Record<string, readonly {
+  title: string;
+  summary: string;
+  includes: readonly string[];
+}[]> = {
+  "growth-marketing-media": [
+    {
+      title: "Growth System Build",
+      summary: "Build the foundation connecting content, campaigns, landing pages, follow-up, and measurement.",
+      includes: ["Audience and channel plan", "Campaign and conversion architecture", "Tracking, reporting, and operating workflow"],
+    },
+    {
+      title: "Managed Growth & Media",
+      summary: "Ongoing social, paid-media, and campaign execution with the underlying systems handled by the same accountable team.",
+      includes: ["Content and campaign operations", "Media buying and optimization", "Performance review and system improvement"],
+    },
+    {
+      title: "Measurement & Conversion Reset",
+      summary: "A focused engagement to repair attribution, landing pages, lead flow, or a paid program that is not producing a clear answer.",
+      includes: ["Funnel and measurement audit", "Priority fixes and experiments", "Decision-ready reporting"],
+    },
+  ],
+  "business-strategy-execution": [
+    {
+      title: "Operator Decision Sprint",
+      summary: "Resolve one expensive, urgent, or ambiguous business decision with senior operator and technical judgment.",
+      includes: ["Pre-read and focused working session", "Decision brief with tradeoffs", "Prioritized next actions"],
+    },
+    {
+      title: "Launch & Business Blueprint",
+      summary: "Turn an idea, new offer, or changing business into a credible operating and launch plan.",
+      includes: ["Business model and market logic", "Launch sequence and operating requirements", "30- or 90-day execution roadmap"],
+    },
+    {
+      title: "Embedded Strategy & Execution",
+      summary: "Add senior capacity that can make decisions and remain accountable as the plan becomes real work.",
+      includes: ["Ongoing operating and technical leadership", "Cross-functional execution support", "Measurement, iteration, and transfer"],
+    },
+  ],
+};
 
 export const caseStudies = [
   {

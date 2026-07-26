@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Binary, CalendarDays, Code2, Database, LockKeyhole, Sparkles } from "lucide-react";
+import { ArrowRight, BarChart3, Binary, CalendarDays, Code2, Compass, LockKeyhole, Megaphone } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { ProjectBriefForm } from "@/components/project-brief-form";
 import { industries, insights, services } from "@/lib/site-content";
 
-const serviceIcons = [Code2, Binary, LockKeyhole, BarChart3, Database, Sparkles];
+const serviceIcons = [Code2, BarChart3, Binary, LockKeyhole, Megaphone, Compass];
 const featuredInsights = insights.filter((insight) => ["custom-software-cost", "software-project-rescue", "secure-coding-agents", "search-answer-engine-growth"].includes(insight.slug));
 
 const proof = [
@@ -43,21 +43,21 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <div className="brand-capability-band" aria-label="Engineering capabilities">
+      <div className="brand-capability-band" aria-label="Capabilities">
         <span>SOFTWARE</span><i />
+        <span>AI + AUTOMATION</span><i />
         <span>ANALYTICS</span><i />
-        <span>MACHINE LEARNING</span><i />
-        <span>SECURE AI</span><i />
-        <span>AUTOMATION</span>
+        <span>GROWTH</span><i />
+        <span>STRATEGY</span>
       </div>
 
       <section className="home-editorial-section">
         <div className="home-section-intro">
-          <span className="home-kicker">01 / PRODUCT ENGINEERING + DELIVERY</span>
-          <h2>Bring the problem.<br /><em>Engineers build the answer.</em></h2>
+          <span className="home-kicker">01 / BUILD + GROW + DECIDE</span>
+          <h2>Bring the problem.<br /><em>We build the answer.</em></h2>
           <p>
-            We are engineering-heavy by design. The people shaping the product
-            also architect, code, test, deploy, and operate it.
+            Strategy, marketing, design, and engineering stay close to execution.
+            The people shaping the answer remain accountable for making it work.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function HomePage() {
         <div className="home-range-links">
           <Link href="/services/product-engineering">Web design + product engineering →</Link>
           <Link href="/work">Selected outcomes →</Link>
-          <Link href="/services/growth-systems-automation">Growth systems + automation →</Link>
+          <Link href="/services/growth-marketing-media">Growth marketing + media →</Link>
         </div>
       </section>
 
@@ -137,7 +137,7 @@ export default function HomePage() {
         <div className="home-proof-heading">
           <span className="home-kicker">04 / SELECTED OUTCOMES</span>
           <h2>Built into the business.<br />Measured by what changes.</h2>
-          <p>Representative production work across products, operations, data, machine learning, and secure AI.</p>
+          <p>Representative production work across products, operations, growth, data, machine learning, and secure AI.</p>
           <Link href="/work">Explore selected work <ArrowRight size={16} /></Link>
         </div>
         <div className="home-proof-grid">
@@ -160,11 +160,11 @@ export default function HomePage() {
 
       <section className="home-brief-section">
         <div className="home-brief-copy">
-          <span className="home-kicker">05 / START WITH AN ENGINEER</span>
+          <span className="home-kicker">05 / START WITH THE PROBLEM</span>
           <h2>Tell us what<br /><em>is stuck.</em></h2>
           <p>
-            A senior engineer reviews every brief and responds with the most useful
-            technical next step. The project does not need to be perfectly defined.
+            A senior operator or engineer reviews every brief and responds with the
+            most useful next step. The problem does not need to be perfectly defined.
           </p>
           <Link href="/book#calendar">Prefer a call? Book 15 minutes →</Link>
         </div>

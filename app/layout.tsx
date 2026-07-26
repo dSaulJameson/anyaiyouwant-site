@@ -26,11 +26,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Any AI You Want — AI, Automation & Software Engineering",
+    default: "Any AI You Want — Strategy, Marketing, AI & Engineering",
     template: "%s | Any AI You Want",
   },
   description:
-    "Senior U.S.-based engineers building AI, automation, websites, analytics, machine learning, and full-stack products from idea through production.",
+    "Senior strategy, growth marketing, media, and U.S.-based engineering for AI, automation, websites, analytics, machine learning, and full-stack products.",
   applicationName: "Any AI You Want",
   authors: [{ name: "D. Saul Jameson", url: SITE_URL }],
   creator: "D. Saul Jameson",
@@ -65,6 +65,15 @@ export const metadata: Metadata = {
     "Marketing Automation Software",
     "Social Media Automation",
     "Paid Campaign Automation",
+    "Growth Marketing Agency",
+    "Social Media Management",
+    "Media Buying",
+    "Meta Ads Management",
+    "Google Ads Management",
+    "Business Strategy Consulting",
+    "Business Plan Consulting",
+    "Launch Strategy",
+    "Operator Advisory",
     "Technical SEO",
     "Generative Engine Optimization",
     "D. Saul Jameson",
@@ -73,9 +82,9 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Any AI You Want — AI, Automation & Software Engineering",
+    title: "Any AI You Want — Strategy, Marketing, AI & Engineering",
     description:
-      "Bring us an AI idea, a process to automate, a website, a data problem, or a full product. Senior U.S.-based engineers build it through production.",
+      "Bring us a business problem, growth goal, AI idea, process to automate, website, or full product. Senior people shape the answer and execute it.",
     url: SITE_URL,
     siteName: "Any AI You Want",
     locale: "en_US",
@@ -84,9 +93,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Any AI You Want — AI, Automation & Software Engineering",
+    title: "Any AI You Want — Strategy, Marketing, AI & Engineering",
     description:
-      "U.S.-based engineers building AI, automation, websites, analytics, machine learning, and full-stack products.",
+      "Strategy, growth marketing, media, and U.S.-based engineering for AI, automation, websites, analytics, machine learning, and full-stack products.",
     creator: "@dSaulJameson",
     images: ["/og.png"],
   },

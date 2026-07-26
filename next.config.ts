@@ -7,7 +7,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/services/modernization-automation",
-        destination: "/services/growth-systems-automation",
+        destination: "/services/growth-marketing-media",
+        permanent: true,
+      },
+      {
+        source: "/services/growth-systems-automation",
+        destination: "/services/growth-marketing-media",
+        permanent: true,
+      },
+      {
+        source: "/services/technical-leadership",
+        destination: "/services/business-strategy-execution",
         permanent: true,
       },
     ];

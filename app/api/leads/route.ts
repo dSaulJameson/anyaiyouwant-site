@@ -3,7 +3,16 @@ import { createLead, type LeadInput } from "@/lib/leads-db";
 export const dynamic = "force-dynamic";
 
 const attempts = new Map<string, number[]>();
-const allowedProjectTypes = new Set(["software", "machine-learning", "secure-ai", "analytics", "automation", "technical-leadership", "other"]);
+const allowedProjectTypes = new Set([
+  "product-engineering",
+  "data-analytics",
+  "applied-machine-learning",
+  "secure-ai",
+  "growth-marketing-media",
+  "business-strategy-execution",
+  "search-growth",
+  "other",
+]);
 
 function clean(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";

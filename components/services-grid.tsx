@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { BarChart3, Bot, BrainCircuit, Code2, Network, ShieldCheck } from "lucide-react";
+import { BarChart3, BrainCircuit, Code2, Compass, Megaphone, ShieldCheck } from "lucide-react";
 import { services } from "@/lib/site-content";
 
-const icons = [Code2, BrainCircuit, ShieldCheck, BarChart3, Network, Bot];
+const icons = [Code2, BarChart3, BrainCircuit, ShieldCheck, Megaphone, Compass];
 
 export function ServicesGrid({ withHeader = true }: { withHeader?: boolean }) {
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {withHeader && <div className="max-w-3xl mb-12"><div className="label-mono">What we build</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">Engineering strategy and execution. <span className="text-gradient">The same accountable team.</span></h2><p className="mt-4 text-muted text-lg leading-relaxed">The people shaping the product also architect, code, test, deploy, and operate it. Senior U.S.-based partners are assembled around the work without separating product thinking from engineering delivery.</p></div>}
+        {withHeader && <div className="max-w-3xl mb-12"><div className="label-mono">What we do</div><h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">Strategy through execution. <span className="text-gradient">The same accountable team.</span></h2><p className="mt-4 text-muted text-lg leading-relaxed">The people shaping the answer remain close to the marketing, design, engineering, and operating work required to make it real. Senior U.S.-based engineers are assembled around the work without adding a nontechnical handoff layer.</p></div>}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => {
             const Icon = icons[index];
