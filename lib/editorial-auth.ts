@@ -16,7 +16,7 @@ function sessionSecret() {
 
 function configuredPassword() {
   const value = process.env.EDITORIAL_ADMIN_PASSWORD;
-  if (!value || value.length < 14) throw new Error("EDITORIAL_ADMIN_PASSWORD must contain at least 14 characters.");
+  if (!value || value.length < 10) throw new Error("EDITORIAL_ADMIN_PASSWORD must contain at least 10 characters.");
   return value;
 }
 
