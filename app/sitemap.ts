@@ -1,14 +1,18 @@
 import type { MetadataRoute } from "next";
 import { dashboardSlugs } from "@/lib/dashboard-data.mjs";
 import { capabilities, caseStudies, eventCities, glossaryTerms, industries, insights } from "@/lib/site-content";
+import { getEditorialArticles } from "@/lib/editorial-db";
 
 const SITE_URL = "https://www.anyaiyouwant.com";
-const CONTENT_UPDATED = "2026-07-22";
+const CONTENT_UPDATED = "2026-07-26";
 
 type Frequency = "daily" | "weekly" | "monthly" | "yearly";
 type Route = { path: string; priority: number; changeFrequency: Frequency; lastModified?: string };
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const editorialArticles = await getEditorialArticles();
   const routes: Route[] = [
     { path: "", priority: 1, changeFrequency: "weekly", lastModified: CONTENT_UPDATED },
     { path: "/services", priority: .95, changeFrequency: "monthly", lastModified: CONTENT_UPDATED },
@@ -27,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   caseStudies.forEach(({ slug }) => routes.push({ path: `/work/${slug}`, priority: .85, changeFrequency: "monthly", lastModified: CONTENT_UPDATED }));
   industries.forEach(({ slug }) => routes.push({ path: `/industries/${slug}`, priority: .85, changeFrequency: "monthly", lastModified: CONTENT_UPDATED }));
   insights.forEach(({ slug }) => routes.push({ path: `/learn/${slug}`, priority: .82, changeFrequency: "monthly", lastModified: CONTENT_UPDATED }));
+  editorialArticles.forEach(({ slug, updated_at }) => routes.push({ path: `/learn/${slug}`, priority: .86, changeFrequency: "monthly", lastModified: updated_at }));
   eventCities.forEach(([slug]) => routes.push({ path: `/ai-events/${slug}`, priority: .78, changeFrequency: "daily" }));
   glossaryTerms.forEach(({ slug }) => routes.push({ path: `/glossary/${slug}`, priority: .68, changeFrequency: "monthly", lastModified: CONTENT_UPDATED }));
   dashboardSlugs.forEach((slug) => routes.push({ path: `/demos/${slug}`, priority: .65, changeFrequency: "monthly", lastModified: CONTENT_UPDATED }));

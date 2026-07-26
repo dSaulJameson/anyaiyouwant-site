@@ -149,14 +149,15 @@ export function ServiceJsonLd({ name, description, path }: { name: string; descr
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-export function ArticleJsonLd({ title, description, path }: { title: string; description: string; path: string }) {
+export function ArticleJsonLd({ title, description, path, publishedAt, modifiedAt }: { title: string; description: string; path: string; publishedAt?: string; modifiedAt?: string }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
     description,
     url: `${SITE_URL}${path}`,
-    dateModified: "2026-07-22",
+    datePublished: publishedAt,
+    dateModified: modifiedAt || publishedAt || "2026-07-26",
     author: { "@type": "Person", name: "D. Saul Jameson", url: `${SITE_URL}/about` },
     publisher: { "@type": "Organization", name: "Any AI You Want", url: SITE_URL },
   };

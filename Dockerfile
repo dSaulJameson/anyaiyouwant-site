@@ -24,4 +24,4 @@ COPY --from=builder --chown=node:node /app/database ./database
 COPY --from=builder --chown=node:node /app/lib/dashboard-data.mjs ./lib/dashboard-data.mjs
 USER node
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "node scripts/migrate.mjs && exec node server.js"]
