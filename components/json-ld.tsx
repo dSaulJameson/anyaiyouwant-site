@@ -42,12 +42,12 @@ export function PersonJsonLd() {
     ],
     sameAs: [
       "https://github.com/dSaulJameson",
-      "https://buildersandbackers.org",
+      "https://www.buildandback.com/",
     ],
     affiliation: {
       "@type": "Organization",
       name: "Builders & Backers Network",
-      url: "https://buildersandbackers.org",
+      url: "https://www.buildandback.com/",
     },
     email: "mailto:Saul@anyaiyouwant.com",
   };

@@ -8,7 +8,7 @@ const resources = [
   { icon: CalendarDays, title: "Local AI & technology events", body: "City guides powered by the Offline Networking event database, with current AI, startup, coding, and technology gatherings.", href: "/ai-events", label: "Find events" },
   { icon: BookOpen, title: "Engineering insights", body: "Practical guides to product delivery, software rescue, custom software cost, secure AI, ML, technical SEO, and GEO.", href: "/learn", label: "Read the insights" },
   { icon: Users, title: "Technical glossary", body: "Useful definitions and examples for software, data, machine learning, secure AI, search, and answer-engine concepts.", href: "/glossary", label: "Browse the glossary" },
-  { icon: Images, title: "Builders & Backers", body: "Founder and investor community work across Southern California, including mixers and programs sponsored and supported by Any AI You Want.", href: "https://buildersandbackers.org", label: "Visit the network", external: true },
+  { icon: Images, title: "Builders & Backers", body: "Founder and investor community work across Southern California, including mixers and programs sponsored and supported by Any AI You Want.", href: "https://www.buildandback.com/", label: "Visit the network", external: true },
 ];
 
 export default function CommunityPage() {
