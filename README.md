@@ -1,5 +1,9 @@
 # anyaiyouwant.com
 
+<!-- BEGIN:hosthatch-deployment-notice -->
+> **Current production:** K3s namespace `anyaiyouwant` on the new HostHatch VPS. Use [the production deployment guide](docs/production-deployment.md) for the supported Lasso release command and public source-revision check. The old Docker/Compose deployment instructions below are historical.
+<!-- END:hosthatch-deployment-notice -->
+
 Marketing, work, and community site for **Any AI You Want** — a senior U.S.-based product engineering company led by D. Saul Jameson.
 
 Built with **Next.js 16 (App Router) · TypeScript · Tailwind v4 · Framer Motion · Recharts**, deployed in Docker on **HostHatch** behind a Cloudflare Tunnel.
