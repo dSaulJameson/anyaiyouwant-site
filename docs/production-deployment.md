@@ -60,12 +60,13 @@ actions require separate review before execution.
 ## Editorial research provider order
 
 The `editorial-research` CronJob calls the private `/api/internal/editorial`
-route. It obtains current source links and snippets through `SERPER_API_KEY`,
-then asks `OPENCODE_API_KEY` (`space-bunny-free`) for structured drafts. If
+route. It obtains current incident links and updates directly from the public
+OpenAI and Cloudflare status APIs, with no paid search dependency, then asks
+`OPENCODE_API_KEY` (`space-bunny-free`) for structured drafts. If
 unavailable, it tries `CHEAPER_INFERENCE_API_KEY` (`gemma-3-12b-it`) and
 finally `OPENROUTER_API_KEY`. Production credentials live in the
 `anyaiyouwant/production-env` Secret. Model output may cite only URLs from
-the search response, and all generated articles remain drafts for editorial
+the official status feeds, and all generated articles remain drafts for editorial
 review. Free model availability changes: check the live model catalog and a
 small JSON completion before changing the configured model ID.
 

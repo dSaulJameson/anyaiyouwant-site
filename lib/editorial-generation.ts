@@ -163,34 +163,36 @@ function parseJson<T>(value: string, fallback: T): T {
 type SearchEvidence = { title: string; link: string; snippet: string; date?: string };
 
 async function searchEvidence(): Promise<SearchEvidence[]> {
-  const apiKey = process.env.SERPER_API_KEY;
-  if (!apiKey) throw new Error("SERPER_API_KEY is required for editorial research.");
-  const after = new Date(Date.now() - 21 * 86_400_000).toISOString().slice(0, 10);
-  const queries = [
-    `site:status.openai.com OR site:status.cloudflare.com incident postmortem after:${after}`,
-    `site:engineering.atspotify.com OR site:aws.amazon.com/blogs/architecture postmortem after:${after}`,
-    `site:ftc.gov OR site:sec.gov data privacy enforcement after:${after}`,
-    `company engineering incident report outage after:${after}`,
-    `analytics measurement failure postmortem after:${after}`,
-    `security incident official disclosure root cause after:${after}`,
+  type Incident = { id: string; name: string; shortlink?: string | null; created_at: string; status: string; incident_updates?: Array<{ body?: string }> };
+  const feeds = [
+    { url: "https://status.openai.com/api/v2/incidents.json", origin: "https://status.openai.com" },
+    { url: "https://www.cloudflarestatus.com/api/v2/incidents.json", origin: "https://www.cloudflarestatus.com" },
   ];
-  const searches = await Promise.all(queries.map(async (q) => {
-    const response = await fetch("https://google.serper.dev/search", {
-      method: "POST",
-      headers: { "X-API-KEY": apiKey, "Content-Type": "application/json" },
-      body: JSON.stringify({ q, gl: "us", hl: "en", num: 5 }),
-      signal: AbortSignal.timeout(25_000),
-    });
-    if (!response.ok) throw new Error(`Editorial search failed (${response.status}).`);
-    const data = await response.json() as { organic?: SearchEvidence[] };
-    return data.organic || [];
+  const after = Date.now() - 21 * 86_400_000;
+  const searches = await Promise.all(feeds.map(async ({ url, origin }) => {
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(25_000) });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json() as { incidents?: Incident[] };
+      return (data.incidents || [])
+        .filter((incident) => Date.parse(incident.created_at) >= after)
+        .map((incident) => ({
+          title: incident.name,
+          link: incident.shortlink || `${origin}/incidents/${incident.id}`,
+          snippet: `${incident.status}. ${incident.incident_updates?.[0]?.body || ""}`.slice(0, 900),
+          date: incident.created_at,
+        }));
+    } catch (error) {
+      console.warn(`Editorial incident feed failed (${origin}):`, error);
+      return [] as SearchEvidence[];
+    }
   }));
   const unique = new Map<string, SearchEvidence>();
   for (const item of searches.flat()) {
     const url = canonicalSourceUrl(item.link || "");
     if (url.startsWith("https://") && !unique.has(url)) unique.set(url, item);
   }
-  return [...unique.values()].slice(0, 24);
+  return [...unique.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, 24);
 }
 
 async function openRouter(messages: Array<{ role: "system" | "user"; content: string }>, options?: { research?: boolean }) {
