@@ -160,32 +160,83 @@ function parseJson<T>(value: string, fallback: T): T {
   catch { return fallback; }
 }
 
+type SearchEvidence = { title: string; link: string; snippet: string; date?: string };
+
+async function searchEvidence(): Promise<SearchEvidence[]> {
+  const apiKey = process.env.SERPER_API_KEY;
+  if (!apiKey) throw new Error("SERPER_API_KEY is required for editorial research.");
+  const after = new Date(Date.now() - 21 * 86_400_000).toISOString().slice(0, 10);
+  const queries = [
+    `site:status.openai.com OR site:status.cloudflare.com incident postmortem after:${after}`,
+    `site:engineering.atspotify.com OR site:aws.amazon.com/blogs/architecture postmortem after:${after}`,
+    `site:ftc.gov OR site:sec.gov data privacy enforcement after:${after}`,
+    `company engineering incident report outage after:${after}`,
+    `analytics measurement failure postmortem after:${after}`,
+    `security incident official disclosure root cause after:${after}`,
+  ];
+  const searches = await Promise.all(queries.map(async (q) => {
+    const response = await fetch("https://google.serper.dev/search", {
+      method: "POST",
+      headers: { "X-API-KEY": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({ q, gl: "us", hl: "en", num: 5 }),
+      signal: AbortSignal.timeout(25_000),
+    });
+    if (!response.ok) throw new Error(`Editorial search failed (${response.status}).`);
+    const data = await response.json() as { organic?: SearchEvidence[] };
+    return data.organic || [];
+  }));
+  const unique = new Map<string, SearchEvidence>();
+  for (const item of searches.flat()) {
+    const url = canonicalSourceUrl(item.link || "");
+    if (url.startsWith("https://") && !unique.has(url)) unique.set(url, item);
+  }
+  return [...unique.values()].slice(0, 24);
+}
+
 async function openRouter(messages: Array<{ role: "system" | "user"; content: string }>, options?: { research?: boolean }) {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) return null;
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-      "HTTP-Referer": process.env.PUBLIC_SITE_URL || "https://www.anyaiyouwant.com",
-      "X-Title": "Any AI You Want Editorial Desk",
-    },
-    body: JSON.stringify({
-      model: options?.research ? process.env.EDITORIAL_RESEARCH_MODEL || "openai/gpt-5-mini" : process.env.EDITORIAL_COPY_MODEL || "openai/gpt-5-mini",
-      response_format: { type: "json_object" },
-      reasoning: { effort: options?.research ? "medium" : "low", exclude: true },
-      temperature: options?.research ? 0.25 : 0.55,
-      max_tokens: options?.research ? 6_000 : 8_000,
-      tools: options?.research ? [{ type: "openrouter:web_search", parameters: { engine: "exa", max_results: 12, max_total_results: 12, max_characters: 2_400 } }] : undefined,
-      messages,
-    }),
-    signal: AbortSignal.timeout(options?.research ? 120_000 : 90_000),
-  });
-  if (!response.ok) throw new Error(`Editorial model request failed (${response.status}).`);
-  return response.json() as Promise<{
-    choices?: Array<{ message?: { content?: string; annotations?: Array<{ url_citation?: { url?: string; title?: string; content?: string } }> } }>;
-  }>;
+  const evidence = options?.research ? await searchEvidence() : [];
+  if (options?.research && !evidence.length) throw new Error("Editorial search returned no sources.");
+  const prompt = options?.research ? [...messages, {
+    role: "user" as const,
+    content: `Use only these search results as evidence. Their snippets may be incomplete; omit unsupported details and keep every draft for human review. Return cited source URLs exactly as provided: ${JSON.stringify(evidence)}`,
+  }] : messages;
+  const providers = [
+    { name: "OpenCode", url: "https://opencode.ai/zen/v1/chat/completions", key: process.env.OPENCODE_API_KEY, model: process.env.OPENCODE_EDITORIAL_MODEL || "space-bunny-free" },
+    { name: "CheaperInference", url: "https://api.cheaperinference.com/v1/chat/completions", key: process.env.CHEAPER_INFERENCE_API_KEY, model: process.env.CHEAPER_INFERENCE_EDITORIAL_MODEL || "gemma-3-12b-it" },
+    { name: "OpenRouter", url: "https://openrouter.ai/api/v1/chat/completions", key: process.env.OPENROUTER_API_KEY, model: options?.research ? process.env.EDITORIAL_RESEARCH_MODEL || "openai/gpt-5-mini" : process.env.EDITORIAL_COPY_MODEL || "openai/gpt-5-mini" },
+  ].filter((provider) => provider.key);
+  if (!providers.length) throw new Error("No editorial model provider is configured.");
+  const failures: string[] = [];
+  for (const provider of providers) {
+    try {
+      const response = await fetch(provider.url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${provider.key}`,
+          "Content-Type": "application/json",
+          ...(provider.name === "OpenRouter" ? { "HTTP-Referer": process.env.PUBLIC_SITE_URL || "https://www.anyaiyouwant.com", "X-Title": "Any AI You Want Editorial Desk" } : {}),
+        },
+        body: JSON.stringify({
+          model: provider.model,
+          response_format: { type: "json_object" },
+          temperature: options?.research ? 0.25 : 0.55,
+          max_tokens: options?.research ? 6_000 : 8_000,
+          messages: prompt,
+        }),
+        signal: AbortSignal.timeout(options?.research ? 120_000 : 90_000),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json() as { choices?: Array<{ message?: { content?: string; annotations?: Array<{ url_citation?: { url?: string; title?: string; content?: string } }> } }> };
+      const message = data.choices?.[0]?.message;
+      const parsed = parseJson<Record<string, unknown>>(message?.content || "", {});
+      if (!Object.keys(parsed).length) throw new Error("No valid JSON object returned");
+      if (message && evidence.length) message.annotations = evidence.map((item) => ({ url_citation: { url: item.link, title: item.title, content: item.snippet } }));
+      return data;
+    } catch (error) {
+      failures.push(`${provider.name}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  throw new Error(`All editorial model providers failed: ${failures.join("; ")}`);
 }
 
 export async function discoverEditorialCandidates() {

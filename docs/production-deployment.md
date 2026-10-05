@@ -57,5 +57,21 @@ deployment from an old Docker container or the image build job alone.
 Database migrations and any one-off mail, social, payment, or scraper
 actions require separate review before execution.
 
+## Editorial research provider order
+
+The `editorial-research` CronJob calls the private `/api/internal/editorial`
+route. It obtains current source links and snippets through `SERPER_API_KEY`,
+then asks `OPENCODE_API_KEY` (`space-bunny-free`) for structured drafts. If
+unavailable, it tries `CHEAPER_INFERENCE_API_KEY` (`gemma-3-12b-it`) and
+finally `OPENROUTER_API_KEY`. Production credentials live in the
+`anyaiyouwant/production-env` Secret. Model output may cite only URLs from
+the search response, and all generated articles remain drafts for editorial
+review. Free model availability changes: check the live model catalog and a
+small JSON completion before changing the configured model ID.
+
+Check existing editorial leads and drafts before manually rerunning a failed
+research Job. Its normal run can add database drafts but does not deliver
+social posts or email.
+
 The production catalog and full procedure are in
 [`hosthatch-ops/new-server/RELEASING.md`](https://github.com/dSaulJameson/hosthatch-ops/blob/main/new-server/RELEASING.md).
