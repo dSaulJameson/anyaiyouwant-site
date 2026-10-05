@@ -179,7 +179,7 @@ async function searchEvidence(): Promise<SearchEvidence[]> {
         .map((incident) => ({
           title: incident.name,
           link: incident.shortlink || `${origin}/incidents/${incident.id}`,
-          snippet: `${incident.status}. ${incident.incident_updates?.[0]?.body || ""}`.slice(0, 900),
+          snippet: `${incident.status}. ${incident.incident_updates?.[0]?.body || ""}`.slice(0, 400),
           date: incident.created_at,
         }));
     } catch (error) {
@@ -192,7 +192,7 @@ async function searchEvidence(): Promise<SearchEvidence[]> {
     const url = canonicalSourceUrl(item.link || "");
     if (url.startsWith("https://") && !unique.has(url)) unique.set(url, item);
   }
-  return [...unique.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, 24);
+  return [...unique.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, 8);
 }
 
 async function openRouter(messages: Array<{ role: "system" | "user"; content: string }>, options?: { research?: boolean }) {
@@ -222,7 +222,7 @@ async function openRouter(messages: Array<{ role: "system" | "user"; content: st
           model: provider.model,
           response_format: { type: "json_object" },
           temperature: options?.research ? 0.25 : 0.55,
-          max_tokens: options?.research ? 6_000 : 8_000,
+          max_tokens: options?.research ? 2_500 : 4_000,
           messages: prompt,
         }),
         signal: AbortSignal.timeout(options?.research ? 120_000 : 90_000),
@@ -246,7 +246,7 @@ export async function discoverEditorialCandidates() {
   const response = await openRouter([
     {
       role: "system",
-      content: "You are the research editor for Any AI You Want, a U.S.-based strategy, growth, software, data, ML, automation, and secure-AI company. Return JSON with a candidates array. Find specific, well-documented recent failures, postmortems, enforcement actions, security/privacy incidents, marketing measurement breakdowns, forecasting or inventory mistakes, automation failures, and expensive software decisions. Prefer primary sources: regulators, court or government records, company incident reports, engineering postmortems, status pages, and official filings. Reject generic trend pieces, listicles, rumors, isolated social posts, and stories without an implementable lesson. Each candidate must include content_type, working_title, hook, summary, industry, capability, why_now, failure, consequences, solution, evidence_notes, facts, source_urls, commercial_fit_score, and significance_score. source_urls must be an array of objects shaped exactly as {\"label\":\"source title\",\"url\":\"https://exact-cited-url\"}; use only URLs returned by the research tool. Make the hook sharp but do not allege misconduct or causation beyond the sources. Return no more than four candidates.",
+      content: "You are the research editor for Any AI You Want, a U.S.-based strategy, growth, software, data, ML, automation, and secure-AI company. Return JSON with a candidates array. Find specific, well-documented recent failures, postmortems, enforcement actions, security/privacy incidents, marketing measurement breakdowns, forecasting or inventory mistakes, automation failures, and expensive software decisions. Prefer primary sources: regulators, court or government records, company incident reports, engineering postmortems, status pages, and official filings. Reject generic trend pieces, listicles, rumors, isolated social posts, and stories without an implementable lesson. Each candidate must include content_type, working_title, hook, summary, industry, capability, why_now, failure, consequences, solution, evidence_notes, facts, source_urls, commercial_fit_score, and significance_score. source_urls must be an array of objects shaped exactly as {\"label\":\"source title\",\"url\":\"https://exact-cited-url\"}; use only URLs returned by the research tool. Make the hook sharp but do not allege misconduct or causation beyond the sources. Return no more than two candidates.",
     },
     {
       role: "user",

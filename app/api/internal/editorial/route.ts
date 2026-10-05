@@ -2,7 +2,7 @@ import { createHash, timingSafeEqual } from "node:crypto";
 import { runEditorialResearchCycle } from "@/lib/editorial-generation";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 180;
+export const maxDuration = 600;
 
 function equal(left: string, right: string) {
   const a = createHash("sha256").update(left).digest();
